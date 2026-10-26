@@ -109,8 +109,10 @@ footer a:hover{text-decoration:underline}
 .modal-actions button.m-cancel{background:transparent;border:1px solid var(--line);color:var(--mute)}
 .modal-actions button.m-primary{background:var(--brand);border:1px solid var(--brand);color:var(--brand-ink)}
 .modal-actions button.m-danger{background:#dc2626;border:1px solid #dc2626;color:#fff}
-.ad-slot-wrap{display:flex;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:90px;overflow:hidden;scroll-margin-top:100px}
-@media (min-width:768px){.ad-slot-wrap{min-height:90px;margin:14px auto;scroll-margin-top:105px}}
+.ad-slot-wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:105px;overflow:hidden;scroll-margin-top:100px}
+@media (min-width:768px){.ad-slot-wrap{min-height:105px;margin:14px auto;scroll-margin-top:105px}}
+.ad-label{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);opacity:.7;margin:0 auto 4px;line-height:1;text-align:center;user-select:none}
+.ad-slot-wrap.ad-collapsed,.ad-slot-wrap:has(ins[data-ad-status="unfilled"]){display:none!important;min-height:0!important;height:0!important;margin:0!important;padding:0!important}
 .share-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0 10px;box-shadow:0 1px 4px rgba(0,0,0,.02)}
 .share-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
 .share-head b{font-size:.88rem;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
@@ -136,19 +138,19 @@ footer a:hover{text-decoration:underline}
 <div class="hero">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
 <span class="logo">SABIMENTORS × FUNNELCRAFT AI</span>
-<button type="button" class="hero-share-pill" id="hero-share-btn" title="Share Ebook Buddy">📢 Share App</button>
+<button type="button" class="hero-share-pill" id="hero-share-btn" title="Share EbookBuddy">📢 Share App</button>
 </div>
-<h1>Ebook Buddy</h1>
+<h1>EbookBuddy</h1>
 <p>Turn a real problem into a profitable ebook. Answer simple questions, get ready-made prompts, paste them into your favorite AI tool.</p>
 <div class="hero-cta">🚀 <b>When your Ebook is ready:</b> Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> to sell it, and use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a> to build your funnel in minutes.</div>
 </div>
 <div class="how"><div><b>1</b>Fill the boxes</div><div><b>2</b>Copy the prompt</div><div><b>3</b>Paste in any AI</div></div>
 <!-- Ebook-buddy 728x90 1 (Desktop) / Ebook-buddy 320x90 1 (Mobile) -->
-<div class="ad-slot-wrap" id="ad-hero" data-ad-slot-num="1" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432"></div>
+<div class="ad-slot-wrap" id="ad-hero" data-ad-slot-num="1" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432"><span class="ad-label">Advertisement</span></div>
 <div class="share-card" id="share-card">
 <div class="share-head">
 <div>
-<b>📢 Share Ebook Buddy with Creators</b>
+<b>📢 Share EbookBuddy with Creators</b>
 <div class="share-sub">Help fellow writers, students & entrepreneurs launch profitable ebooks with AI.</div>
 </div>
 <button type="button" class="s-btn s-copy" id="btn-copy-share" title="Copy share link">📋 Copy Link</button>
@@ -200,10 +202,10 @@ reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:1
 <div class="chips" id="chips"></div>
 </div>
 <!-- Ebook-buddy 728x90 2 (Desktop) / Ebook-buddy 320x90 2 (Mobile) -->
-<div class="ad-slot-wrap" id="ad-top" data-ad-slot-num="2" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699"></div>
+<div class="ad-slot-wrap" id="ad-top" data-ad-slot-num="2" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699"><span class="ad-label">Advertisement</span></div>
 <div id="stage"></div>
 <!-- Ebook-buddy 728x90 3 (Desktop) / Ebook-buddy 320x90 3 (Mobile) -->
-<div class="ad-slot-wrap" id="ad-bottom" data-ad-slot-num="3" data-ad-slot-desk="9246930392" data-ad-slot-mob="5231663766"></div>
+<div class="ad-slot-wrap" id="ad-bottom" data-ad-slot-num="3" data-ad-slot-desk="9246930392" data-ad-slot-mob="5231663766"><span class="ad-label">Advertisement</span></div>
 <div class="nav"><button class="b alt" id="pv">← Back</button><button class="b" id="nx">Next stage →</button></div>
 <div id="app-modal" class="modal-wrap" style="display:none">
 <div class="modal-box">
@@ -215,7 +217,7 @@ reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:1
 <div class="modal-actions" id="modal-actions"></div>
 </div>
 </div>
-<footer>© 2026 <b>Ebook Buddy</b> · Created by <b>Osazee Kelvin King</b><br>Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a><div class='promo'><h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4><p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p><p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p></div><div style="margin:12px 0 6px;font-size:.82rem;color:var(--mute)">Loving Ebook Buddy? <a href="javascript:void(0)" id="footer-share-link" style="color:var(--brand);font-weight:700">Share with fellow creators 🚀</a></div>Always verify facts (laws, fees, visa rules, health info) from official sources before publishing.</footer>
+<footer>© 2026 <b>EbookBuddy</b> · Created by <b>Osazee Kelvin King</b><br>Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a><div class='promo'><h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4><p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p><p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p></div><div style="margin:12px 0 6px;font-size:.82rem;color:var(--mute)">Loving EbookBuddy? <a href="javascript:void(0)" id="footer-share-link" style="color:var(--brand);font-weight:700">Share with fellow creators 🚀</a></div>Always verify facts (laws, fees, visa rules, health info) from official sources before publishing.</footer>
 </div>
 <script>
 var L={country:["Your country / city","e.g. your country and city"],reader:["Target reader","e.g. new graduates looking for remote jobs"],niche:["Topic / niche","e.g. exam prep, poultry farming, freelancing"],problem:["Problem you solve","e.g. students fail Maths because of poor study plans"],ideas:["Your ideas (paste list)","One idea per line",1],title:["Ebook title","Working title is fine"],background:["Your background and skills","What you know, did, or solved",1],hours:["Hours per week","e.g. 10"],budget:["Budget","e.g. $50 or 20,000 in your currency"],goal:["90-day goal","e.g. publish 1 ebook, 50 sales"],quotes:["Real customer quotes","Paste exact comments from your research",1],data:["Pasted research data","Comments, reviews, competitor details",1],numbers:["Your numbers","Visitors, signups, sales, revenue...",1],price:["Price (your currency)","e.g. $9 or £7"],offer:["Your offer","Ebook + bonuses + deadline",1],outline:["Chapter outline","Paste the outline for this chapter",1],chapter:["Chapter number and title","e.g. 3: Build your 30-day plan"],text:["Paste your text","Draft, chapter or sales page",1],platform:["Main platform","e.g. TikTok, WhatsApp Status"],feedback:["Buyer feedback","Reviews, questions, DMs",1],lang:["Language","e.g. French, Spanish, Hindi, Arabic"]};
@@ -401,6 +403,7 @@ renderProjectSelector();
 stage();
 fs();
 scrollToStage();
+refreshAds();
 toastSave("Switched project");
 }
 function newProject(){
@@ -635,7 +638,7 @@ if(V.reader||V.country){
 lines.push("*A practical guide for "+(V.reader||"readers")+(V.country?" in "+V.country:"")+"*");
 }
 lines.push("");
-lines.push("> **Generated with [Ebook Buddy](https://sabimentors.com)**  ");
+lines.push("> **Generated with [EbookBuddy](https://sabimentors.com)**  ");
 lines.push("> *Powered by [SabiMentors](https://sabimentors.com) × [FunnelCraft AI](https://www.funnelcraftai.com)*  ");
 lines.push("> **Export Date:** "+new Date().toLocaleDateString()+"  ");
 lines.push("");
@@ -781,7 +784,7 @@ var data;
 try{
 data=JSON.parse(jsonStr);
 }catch(e){
-showModal("⚠️ Import Failed","<p>Invalid JSON file format. Please choose a valid Ebook Buddy backup file.</p>",[{text:"OK",cls:"m-primary"}]);
+showModal("⚠️ Import Failed","<p>Invalid JSON file format. Please choose a valid EbookBuddy backup file.</p>",[{text:"OK",cls:"m-primary"}]);
 return false;
 }
 var importedV=(data.project&&data.project.v)||data.v;
@@ -848,7 +851,7 @@ document.addEventListener("input",function(e){var k=e.target.dataset&&e.target.d
 function scrollToStage(){
 requestAnimationFrame(function(){
 var ad=document.getElementById("ad-top");
-var targetEl=ad||document.getElementById("stage");
+var targetEl=(ad&&ad.offsetHeight>0&&!ad.classList.contains("ad-collapsed"))?ad:document.getElementById("stage");
 if(!targetEl)return;
 var nav=document.getElementById("sticky-nav");
 var navH=nav?nav.getBoundingClientRect().height:100;
@@ -857,7 +860,7 @@ window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"});
 });
 }
 document.addEventListener("click",function(e){var t=e.target;
-if(t.classList.contains("chip")){cur=+t.dataset.i;stage();scrollToStage();return}
+if(t.classList.contains("chip")){cur=+t.dataset.i;stage();scrollToStage();refreshAds();return}
 var ch=t.closest(".ch");if(ch){var cp=ch.parentNode;cp.classList.toggle("open");if(cp.classList.contains("open")){setTimeout(function(){var nav=document.getElementById("sticky-nav");var navH=nav?nav.getBoundingClientRect().height:100;var rect=cp.getBoundingClientRect();if(rect.top<navH+10){var targetY=window.pageYOffset+rect.top-navH-14;window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"})}},60)}return}
 var d=t.dataset||{};
 if(d.t){var hx=t.parentNode.nextElementSibling;hx.classList.toggle('show');t.textContent=hx.classList.contains('show')?'Hide Hint':'See Hint';return}
@@ -871,8 +874,8 @@ var a=t.dataset&&t.dataset.a;if(!a)return;var j=+t.dataset.p,it=S[cur].i[j],k=id
 if(a=="copy"){cp(txt,t)}
 if(a=="open"){go(txt,t)}
 if(a=="done"){D[k]=!D[k];sv();stage()}});
-document.getElementById("nx").onclick=function(){if(cur<S.length-1){cur++;stage();scrollToStage()}};
-document.getElementById("pv").onclick=function(){if(cur>0){cur--;stage();scrollToStage()}};
+document.getElementById("nx").onclick=function(){if(cur<S.length-1){cur++;stage();scrollToStage();refreshAds()}};
+document.getElementById("pv").onclick=function(){if(cur>0){cur--;stage();scrollToStage();refreshAds()}};
 document.getElementById("rs").onclick=function(){
 var curP=getCurProj();
 showModal(
@@ -953,7 +956,7 @@ reader.readAsText(file);
 }
 var SHARE_DATA={
 title:"EbookBuddy | Turn A Real Problem Into A Profitable Ebook In Minutes - By SabiMentors x FunnelCraft AI",
-text:"Turn a real problem into a profitable ebook with AI! 🚀 Create your ebook in 15 guided stages with Ebook Buddy. Powered by SabiMentors × FunnelCraft AI.",
+text:"Turn a real problem into a profitable ebook with AI! 🚀 Create your ebook in 15 guided stages with EbookBuddy. Powered by SabiMentors × FunnelCraft AI.",
 url:"https://sabimentors.com"
 };
 function getShareUrl(){
@@ -996,7 +999,7 @@ openShareModal();
 function openShareModal(){
 var url=getShareUrl();
 showModal(
-"📢 Share Ebook Buddy",
+"📢 Share EbookBuddy",
 '<p style="margin:0 0 12px;font-size:.88rem;color:var(--mute)">Help fellow writers, students & entrepreneurs launch profitable ebooks with AI:</p>'+
 '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">'+
 '<button type="button" class="s-btn s-wa" onclick="shareApp(\'whatsapp\')">WhatsApp</button>'+
@@ -1037,7 +1040,6 @@ if(copyShareBtn){copyShareBtn.onclick=function(){shareApp("copy")}}
 var nativeShareBtn=document.getElementById("btn-native-share");
 if(nativeShareBtn){nativeShareBtn.onclick=function(){shareApp("native")}}
 var AD_CLIENT="ca-pub-6130384188487467";
-var AD_REFRESH_SEC=35;
 function renderAd(id){
 if(window.EbookBuddyAds&&window.EbookBuddyAds.renderAd){return window.EbookBuddyAds.renderAd(id)}
 var c=typeof id==="string"?document.getElementById(id):id;
@@ -1047,7 +1049,12 @@ var slotMap={"ad-hero":isDesk?"4369386116":"8117059432","ad-top":isDesk?"3056304
 var num=c.getAttribute("data-ad-slot-num");
 var slot=c.getAttribute(isDesk?"data-ad-slot-desk":"data-ad-slot-mob")||(num==1?(isDesk?"4369386116":"8117059432"):num==2?(isDesk?"3056304442":"6229262699"):num==3?(isDesk?"9246930392":"5231663766"):null)||slotMap[c.id];
 if(!slot)return;
+c.classList.remove("ad-collapsed");
 c.innerHTML="";
+var lbl=document.createElement("span");
+lbl.className="ad-label";
+lbl.textContent="Advertisement";
+c.appendChild(lbl);
 var ins=document.createElement("ins");
 ins.className="adsbygoogle";
 ins.style.display="inline-block";
@@ -1056,7 +1063,19 @@ ins.style.height="90px";
 ins.setAttribute("data-ad-client",AD_CLIENT);
 ins.setAttribute("data-ad-slot",slot);
 c.appendChild(ins);
-try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
+if(window.MutationObserver){
+var obs=new window.MutationObserver(function(){
+if(ins.getAttribute("data-ad-status")==="unfilled"){c.classList.add("ad-collapsed");obs.disconnect()}
+else if(ins.getAttribute("data-ad-status")==="filled"){c.classList.remove("ad-collapsed")}
+});
+obs.observe(ins,{attributes:true,childList:true});
+}
+setTimeout(function(){
+var st=ins.getAttribute("data-ad-status");
+var ifr=ins.querySelector("iframe");
+if(st==="unfilled"||(!ifr&&st!=="filled")){c.classList.add("ad-collapsed")}
+},3200);
+try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){c.classList.add("ad-collapsed")}
 }
 function refreshAds(){
 if(document.hidden)return;
@@ -1065,12 +1084,10 @@ renderAd("ad-hero");
 renderAd("ad-top");
 renderAd("ad-bottom");
 }
-var adTimer=null,lastIsDesk=window.innerWidth>=768,resizeAdTimer=null;
+var lastIsDesk=window.innerWidth>=768,resizeAdTimer=null;
 function initAds(){
 if(window.EbookBuddyAds&&window.EbookBuddyAds.initAds){return window.EbookBuddyAds.initAds()}
 refreshAds();
-if(adTimer)clearInterval(adTimer);
-adTimer=setInterval(refreshAds,AD_REFRESH_SEC*1000);
 }
 window.addEventListener("resize",function(){
 if(window.EbookBuddyAds)return;
@@ -1082,11 +1099,6 @@ lastIsDesk=nowDesk;
 refreshAds();
 }
 },300);
-});
-document.addEventListener("visibilitychange",function(){
-if(!document.hidden&&!window.EbookBuddyAds){
-refreshAds();
-}
 });
 var thmBtn=document.getElementById("thm");
 if(thmBtn){

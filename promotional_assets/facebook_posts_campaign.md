@@ -1,4 +1,4 @@
-# Ebook Buddy · Social Media & Facebook Campaign Kit
+# EbookBuddy · Social Media & Facebook Campaign Kit
 ### Turn Real Problems into Profitable Ebooks · High-Converting Promotional Playbook
 
 This kit contains **5 complete, battle-tested Facebook and social media promotional posts** designed with high-converting copy frameworks, scroll-stopping hooks, psychological triggers, and paired graphics.
@@ -53,7 +53,7 @@ They use a structured **15-Stage System**:
 4️⃣ They feed the AI hyper-specific, contextual prompts for each chapter  
 5️⃣ They engineer high-converting sales funnels from day one  
 
-I got so tired of watching talented creators struggle with generic prompts that I created a tool called **Ebook Buddy**.
+I got so tired of watching talented creators struggle with generic prompts that I created a tool called **EbookBuddy**.
 
 It guides you through all 15 stages step-by-step:
 • You answer simple questions about your target reader  
@@ -72,7 +72,7 @@ Want to test it out for your next digital product?
 👇 Drop the word **"BLUEPRINT"** in the comments, and I will DM you the direct link to use it for free!
 
 **Option B (Direct Link):**  
-👉 Test it out completely free here: [Insert Your Ebook Buddy Link]  
+👉 Test it out completely free here: [Insert Your EbookBuddy Link]  
 *(Works on desktop and mobile, auto-saves all your drafts!)*
 
 ---
@@ -107,13 +107,13 @@ Most people get stuck because of three massive hurdles:
 Here is how you fix all three in 3 simple steps:
 
 ⚡ **Step 1: Fill 3 Simple Boxes**  
-Open Ebook Buddy. Enter:
+Open EbookBuddy. Enter:
 • Who is your reader?  
 • What specific, painful problem are they trying to solve right now?  
 • What is the promise of your book?  
 
 ⚡ **Step 2: Copy the Engineered Prompts**  
-Instead of guessing what to ask AI, Ebook Buddy auto-generates custom prompts tailored specifically to your reader and problem.
+Instead of guessing what to ask AI, EbookBuddy auto-generates custom prompts tailored specifically to your reader and problem.
 
 ⚡ **Step 3: Paste into Any AI & Watch the Magic Happen**  
 Drop the prompt into Claude, ChatGPT, Gemini, or DeepSeek. In seconds, you get structured outlines, actionable chapters, real-world examples, and step-by-step action guides.
@@ -140,7 +140,7 @@ Ready to stop overthinking and finally launch your first digital product?
 Comment **"FAST"** below and I’ll send you the tool + a quick guide on how to get started in 5 minutes!
 
 **Option B (Direct Link):**  
-👉 Start your 48-hour launch draft here: [Insert Your Ebook Buddy Link]
+👉 Start your 48-hour launch draft here: [Insert Your EbookBuddy Link]
 
 ---
 
@@ -197,7 +197,7 @@ Here is the exact 15-stage roadmap top digital creators use to go from a raw ide
 
 Sounds like a lot of work?  
 
-It used to be. But I built **Ebook Buddy** to generate every single prompt, outline, and copy framework across all 15 stages for you automatically.
+It used to be. But I built **EbookBuddy** to generate every single prompt, outline, and copy framework across all 15 stages for you automatically.
 
 Just answer a few questions and copy-paste your way to a complete product.
 
@@ -210,7 +210,7 @@ Want the 15-stage interactive app to guide your next launch?
 Drop **"ROADMAP"** in the comments, and I’ll send you the free tool immediately!
 
 **Option B (Direct Link):**  
-👉 Walk through all 15 stages for free here: [Insert Your Ebook Buddy Link]
+👉 Walk through all 15 stages for free here: [Insert Your EbookBuddy Link]
 
 ---
 
@@ -225,7 +225,7 @@ Drop **"ROADMAP"** in the comments, and I’ll send you the free tool immediatel
 
 ### 🎯 Hook Variations:
 - **Hook 1 (Recommended):** I got sick of seeing people charge \$497 for "AI Ebook Mastery Courses" that just teach basic ChatGPT prompts. So I built a free web app that does the whole thing for you.
-- **Hook 2:** Software that actually saves you money: Meet Ebook Buddy (100% free, no sign-up, no monthly fees).
+- **Hook 2:** Software that actually saves you money: Meet EbookBuddy (100% free, no sign-up, no monthly fees).
 - **Hook 3:** You don't need another \$97 prompt pack. You just need this free tool.
 
 ---
@@ -236,7 +236,7 @@ I got sick of seeing people charge \$497 for "AI Ebook Mastery Courses" that jus
 
 So I built a completely free web app that does the entire job for you:
 
-Say hello to **Ebook Buddy** 🚀
+Say hello to **EbookBuddy** 🚀
 
 Here is why it's different from everything else out there:
 
@@ -267,7 +267,7 @@ Want the link to access it for free right now?
 Drop **"ACCESS"** in the comments below and I’ll reply with the link!
 
 **Option B (Direct Link):**  
-👉 Click here to access Ebook Buddy free: [Insert Your Ebook Buddy Link]
+👉 Click here to access EbookBuddy free: [Insert Your EbookBuddy Link]
 
 ---
 
@@ -311,7 +311,7 @@ Sell just 2 copies a day, and that's:
 
 The hardest part has always been structuring the ideas, writing compelling copy, and creating the sales funnel.
 
-That’s why we launched **Ebook Buddy**:
+That’s why we launched **EbookBuddy**:
 It takes your raw knowledge and converts it into a battle-tested 15-stage blueprint.  
 You get the outline, the chapters, the sales page copy, and the launch sequence — all powered by AI prompts custom-tailored to your topic.
 
@@ -322,11 +322,11 @@ Pair it with a checkout on **SabiMentors** and an instant funnel on **FunnelCraf
 ### 🚀 Call to Action:
 
 **Option A (High Engagement):**  
-Tell me your niche or one problem you know how to solve in the comments, and I’ll tell you how to turn it into an ebook using Ebook Buddy!  
+Tell me your niche or one problem you know how to solve in the comments, and I’ll tell you how to turn it into an ebook using EbookBuddy!  
 *(Or drop **"PROFIT"** and I'll send you the free app link)*
 
 **Option B (Direct Link):**  
-👉 Turn your knowledge into an ebook today: [Insert Your Ebook Buddy Link]
+👉 Turn your knowledge into an ebook today: [Insert Your EbookBuddy Link]
 
 ---
 

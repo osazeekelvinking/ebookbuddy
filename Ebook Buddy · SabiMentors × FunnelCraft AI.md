@@ -18,7 +18,7 @@ Turn a real problem into a profitable ebook. Answer simple questions, get ready-
 - **Light & Dark Mode**: One-click toggle (`🌙 Dark` / `☀️ Light`) with system sync and persistent theme selection.
 - **Bulletproof Dual Storage**: Real-time dual persistence using `localStorage` and `IndexedDB` (`EbookBuddyDB`) with automatic legacy data migration, so your progress, answers, and drafts are never lost.
 - **Smart Sticky Navigation & Auto-Snapping**: Step carousel stays pinned at the top, auto-scrolling cleanly to the top ad and active stage title.
-- **Monetization Ready**: Dynamic Google AdSense units (728x90 desktop, 320x90 mobile) across 3 strategic high-converting placements with policy-compliant 35-second in-page auto-refresh.
+- **Monetization Ready**: Dynamic Google AdSense units (728x90 desktop, 320x90 mobile) across 3 strategic high-converting placements with policy-compliant navigation-based ad refresh on stage tab changes.
 
 ---
 
@@ -50,7 +50,7 @@ Do not know what to write? Pick your path, copy the prompt, then paste your AI�
 
 ---
 
-© 2026 **Ebook Buddy** · Created by **Osazee Kelvin King**  
+© 2026 **EbookBuddy** · Created by **Osazee Kelvin King**  
 Powered by [SabiMentors](https://sabimentors.com) × [FunnelCraft AI](https://www.funnelcraftai.com)
 
 #### RECOMMENDED PLATFORMS FOR YOU…

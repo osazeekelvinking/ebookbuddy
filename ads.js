@@ -1,5 +1,5 @@
 /**
- * Ebook Buddy - Google AdSense Seamless Integration
+ * EbookBuddy - Google AdSense Seamless Integration
  * Client: ca-pub-6130384188487467
  *
  * Slots configured:
@@ -13,31 +13,20 @@
  *      Desktop (728x90): 9246930392
  *      Mobile  (320x90): 5231663766
  *
- * How to use on current or future pages:
- * 1. Include in the <head>:
- *    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
- *    <script src="ads.js" defer></script>
- *
- * 2. Add an ad container anywhere in <body>:
- *    <!-- Using predefined slot 1, 2, or 3 -->
- *    <div class="ad-slot-wrap" data-ad-slot-num="1"></div>
- *    <div class="ad-slot-wrap" data-ad-slot-num="2"></div>
- *    <div class="ad-slot-wrap" data-ad-slot-num="3"></div>
- *
- *    <!-- Or using custom slot IDs -->
- *    <div class="ad-slot-wrap" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432"></div>
- *
- *    <!-- Or using semantic IDs -->
- *    <div class="ad-slot-wrap" id="ad-hero"></div>
- *    <div class="ad-slot-wrap" id="ad-top"></div>
- *    <div class="ad-slot-wrap" id="ad-bottom"></div>
+ * Features:
+ *  - Subtle/tiny "Advertisement" label above all ad slots.
+ *  - Automatic collapse when ads don't render (unfilled, blocked, or timed out),
+ *    eliminating awkward blank empty spaces completely.
+ *  - Policy Compliant: No background timer auto-refresh. Ads refresh only upon
+ *    user-initiated navigation (clicking stage tabs/chips or next/prev buttons),
+ *    acting like natural page loads in this Single Page Application.
+ *  - Works seamlessly across all current and future pages.
  */
 
 (function (window, document) {
   "use strict";
 
   var AD_CLIENT = "ca-pub-6130384188487467";
-  var AD_REFRESH_SEC = 35;
   var DESKTOP_BP = 768;
 
   // Predefined Ad Slots
@@ -53,20 +42,30 @@
     "ad-bottom": { desk: "9246930392", mob: "5231663766" }
   };
 
-  // Ensure default CSS exists for ad slot containers
+  // Ensure default CSS exists for ad slot containers, labels, and collapse state
   function injectStyles() {
     if (document.getElementById("ebookbuddy-ads-css")) return;
     var style = document.createElement("style");
     style.id = "ebookbuddy-ads-css";
     style.textContent =
       ".ad-slot-wrap{" +
-      "display:flex;justify-content:center;align-items:center;" +
-      "margin:14px auto;text-align:center;min-height:90px;" +
+      "display:flex;flex-direction:column;justify-content:center;align-items:center;" +
+      "margin:14px auto;text-align:center;min-height:105px;" +
       "overflow:hidden;clear:both;width:100%;max-width:760px;" +
       "scroll-margin-top:105px;" +
       "}" +
+      ".ad-label{" +
+      "display:block;font-size:10px;font-weight:600;letter-spacing:0.08em;" +
+      "text-transform:uppercase;color:var(--mute,#6B6B78);opacity:0.7;" +
+      "margin:0 auto 4px;line-height:1;text-align:center;user-select:none;" +
+      "}" +
       ".ad-slot-wrap ins.adsbygoogle{" +
       "display:inline-block!important;" +
+      "}" +
+      ".ad-slot-wrap.ad-collapsed," +
+      ".ad-slot-wrap:has(ins[data-ad-status='unfilled']){" +
+      "display:none!important;min-height:0!important;height:0!important;" +
+      "margin:0!important;padding:0!important;" +
       "}";
     document.head.appendChild(style);
   }
@@ -112,8 +111,15 @@
     var width = isDesk ? 728 : 320;
     var height = 90;
 
-    // Clear previous ad element
+    // Uncollapse container when preparing new ad
+    el.classList.remove("ad-collapsed");
     el.innerHTML = "";
+
+    // Add subtle/tiny label above ad slot
+    var label = document.createElement("span");
+    label.className = "ad-label";
+    label.textContent = "Advertisement";
+    el.appendChild(label);
 
     var ins = document.createElement("ins");
     ins.className = "adsbygoogle";
@@ -122,17 +128,60 @@
     ins.style.height = height + "px";
     ins.setAttribute("data-ad-client", AD_CLIENT);
     ins.setAttribute("data-ad-slot", slotId);
-
     el.appendChild(ins);
+
+    // Watch for AdSense status changes to collapse if unfilled
+    function applyStatusCheck() {
+      var status = ins.getAttribute("data-ad-status");
+      if (status === "unfilled") {
+        el.classList.add("ad-collapsed");
+        return true;
+      }
+      var iframe = ins.querySelector("iframe");
+      if (iframe || status === "filled") {
+        el.classList.remove("ad-collapsed");
+        return true;
+      }
+      return false;
+    }
+
+    if (window.MutationObserver) {
+      var observer = new window.MutationObserver(function (mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          var m = mutations[i];
+          if (m.type === "attributes" && m.attributeName === "data-ad-status") {
+            if (ins.getAttribute("data-ad-status") === "unfilled") {
+              el.classList.add("ad-collapsed");
+              observer.disconnect();
+              return;
+            } else if (ins.getAttribute("data-ad-status") === "filled") {
+              el.classList.remove("ad-collapsed");
+            }
+          }
+        }
+        applyStatusCheck();
+      });
+      observer.observe(ins, { attributes: true, childList: true });
+    }
+
+    // Safety timeout: if ad blocker blocked it or no creative rendered within 3.2s, collapse empty space
+    setTimeout(function () {
+      var status = ins.getAttribute("data-ad-status");
+      var iframe = ins.querySelector("iframe");
+      if (status === "unfilled" || (!iframe && status !== "filled")) {
+        el.classList.add("ad-collapsed");
+      }
+    }, 3200);
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {
-      // Ignore push errors (e.g. ad blockers or duplicate pushes)
+      // If push throws an error, collapse
+      el.classList.add("ad-collapsed");
     }
   }
 
-  // Refresh all ad slots on the page
+  // Refresh all ad slots on the page (called on user navigation, e.g. clicking stage tabs)
   function refreshAds() {
     if (document.hidden) return;
 
@@ -150,19 +199,15 @@
     }
   }
 
-  var adTimer = null;
   var lastIsDesk = window.innerWidth >= DESKTOP_BP;
   var resizeAdTimer = null;
 
   function initAds() {
     injectStyles();
     refreshAds();
-
-    if (adTimer) clearInterval(adTimer);
-    adTimer = setInterval(refreshAds, AD_REFRESH_SEC * 1000);
   }
 
-  // Listeners
+  // Responsive breakpoint listener (desktop <-> mobile re-alignment)
   window.addEventListener("resize", function () {
     clearTimeout(resizeAdTimer);
     resizeAdTimer = setTimeout(function () {
@@ -172,12 +217,6 @@
         refreshAds();
       }
     }, 300);
-  });
-
-  document.addEventListener("visibilitychange", function () {
-    if (!document.hidden) {
-      refreshAds();
-    }
   });
 
   // Auto-init when document is ready

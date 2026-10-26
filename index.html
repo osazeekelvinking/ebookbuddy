@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ebook Buddy · SabiMentors × FunnelCraft AI</title>
+<title>EbookBuddy | Turn A Real Problem Into A Profitable Ebook In Minutes - By SabiMentors x FunnelCraft AI</title>
 <meta name="description" content="Turn a real problem into a profitable ebook with AI. Answer simple questions, get ready-made prompts, and launch in 15 stages. Powered by SabiMentors × FunnelCraft AI.">
-<meta property="og:title" content="Ebook Buddy · SabiMentors × FunnelCraft AI">
+<meta property="og:title" content="EbookBuddy | Turn A Real Problem Into A Profitable Ebook In Minutes - By SabiMentors x FunnelCraft AI">
 <meta property="og:description" content="Turn a real problem into a profitable ebook with AI. Answer simple questions, get ready-made prompts, and launch in 15 stages.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ebook Buddy · SabiMentors × FunnelCraft AI">
+<meta name="twitter:title" content="EbookBuddy | Turn A Real Problem Into A Profitable Ebook In Minutes - By SabiMentors x FunnelCraft AI">
 <meta name="twitter:description" content="Turn a real problem into a profitable ebook with AI. Powered by SabiMentors × FunnelCraft AI.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+<script src="ads.js" defer></script>
 <style>
 :root{--brand:#F26B21;--brand-ink:#fff;--bg:#FAF8F5;--card:#fff;--ink:#1B1B22;--mute:#6B6B78;--line:#E8E4DD;--soft:#FFF1E8;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -108,7 +109,7 @@ footer a:hover{text-decoration:underline}
 .modal-actions button.m-cancel{background:transparent;border:1px solid var(--line);color:var(--mute)}
 .modal-actions button.m-primary{background:var(--brand);border:1px solid var(--brand);color:var(--brand-ink)}
 .modal-actions button.m-danger{background:#dc2626;border:1px solid #dc2626;color:#fff}
-.ad-slot-wrap{display:flex;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:70px;overflow:hidden;scroll-margin-top:100px}
+.ad-slot-wrap{display:flex;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:90px;overflow:hidden;scroll-margin-top:100px}
 @media (min-width:768px){.ad-slot-wrap{min-height:90px;margin:14px auto;scroll-margin-top:105px}}
 .share-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0 10px;box-shadow:0 1px 4px rgba(0,0,0,.02)}
 .share-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
@@ -142,6 +143,8 @@ footer a:hover{text-decoration:underline}
 <div class="hero-cta">🚀 <b>When your Ebook is ready:</b> Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> to sell it, and use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a> to build your funnel in minutes.</div>
 </div>
 <div class="how"><div><b>1</b>Fill the boxes</div><div><b>2</b>Copy the prompt</div><div><b>3</b>Paste in any AI</div></div>
+<!-- Ebook-buddy 728x90 1 (Desktop) / Ebook-buddy 320x90 1 (Mobile) -->
+<div class="ad-slot-wrap" id="ad-hero" data-ad-slot-num="1" data-ad-slot-desk="4369386116" data-ad-slot-mob="8117059432"></div>
 <div class="share-card" id="share-card">
 <div class="share-head">
 <div>
@@ -196,9 +199,11 @@ reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:1
 <div class="bar"><i id="pb"></i></div><div class="pm" id="pm"></div>
 <div class="chips" id="chips"></div>
 </div>
-<div class="ad-slot-wrap" id="ad-top"></div>
+<!-- Ebook-buddy 728x90 2 (Desktop) / Ebook-buddy 320x90 2 (Mobile) -->
+<div class="ad-slot-wrap" id="ad-top" data-ad-slot-num="2" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699"></div>
 <div id="stage"></div>
-<div class="ad-slot-wrap" id="ad-bottom"></div>
+<!-- Ebook-buddy 728x90 3 (Desktop) / Ebook-buddy 320x90 3 (Mobile) -->
+<div class="ad-slot-wrap" id="ad-bottom" data-ad-slot-num="3" data-ad-slot-desk="9246930392" data-ad-slot-mob="5231663766"></div>
 <div class="nav"><button class="b alt" id="pv">← Back</button><button class="b" id="nx">Next stage →</button></div>
 <div id="app-modal" class="modal-wrap" style="display:none">
 <div class="modal-box">
@@ -828,7 +833,7 @@ function miss(p){return keys(p).filter(function(k){return !(V[k]&&V[k].trim())})
 function id(s,i){return s+"-"+i}
 function tot(){var n=0;S.forEach(function(s){n+=s.i.length});return n}
 function prog(){var d=Object.keys(D).filter(function(k){return D[k]}).length,t=tot();document.getElementById("pb").style.width=(d/t*100)+"%";document.getElementById("pm").textContent=d+" of "+t+" prompts done"+(d==t?" 🎉 You are ready to sell!":"");}
-function chips(){var h="";S.forEach(function(s,i){var all=s.i.every(function(_,j){return D[id(i,j)]});h+='<button class="chip'+(i==cur?" on":"")+(all?" done":"")+'" data-i="'+i+'">'+s.e+" "+(i+1)+". "+s.t+(all?" ✓":"")+"</button>"});var c=document.getElementById("chips");c.innerHTML=h;var on=c.querySelector(".on");if(on)on.scrollIntoView({inline:"center",block:"nearest"})}
+function chips(){var h="";S.forEach(function(s,i){var all=s.i.every(function(_,j){return D[id(i,j)]});h+='<button class="chip'+(i==cur?" on":"")+(all?" done":"")+'" data-i="'+i+'">'+s.e+" "+(i+1)+". "+s.t+(all?" ✓":"")+"</button>"});var c=document.getElementById("chips");c.innerHTML=h;var on=c.querySelector(".on");if(on){try{c.scrollLeft=on.offsetLeft-(c.clientWidth-on.clientWidth)/2}catch(e){}}}
 function stage(){var s=S[cur],h="<h2>"+s.e+" "+(cur+1)+". "+s.t+'</h2><p class="sd">'+s.d+"</p>";
 if(REC[cur])h+=renderRec(REC[cur]);
 s.i.forEach(function(it,j){var k=id(cur,j),f="";keys(it.p).forEach(function(q){var l=L[q]||[q,""];f+='<div class="lr"><label for="f-'+q+'-'+k+'">'+l[0]+"</label>"+(H[q]?'<button type="button" class="sh" data-t="1">See Hint</button>':"")+"</div>"+(H[q]?'<small class="hx">💡 '+H[q]+"</small>":"")+(l[2]?'<textarea id="f-'+q+"-"+k+'" data-k="'+q+'" placeholder="'+l[1]+'"></textarea>':'<input id="f-'+q+"-"+k+'" data-k="'+q+'" placeholder="'+l[1]+'">')+'<button class="hb" data-h="'+q+'" data-w="'+k+'">✨ Help me fill this</button><div id="hp-'+q+'-'+k+'"></div>'});
@@ -947,7 +952,7 @@ reader.readAsText(file);
 };
 }
 var SHARE_DATA={
-title:"Ebook Buddy · SabiMentors × FunnelCraft AI",
+title:"EbookBuddy | Turn A Real Problem Into A Profitable Ebook In Minutes - By SabiMentors x FunnelCraft AI",
 text:"Turn a real problem into a profitable ebook with AI! 🚀 Create your ebook in 15 guided stages with Ebook Buddy. Powered by SabiMentors × FunnelCraft AI.",
 url:"https://sabimentors.com"
 };
@@ -1032,37 +1037,43 @@ if(copyShareBtn){copyShareBtn.onclick=function(){shareApp("copy")}}
 var nativeShareBtn=document.getElementById("btn-native-share");
 if(nativeShareBtn){nativeShareBtn.onclick=function(){shareApp("native")}}
 var AD_CLIENT="ca-pub-6130384188487467";
-var AD_DESK={slot:"2384724793",w:728,h:90};
-var AD_MOB={slot:"8830609413",w:320,h:70};
 var AD_REFRESH_SEC=35;
 function renderAd(id){
-var c=document.getElementById(id);
+if(window.EbookBuddyAds&&window.EbookBuddyAds.renderAd){return window.EbookBuddyAds.renderAd(id)}
+var c=typeof id==="string"?document.getElementById(id):id;
 if(!c)return;
 var isDesk=window.innerWidth>=768;
-var cfg=isDesk?AD_DESK:AD_MOB;
+var slotMap={"ad-hero":isDesk?"4369386116":"8117059432","ad-top":isDesk?"3056304442":"6229262699","ad-bottom":isDesk?"9246930392":"5231663766"};
+var num=c.getAttribute("data-ad-slot-num");
+var slot=c.getAttribute(isDesk?"data-ad-slot-desk":"data-ad-slot-mob")||(num==1?(isDesk?"4369386116":"8117059432"):num==2?(isDesk?"3056304442":"6229262699"):num==3?(isDesk?"9246930392":"5231663766"):null)||slotMap[c.id];
+if(!slot)return;
 c.innerHTML="";
 var ins=document.createElement("ins");
 ins.className="adsbygoogle";
 ins.style.display="inline-block";
-ins.style.width=cfg.w+"px";
-ins.style.height=cfg.h+"px";
+ins.style.width=(isDesk?728:320)+"px";
+ins.style.height="90px";
 ins.setAttribute("data-ad-client",AD_CLIENT);
-ins.setAttribute("data-ad-slot",cfg.slot);
+ins.setAttribute("data-ad-slot",slot);
 c.appendChild(ins);
 try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
 }
 function refreshAds(){
 if(document.hidden)return;
+if(window.EbookBuddyAds&&window.EbookBuddyAds.refreshAds){return window.EbookBuddyAds.refreshAds()}
+renderAd("ad-hero");
 renderAd("ad-top");
 renderAd("ad-bottom");
 }
 var adTimer=null,lastIsDesk=window.innerWidth>=768,resizeAdTimer=null;
 function initAds(){
+if(window.EbookBuddyAds&&window.EbookBuddyAds.initAds){return window.EbookBuddyAds.initAds()}
 refreshAds();
 if(adTimer)clearInterval(adTimer);
 adTimer=setInterval(refreshAds,AD_REFRESH_SEC*1000);
 }
 window.addEventListener("resize",function(){
+if(window.EbookBuddyAds)return;
 clearTimeout(resizeAdTimer);
 resizeAdTimer=setTimeout(function(){
 var nowDesk=window.innerWidth>=768;
@@ -1073,7 +1084,7 @@ refreshAds();
 },300);
 });
 document.addEventListener("visibilitychange",function(){
-if(!document.hidden){
+if(!document.hidden&&!window.EbookBuddyAds){
 refreshAds();
 }
 });
@@ -1118,7 +1129,12 @@ if(saved.theme&&saved.theme!==curTheme){applyTheme(saved.theme)}
 if(dirty){renderProjectSelector();stage();fs()}
 }
 });
+if('scrollRestoration' in history){history.scrollRestoration='manual'}
+window.addEventListener('beforeunload',function(){window.scrollTo(0,0)});
 stage();fs();initAds();
+window.scrollTo(0,0);
+requestAnimationFrame(function(){window.scrollTo(0,0)});
+window.addEventListener('load',function(){window.scrollTo(0,0)});
 </script>
 </body>
 </html>

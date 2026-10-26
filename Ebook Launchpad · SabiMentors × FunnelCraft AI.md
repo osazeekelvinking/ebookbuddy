@@ -1,6 +1,6 @@
 SABIMENTORS × FUNNELCRAFT AI
 
-# Ebook Launchpad
+# Ebook Buddy
 
 Turn a real problem into a profitable ebook. Answer simple questions, get ready-made prompts, paste them into your favorite AI tool (ChatGPT, Claude, Google Gemini, DeepSeek, Copilot, etc.).
 
@@ -11,11 +11,12 @@ Turn a real problem into a profitable ebook. Answer simple questions, get ready-
 ### Features & Capabilities
 
 - **15-Stage Ebook System**: Covers Setup, Ideas, Research, Validation, Positioning, Planning, Writing, Editing, Cover Briefs, Offers, Sales Pages, Funnels, Traffic, Launch, and Scaling.
+- **Built-in Social Share**: Share your ebook building journey with fellow creators directly via WhatsApp, X (Twitter), Facebook, LinkedIn, Telegram, device native share, or one-click copy link.
 - **Multi-Project Workspace**: Create, switch, rename, and manage multiple ebook projects within the app with isolated storage.
 - **Export & Backup (Markdown & JSON)**: Download a complete structured Markdown document (`.md`) of your whole ebook blueprint and generate JSON backups (`.json`) with one-click restore.
 - **AI-Agnostic & Model Switcher**: Integrated one-click copying and deep-linking for Claude, ChatGPT, Gemini, DeepSeek, Copilot, and custom AIs.
 - **Light & Dark Mode**: One-click toggle (`🌙 Dark` / `☀️ Light`) with system sync and persistent theme selection.
-- **Bulletproof Dual Storage**: Real-time dual persistence using `localStorage` and `IndexedDB` (`EbookLaunchpadDB`) so your progress, answers, and drafts are never lost.
+- **Bulletproof Dual Storage**: Real-time dual persistence using `localStorage` and `IndexedDB` (`EbookBuddyDB`) with automatic legacy data migration, so your progress, answers, and drafts are never lost.
 - **Smart Sticky Navigation & Auto-Snapping**: Step carousel stays pinned at the top, auto-scrolling cleanly to the top ad and active stage title.
 - **Monetization Ready**: Dynamic Google AdSense units (728x90 desktop, 320x70 mobile) with policy-compliant 35-second in-page auto-refresh.
 
@@ -49,7 +50,7 @@ Do not know what to write? Pick your path, copy the prompt, then paste your AI�
 
 ---
 
-© 2026 Created by **Osazee Kelvin King**  
+© 2026 **Ebook Buddy** · Created by **Osazee Kelvin King**  
 Powered by [SabiMentors](https://sabimentors.com) × [FunnelCraft AI](https://www.funnelcraftai.com)
 
 #### RECOMMENDED PLATFORMS FOR YOU…

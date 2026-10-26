@@ -3,7 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ebook Launchpad · SabiMentors × FunnelCraft AI</title>
+<title>Ebook Buddy · SabiMentors × FunnelCraft AI</title>
+<meta name="description" content="Turn a real problem into a profitable ebook with AI. Answer simple questions, get ready-made prompts, and launch in 15 stages. Powered by SabiMentors × FunnelCraft AI.">
+<meta property="og:title" content="Ebook Buddy · SabiMentors × FunnelCraft AI">
+<meta property="og:description" content="Turn a real problem into a profitable ebook with AI. Answer simple questions, get ready-made prompts, and launch in 15 stages.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ebook Buddy · SabiMentors × FunnelCraft AI">
+<meta name="twitter:description" content="Turn a real problem into a profitable ebook with AI. Powered by SabiMentors × FunnelCraft AI.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
 <style>
 :root{--brand:#F26B21;--brand-ink:#fff;--bg:#FAF8F5;--card:#fff;--ink:#1B1B22;--mute:#6B6B78;--line:#E8E4DD;--soft:#FFF1E8;color-scheme:light;
@@ -92,30 +99,79 @@ footer a:hover{text-decoration:underline}
 .proj-select{font:inherit;font-size:.82rem;font-weight:600;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);max-width:180px;text-overflow:ellipsis;cursor:pointer}
 .t-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:5px 9px;font:inherit;font-size:.78rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s}
 .t-btn:hover{border-color:var(--brand);color:var(--brand)}
+.save-badge{font-size:.74rem;color:var(--mute);display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:6px;background:var(--soft);border:1px solid var(--line);transition:all .3s}
+.modal-wrap{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(2px)}
+.modal-box{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;max-width:520px;width:100%;padding:18px 20px;box-shadow:0 12px 32px rgba(0,0,0,.3);max-height:90vh;overflow-y:auto}
+.modal-box h3{margin:0 0 10px;font-size:1.15rem;color:var(--brand)}
+.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px;flex-wrap:wrap}
+.modal-actions button{padding:8px 14px;border-radius:8px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+.modal-actions button.m-cancel{background:transparent;border:1px solid var(--line);color:var(--mute)}
+.modal-actions button.m-primary{background:var(--brand);border:1px solid var(--brand);color:var(--brand-ink)}
+.modal-actions button.m-danger{background:#dc2626;border:1px solid #dc2626;color:#fff}
 .ad-slot-wrap{display:flex;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:70px;overflow:hidden;scroll-margin-top:100px}
 @media (min-width:768px){.ad-slot-wrap{min-height:90px;margin:14px auto;scroll-margin-top:105px}}
+.share-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0 10px;box-shadow:0 1px 4px rgba(0,0,0,.02)}
+.share-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.share-head b{font-size:.88rem;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.share-sub{font-size:.78rem;color:var(--mute);margin-top:2px}
+.share-grid{display:flex;flex-wrap:wrap;gap:7px}
+.s-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:99px;font:inherit;font-size:.78rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;line-height:1;transition:opacity .15s}
+.s-btn:hover{opacity:.88}
+.s-btn svg{flex:none}
+.s-wa{background:#25D366;color:#fff}
+.s-x{background:#0f1419;color:#fff}
+:root[data-theme="dark"] .s-x{background:#2b2f33;color:#fff}
+.s-fb{background:#1877F2;color:#fff}
+.s-li{background:#0A66C2;color:#fff}
+.s-tg{background:#229ED9;color:#fff}
+.s-copy{background:var(--soft);color:var(--brand);border:1px solid var(--line)}
+.s-more{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.hero-share-pill{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35);padding:4px 10px;border-radius:99px;font:inherit;font-size:.75rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:background .2s}
+.hero-share-pill:hover{background:rgba(255,255,255,.35)}
 </style>
 </head>
 <body>
 <div class="wrap">
 <div class="hero">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
 <span class="logo">SABIMENTORS × FUNNELCRAFT AI</span>
-<h1>Ebook Launchpad</h1>
+<button type="button" class="hero-share-pill" id="hero-share-btn" title="Share Ebook Buddy">📢 Share App</button>
+</div>
+<h1>Ebook Buddy</h1>
 <p>Turn a real problem into a profitable ebook. Answer simple questions, get ready-made prompts, paste them into your favorite AI tool.</p>
 <div class="hero-cta">🚀 <b>When your Ebook is ready:</b> Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> to sell it, and use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a> to build your funnel in minutes.</div>
 </div>
 <div class="how"><div><b>1</b>Fill the boxes</div><div><b>2</b>Copy the prompt</div><div><b>3</b>Paste in any AI</div></div>
+<div class="share-card" id="share-card">
+<div class="share-head">
+<div>
+<b>📢 Share Ebook Buddy with Creators</b>
+<div class="share-sub">Help fellow writers, students & entrepreneurs launch profitable ebooks with AI.</div>
+</div>
+<button type="button" class="s-btn s-copy" id="btn-copy-share" title="Copy share link">📋 Copy Link</button>
+</div>
+<div class="share-grid">
+<a href="#" class="s-btn s-wa" id="share-wa" title="Share on WhatsApp"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> WhatsApp</a>
+<a href="#" class="s-btn s-x" id="share-x" title="Share on X (Twitter)"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> X / Twitter</a>
+<a href="#" class="s-btn s-fb" id="share-fb" title="Share on Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a>
+<a href="#" class="s-btn s-li" id="share-li" title="Share on LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37h2.79V10.9H6.46M7.86 6.55a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg> LinkedIn</a>
+<a href="#" class="s-btn s-tg" id="share-tg" title="Share on Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg> Telegram</a>
+<button type="button" class="s-btn s-more" id="btn-native-share" title="More share options">📲 More...</button>
+</div>
+</div>
 <div class="proj-bar">
 <div class="proj-left">
 <span class="proj-label">📁 Project:</span>
 <select id="proj-select" class="proj-select" title="Switch between ebook projects"></select>
 <button type="button" class="t-btn" id="proj-new" title="Create a new project">+ New</button>
-<button type="button" class="t-btn" id="proj-ren" title="Rename this project">✏️</button>
+<button type="button" class="t-btn" id="proj-ren" title="Rename or edit project title">✏️ Edit</button>
 <button type="button" class="t-btn" id="proj-del" title="Delete this project">🗑️</button>
+<button type="button" class="t-btn" id="proj-save" title="Save current project answers">💾 Save</button>
+<span class="save-badge" id="save-status">✓ Saved</span>
 </div>
 <div class="proj-right">
 <button type="button" class="t-btn" id="btn-export-md" title="Download formatted Markdown ebook blueprint">📥 Export .MD</button>
-<button type="button" class="t-btn" id="btn-export-json" title="Download backup JSON">💾 Backup</button>
+<button type="button" class="t-btn" id="btn-export-json" title="Download backup JSON">💾 Backup JSON</button>
 <button type="button" class="t-btn" id="btn-import-json" title="Import backup JSON file">📂 Import</button>
 <input type="file" id="import-file" accept=".json" style="display:none">
 </div>
@@ -144,6 +200,16 @@ reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:1
 <div id="stage"></div>
 <div class="ad-slot-wrap" id="ad-bottom"></div>
 <div class="nav"><button class="b alt" id="pv">← Back</button><button class="b" id="nx">Next stage →</button></div>
+<div id="app-modal" class="modal-wrap" style="display:none">
+<div class="modal-box">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+<h3 id="modal-title" style="margin:0">Modal Title</h3>
+<button type="button" id="modal-x" style="background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--mute)">✕</button>
+</div>
+<div id="modal-body"></div>
+<div class="modal-actions" id="modal-actions"></div>
+</div>
+</div>
 <footer>© 2026 Created by <b>Osazee Kelvin King</b><br>Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a><div class='promo'><h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4><p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p><p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p></div>Always verify facts (laws, fees, visa rules, health info) from official sources before publishing.</footer>
 </div>
 <script>
@@ -204,6 +270,8 @@ var S=[
 {t:"Localise and translate",d:"Reach new countries and languages.",p:"Adapt this section for {{country}}, replacing examples, prices, institutions, laws, payment platforms and slang with correct local equivalents and flag what I must verify. Then translate into {{lang}} in a natural conversational tone for phone readers.\n\n{{text}}"}]}
 ];
 var V={},D={},cur=0,K="fc_ebook_v1",aiK="fc_ai_pref",thK="fc_theme_pref";
+var prjK="fc_projects_list",curPrjK="fc_cur_proj_id";
+var projects=[],curProjId="proj_default";
 var AIS={
 claude:{name:"Claude",url:"https://claude.ai/new?q="},
 chatgpt:{name:"ChatGPT",url:"https://chatgpt.com/"},
@@ -213,12 +281,200 @@ copilot:{name:"Copilot",url:"https://copilot.microsoft.com/"},
 custom:{name:"AI",url:""}
 };
 var curAI="claude",curTheme="light";
+function escapeHtml(s){return String(s||"").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function slugify(s){return(s||"ebook").toString().toLowerCase().trim().replace(/\s+/g,"-").replace(/[^\w\-]+/g,"").replace(/\-\-+/g,"-")||"ebook"}
 try{
 var o=JSON.parse(localStorage.getItem(K)||"{}");V=o.v||{};D=o.d||{};
 var sa=localStorage.getItem(aiK);if(sa&&AIS[sa])curAI=sa;
 var sth=localStorage.getItem(thK);
 if(sth){curTheme=sth}else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){curTheme="dark"}
 }catch(e){}
+function showModal(title,bodyHtml,actions){
+var m=document.getElementById("app-modal");
+if(!m)return;
+document.getElementById("modal-title").textContent=title;
+document.getElementById("modal-body").innerHTML=bodyHtml;
+var act=document.getElementById("modal-actions");
+act.innerHTML="";
+(actions||[{text:"OK",cls:"m-primary"}]).forEach(function(a){
+var b=document.createElement("button");
+b.type="button";
+b.className=a.cls||"m-primary";
+b.textContent=a.text;
+b.onclick=function(){
+if(a.onClick){if(a.onClick()!==false)closeModal()}else{closeModal()}
+};
+act.appendChild(b);
+});
+m.style.display="flex";
+var inp=m.querySelector("input, textarea");
+if(inp){setTimeout(function(){try{if(inp.focus)inp.focus();if(inp.select)inp.select()}catch(e){}},50)}
+}
+function closeModal(){
+var m=document.getElementById("app-modal");
+if(m)m.style.display="none";
+}
+var mxBtn=document.getElementById("modal-x");
+if(mxBtn)mxBtn.onclick=closeModal;
+var modalWrap=document.getElementById("app-modal");
+if(modalWrap){
+modalWrap.onclick=function(e){
+if(e.target===modalWrap)closeModal();
+};
+}
+document.addEventListener("keydown",function(e){
+if(e.key==="Escape"||e.keyCode===27)closeModal();
+});
+function toastSave(msg){
+var b=document.getElementById("save-status");
+if(!b)return;
+b.textContent=msg||"✓ Saved";
+b.style.color="var(--brand)";
+setTimeout(function(){b.textContent="✓ Saved";b.style.color="var(--mute)"},1800);
+}
+function initProjects(){
+try{
+var rawList=localStorage.getItem(prjK);
+var savedCurId=localStorage.getItem(curPrjK);
+if(rawList){projects=JSON.parse(rawList)||[]}
+}catch(e){}
+if(!projects||!projects.length){
+var legacyName=(V&&V.title&&V.title.trim())||"My First Ebook";
+projects=[{id:"proj_default",name:legacyName,updatedAt:Date.now()}];
+curProjId="proj_default";
+try{
+localStorage.setItem(prjK,JSON.stringify(projects));
+localStorage.setItem(curPrjK,curProjId);
+localStorage.setItem("fc_proj_"+curProjId,JSON.stringify({id:curProjId,name:legacyName,v:V,d:D,updatedAt:Date.now()}));
+}catch(e){}
+}else{
+if(savedCurId&&projects.some(function(p){return p.id===savedCurId})){curProjId=savedCurId}
+else{curProjId=projects[0].id}
+try{
+var rawData=localStorage.getItem("fc_proj_"+curProjId);
+if(rawData){
+var pData=JSON.parse(rawData);
+if(pData&&pData.v){V=pData.v}
+if(pData&&pData.d){D=pData.d}
+}
+}catch(e){}
+}
+}
+function getCurProj(){
+for(var i=0;i<projects.length;i++){
+if(projects[i].id===curProjId)return projects[i];
+}
+return projects[0]||{id:curProjId,name:"My First Ebook",updatedAt:Date.now()};
+}
+function renderProjectSelector(){
+var sel=document.getElementById("proj-select");
+if(!sel)return;
+var h="";
+projects.forEach(function(p){
+h+='<option value="'+p.id+'"'+(p.id===curProjId?' selected':'')+'>'+escapeHtml(p.name||"Untitled")+'</option>';
+});
+sel.innerHTML=h;
+}
+function switchProject(newId){
+if(newId===curProjId)return;
+sv();
+var target=projects.find(function(p){return p.id===newId});
+if(!target)return;
+curProjId=newId;
+try{localStorage.setItem(curPrjK,curProjId)}catch(e){}
+try{
+var rawData=localStorage.getItem("fc_proj_"+curProjId);
+if(rawData){
+var pData=JSON.parse(rawData);
+V=pData.v||{};
+D=pData.d||{};
+}else{
+V={};D={};
+}
+}catch(e){V={};D={}}
+renderProjectSelector();
+stage();
+fs();
+scrollToStage();
+toastSave("Switched project");
+}
+function newProject(){
+showModal(
+"✨ Create New Ebook Project",
+'<label style="display:block;margin:0 0 6px;font-weight:600">Enter a project title or topic:</label><input id="modal-proj-name" placeholder="e.g. Remote Job Blueprint" value="New Ebook Project">',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Create Project",cls:"m-primary",onClick:function(){
+var input=document.getElementById("modal-proj-name");
+var val=input?input.value.trim():"";
+if(!val)val="Untitled Ebook";
+sv();
+var newId="proj_"+Date.now()+"_"+Math.random().toString(36).substr(2,4);
+var newProj={id:newId,name:val,updatedAt:Date.now()};
+projects.push(newProj);
+curProjId=newId;
+V={title:val};
+D={};
+sv();
+renderProjectSelector();
+stage();
+fs();
+toastSave("New project created!");
+}}
+]
+);
+}
+function renameProject(){
+var curP=getCurProj();
+showModal(
+"✏️ Edit / Rename Project",
+'<label style="display:block;margin:0 0 6px;font-weight:600">Project Name:</label><input id="modal-proj-ren" value="'+escapeHtml(curP.name)+'">',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Save Name",cls:"m-primary",onClick:function(){
+var input=document.getElementById("modal-proj-ren");
+var val=input?input.value.trim():"";
+if(!val)return false;
+curP.name=val;
+curP.renamed=true;
+curP.updatedAt=Date.now();
+sv();
+renderProjectSelector();
+toastSave("Project renamed!");
+}}
+]
+);
+}
+function deleteProject(){
+var curP=getCurProj();
+showModal(
+"🗑️ Delete Project?",
+'<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">Are you sure you want to delete <b>'+escapeHtml(curP.name)+'</b>? All your answers and prompts for this project will be removed.</p>',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Delete Project",cls:"m-danger",onClick:function(){
+var delId=curProjId;
+try{localStorage.removeItem("fc_proj_"+delId)}catch(e){}
+idbDeleteProject(delId);
+projects=projects.filter(function(p){return p.id!==delId});
+if(!projects.length){
+projects=[{id:"proj_"+Date.now(),name:"My First Ebook",updatedAt:Date.now()}];
+}
+curProjId=projects[0].id;
+try{
+localStorage.setItem(prjK,JSON.stringify(projects));
+localStorage.setItem(curPrjK,curProjId);
+var raw=localStorage.getItem("fc_proj_"+curProjId);
+if(raw){var d=JSON.parse(raw);V=d.v||{};D=d.d||{}}else{V={};D={}}
+}catch(e){V={};D={}}
+renderProjectSelector();
+stage();
+fs();
+toastSave("Project deleted");
+}}
+]
+);
+}
 function applyTheme(t){
 curTheme=t;
 document.documentElement.setAttribute('data-theme',t);
@@ -239,13 +495,29 @@ req.onsuccess=function(e){idbInst=e.target.result;cb(null,idbInst)};
 req.onerror=function(e){cb(e.target.error)};
 }
 function idbSave(data){
+idbSaveProject({id:curProjId,name:getCurProj().name,v:data.v||V,d:data.d||D,ai:curAI,theme:curTheme});
+}
+function idbSaveProject(data){
 getIDB(function(err,db){
 if(err||!db)return;
 try{
 var tx=db.transaction(IDB_STORE,"readwrite");
-data.id="current";
+var store=tx.objectStore(IDB_STORE);
 data.updatedAt=Date.now();
-tx.objectStore(IDB_STORE).put(data);
+store.put(data);
+store.put({id:"__projects_meta__",projects:projects,curProjId:curProjId,updatedAt:Date.now()});
+store.put({id:"current",v:data.v,d:data.d,ai:curAI,theme:curTheme,updatedAt:Date.now()});
+}catch(e){}
+});
+}
+function idbDeleteProject(id){
+getIDB(function(err,db){
+if(err||!db)return;
+try{
+var tx=db.transaction(IDB_STORE,"readwrite");
+var store=tx.objectStore(IDB_STORE);
+store.delete(id);
+store.put({id:"__projects_meta__",projects:projects,curProjId:curProjId,updatedAt:Date.now()});
 }catch(e){}
 });
 }
@@ -254,9 +526,14 @@ getIDB(function(err,db){
 if(err||!db)return cb(err);
 try{
 var tx=db.transaction(IDB_STORE,"readonly");
-var req=tx.objectStore(IDB_STORE).get("current");
-req.onsuccess=function(){cb(null,req.result)};
-req.onerror=function(e){cb(e.target.error)};
+var store=tx.objectStore(IDB_STORE);
+var reqMeta=store.get("__projects_meta__");
+var reqCur=store.get(curProjId);
+var reqLegacy=store.get("current");
+tx.oncomplete=function(){
+cb(null,{meta:reqMeta.result,cur:reqCur.result,legacy:reqLegacy.result});
+};
+tx.onerror=function(e){cb(e)};
 }catch(e){cb(e)}
 });
 }
@@ -274,7 +551,243 @@ function renderRec(r){
 var lks=r.links.map(function(l){return '<a href="'+l.u+'" target="_blank" rel="noopener" class="stage-recom-btn">'+l.t+'</a>'}).join(" ");
 return '<div class="stage-recom"><div class="stage-recom-icon">'+r.icon+'</div><div class="stage-recom-body"><b>'+r.title+'</b><p>'+r.text+'</p><div>'+lks+'</div></div></div>';
 }
-function sv(){try{localStorage.setItem(K,JSON.stringify({v:V,d:D}))}catch(e){}idbSave({v:V,d:D,ai:curAI,theme:curTheme});}
+function sv(){
+var curP=getCurProj();
+if(V.title&&V.title.trim()&&(curP.name==="My First Ebook"||curP.name==="Untitled Ebook"||curP.name==="New Ebook Project"||!curP.renamed)){
+curP.name=V.title.trim();
+renderProjectSelector();
+}
+curP.updatedAt=Date.now();
+var projPayload={id:curProjId,name:curP.name,v:V,d:D,updatedAt:curP.updatedAt};
+try{
+localStorage.setItem(K,JSON.stringify({v:V,d:D}));
+localStorage.setItem("fc_proj_"+curProjId,JSON.stringify(projPayload));
+localStorage.setItem(prjK,JSON.stringify(projects));
+localStorage.setItem(curPrjK,curProjId);
+}catch(e){}
+idbSaveProject(projPayload);
+toastSave();
+}
+function downloadFile(filename,content,mimeType){
+var ok=false;
+try{
+var blob=new Blob([content],{type:mimeType});
+var url=URL.createObjectURL(blob);
+var a=document.createElement("a");
+a.href=url;
+a.download=filename;
+a.style.display="none";
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+setTimeout(function(){URL.revokeObjectURL(url)},60000);
+ok=true;
+}catch(e){
+try{
+var a=document.createElement("a");
+a.href="data:"+mimeType+";charset=utf-8,"+encodeURIComponent(content);
+a.download=filename;
+a.style.display="none";
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+ok=true;
+}catch(err){}
+}
+return ok;
+}
+function generateMarkdownExport(){
+var title=(V.title&&V.title.trim())||getCurProj().name||"Untitled Ebook";
+var lines=[];
+lines.push("# "+title);
+if(V.reader||V.country){
+lines.push("*A practical guide for "+(V.reader||"readers")+(V.country?" in "+V.country:"")+"*");
+}
+lines.push("");
+lines.push("> **Generated with [Ebook Launchpad](https://sabimentors.com)**  ");
+lines.push("> *Powered by [SabiMentors](https://sabimentors.com) × [FunnelCraft AI](https://www.funnelcraftai.com)*  ");
+lines.push("> **Export Date:** "+new Date().toLocaleDateString()+"  ");
+lines.push("");
+lines.push("---");
+lines.push("");
+lines.push("## 🧭 Project Blueprint & Core Context");
+lines.push("- **Target Reader:** "+(V.reader||"*(Not filled yet)*"));
+lines.push("- **Target Country / City:** "+(V.country||"*(Not filled yet)*"));
+lines.push("- **Topic / Niche:** "+(V.niche||"*(Not filled yet)*"));
+lines.push("- **Problem Solved:** "+(V.problem||"*(Not filled yet)*"));
+lines.push("- **Author Background & Authority:** "+(V.background||"*(Not filled yet)*"));
+lines.push("- **Weekly Commitment:** "+(V.hours?V.hours+" hrs/week":"*(Not filled yet)*"));
+lines.push("- **Budget:** "+(V.budget||"*(Not filled yet)*"));
+lines.push("- **90-Day Goal:** "+(V.goal||"*(Not filled yet)*"));
+lines.push("- **Target Price:** "+(V.price||"*(Not filled yet)*"));
+lines.push("- **Main Marketing Platform:** "+(V.platform||"*(Not filled yet)*"));
+lines.push("");
+lines.push("---");
+lines.push("");
+lines.push("## 🎯 Offer, Positioning & Voice-of-Customer");
+lines.push("### Core Offer Stack");
+lines.push(V.offer?V.offer:"*(Not specified yet)*");
+lines.push("");
+lines.push("### Real Customer Quotes & Comments");
+lines.push(V.quotes?V.quotes:"*(No quotes added yet)*");
+lines.push("");
+if(V.ideas){lines.push("### Brainstormed Ideas");lines.push(V.ideas);lines.push("")}
+if(V.data){lines.push("### Research & Competitor Data");lines.push(V.data);lines.push("")}
+lines.push("---");
+lines.push("");
+lines.push("## 🗺️ Ebook Outline");
+lines.push(V.outline?V.outline:"*(No outline drafted yet)*");
+lines.push("");
+lines.push("---");
+lines.push("");
+lines.push("## ✍️ Draft Chapters & Working Copy");
+lines.push(V.text?V.text:"*(No working text saved yet)*");
+lines.push("");
+if(V.numbers){lines.push("### Tracking & Numbers");lines.push(V.numbers);lines.push("")}
+if(V.feedback){lines.push("### Customer Feedback");lines.push(V.feedback);lines.push("")}
+lines.push("---");
+lines.push("");
+lines.push("## 📋 15-Stage System & Customized Prompts");
+lines.push("");
+S.forEach(function(stg,sIdx){
+lines.push("### "+stg.e+" Stage "+(sIdx+1)+": "+stg.t);
+lines.push("*"+stg.d+"*");
+lines.push("");
+stg.i.forEach(function(it,pIdx){
+var k=id(sIdx,pIdx);
+var done=D[k]?"[✓ Done]":"[ ] Not done";
+lines.push("#### "+done+" "+(pIdx+1)+". "+it.t);
+lines.push("**Purpose:** "+it.d);
+lines.push("");
+lines.push("```text");
+lines.push(build(it.p));
+lines.push("```");
+lines.push("");
+});
+});
+lines.push("---");
+lines.push("");
+lines.push("## 🚀 Recommended Next Steps to Publish & Profit");
+lines.push("1. **Sell your Ebook:** [SabiMentors](https://sabimentors.com) — Free digital product hosting, seamless multi-currency payments, order bumps & instant product delivery.");
+lines.push("2. **Build Your Funnel in Minutes:** [FunnelCraft AI](https://www.funnelcraftai.com) — Automated high-converting sales pages, lead funnels & copy generation.");
+lines.push("");
+return lines.join("\n");
+}
+function generateJsonBackup(){
+var curP=getCurProj();
+var payload={
+app:"EbookLaunchpad",
+version:2,
+exportedAt:new Date().toISOString(),
+project:{
+id:curP.id,
+name:curP.name,
+v:V,
+d:D,
+updatedAt:curP.updatedAt||Date.now()
+},
+ai:curAI,
+theme:curTheme
+};
+return JSON.stringify(payload,null,2);
+}
+function exportMarkdown(){
+var title=(V.title&&V.title.trim())||getCurProj().name||"ebook";
+var mdContent=generateMarkdownExport();
+var filename=slugify(title)+"-launchpad.md";
+var dlOk=downloadFile(filename,mdContent,"text/markdown;charset=utf-8");
+showModal(
+"📥 Export Ebook Blueprint (.MD)",
+'<p style="margin:0 0 8px;font-size:.85rem;color:var(--mute)">'+(dlOk?'✓ File download initiated for <b>'+escapeHtml(filename)+'</b>.':'Copy your markdown blueprint or download directly:')+'</p>'+
+'<textarea id="modal-export-area" readonly style="width:100%;height:180px;font-size:.8rem;font-family:monospace;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px">'+escapeHtml(mdContent)+'</textarea>',
+[
+{text:"Close",cls:"m-cancel"},
+{text:"📋 Copy Markdown",cls:"m-primary",onClick:function(){
+var ta=document.getElementById("modal-export-area");
+if(ta)cp(ta.value,this);
+return false;
+}},
+{text:"⬇️ Download File",cls:"m-primary",onClick:function(){
+downloadFile(filename,mdContent,"text/markdown;charset=utf-8");
+return false;
+}}
+]
+);
+}
+function exportJson(){
+var title=(V.title&&V.title.trim())||getCurProj().name||"ebook";
+var jsonContent=generateJsonBackup();
+var filename=slugify(title)+"-backup.json";
+var dlOk=downloadFile(filename,jsonContent,"application/json;charset=utf-8");
+showModal(
+"💾 Backup Project Data (.JSON)",
+'<p style="margin:0 0 8px;font-size:.85rem;color:var(--mute)">'+(dlOk?'✓ Backup file download started for <b>'+escapeHtml(filename)+'</b>.':'Copy your backup JSON data below:')+'</p>'+
+'<textarea id="modal-json-area" readonly style="width:100%;height:180px;font-size:.8rem;font-family:monospace;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px">'+escapeHtml(jsonContent)+'</textarea>',
+[
+{text:"Close",cls:"m-cancel"},
+{text:"📋 Copy JSON",cls:"m-primary",onClick:function(){
+var ta=document.getElementById("modal-json-area");
+if(ta)cp(ta.value,this);
+return false;
+}},
+{text:"⬇️ Download File",cls:"m-primary",onClick:function(){
+downloadFile(filename,jsonContent,"application/json;charset=utf-8");
+return false;
+}}
+]
+);
+}
+function importProjectJson(jsonStr){
+var data;
+try{
+data=JSON.parse(jsonStr);
+}catch(e){
+showModal("⚠️ Import Failed","<p>Invalid JSON file format. Please choose a valid Ebook Launchpad backup file.</p>",[{text:"OK",cls:"m-primary"}]);
+return false;
+}
+var importedV=(data.project&&data.project.v)||data.v;
+var importedD=(data.project&&data.project.d)||data.d||{};
+var importedName=(data.project&&data.project.name)||(importedV&&importedV.title)||"Imported Ebook";
+if(!importedV||typeof importedV!=="object"){
+showModal("⚠️ Import Failed","<p>The selected file does not contain valid project fields.</p>",[{text:"OK",cls:"m-primary"}]);
+return false;
+}
+showModal(
+"📂 Import Project",
+'<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">How would you like to import <b>'+escapeHtml(importedName)+'</b>?</p>',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Overwrite Current Project",cls:"m-danger",onClick:function(){
+var curP=getCurProj();
+curP.name=importedName;
+curP.updatedAt=Date.now();
+V=importedV;
+D=importedD;
+if(data.ai&&AIS[data.ai]){curAI=data.ai;var ait=document.getElementById("ai-tool");if(ait)ait.value=curAI;}
+sv();
+renderProjectSelector();
+stage();
+fs();
+toastSave("Project imported & saved!");
+}},
+{text:"Create As New Project",cls:"m-primary",onClick:function(){
+var newId="proj_"+Date.now()+"_"+Math.random().toString(36).substr(2,4);
+var newProj={id:newId,name:importedName,updatedAt:Date.now()};
+projects.push(newProj);
+curProjId=newId;
+V=importedV;
+D=importedD;
+if(data.ai&&AIS[data.ai]){curAI=data.ai;var ait=document.getElementById("ai-tool");if(ait)ait.value=curAI;}
+sv();
+renderProjectSelector();
+stage();
+fs();
+toastSave("Imported as new project!");
+}}
+]
+);
+return true;
+}
 function keys(p){var m=p.match(/\{\{(\w+)\}\}/g)||[],u=[];m.forEach(function(x){x=x.slice(2,-2);if(u.indexOf(x)<0)u.push(x)});return u}
 function build(p){return p.replace(/\{\{(\w+)\}\}/g,function(_,k){return V[k]&&V[k].trim()?V[k].trim():"["+(L[k]?L[k][0]:k)+"]"})}
 function miss(p){return keys(p).filter(function(k){return !(V[k]&&V[k].trim())})}
@@ -321,7 +834,19 @@ if(a=="open"){go(txt,t)}
 if(a=="done"){D[k]=!D[k];sv();stage()}});
 document.getElementById("nx").onclick=function(){if(cur<S.length-1){cur++;stage();scrollToStage()}};
 document.getElementById("pv").onclick=function(){if(cur>0){cur--;stage();scrollToStage()}};
-document.getElementById("rs").onclick=function(){if(confirm("Clear all your answers and progress?")){V={};D={};sv();stage()}};
+document.getElementById("rs").onclick=function(){
+var curP=getCurProj();
+showModal(
+"⚠️ Reset Project Answers?",
+'<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">Are you sure you want to clear all your answers and prompt progress for <b>'+escapeHtml(curP.name)+'</b>? This cannot be undone.</p>',
+[
+{text:"Cancel",cls:"m-cancel"},
+{text:"Clear All Answers",cls:"m-danger",onClick:function(){
+V={};D={};sv();stage();toastSave("All answers cleared");
+}}
+]
+);
+};
 var HPT={};
 function mode(){return V.__mode=='res'?'res':'exp'}
 var MT={exp:'Work from MY OWN EXPERIENCE. Interview me with simple everyday questions, one at a time (maximum 5), and give example answers I can pick from. Label guesses [MY GUESS]. Never invent facts, statistics or real people.',res:'Work from PROBLEM RESEARCH. If you can search the web, find real public discussions (Facebook groups, forums, Reddit, X, review sites, local communities) from my target country and give links; use only real material. If you cannot browse, give me a 15-minute research mission (exact search phrases, where to look, what to copy) and wait for me to paste what I find. Never invent quotes, statistics or testimonials.'};
@@ -358,6 +883,35 @@ var fob=document.getElementById('fob');if(fob)fob.textContent=aiBtn();
 document.getElementById('imb').onclick=function(){var c=null,n=0;document.getElementById('imp').value.split('\n').forEach(function(l){var m=l.match(/^\s*[-*#]*\s*\**\s*(\w+)\s*\**\s*:\**\s*(.*)$/);if(m&&L[m[1].toLowerCase()]){c=m[1].toLowerCase();V[c]=m[2].trim();n++}else if(c&&l.trim())V[c]+='\n'+l.trim()});sv();document.getElementById('imm').textContent=n?'Filled '+n+' fields ✓ Now start with Stage 1 and keep going.':'No key: value lines found. Ask your AI to use the exact MY BRIEF format.';stage()};
 var ait=document.getElementById("ai-tool");
 if(ait){ait.value=curAI;ait.onchange=function(){curAI=this.value;try{localStorage.setItem(aiK,curAI)}catch(e){}stage();fs()}}
+var psel=document.getElementById("proj-select");
+if(psel){psel.onchange=function(){switchProject(this.value)}}
+var pnew=document.getElementById("proj-new");
+if(pnew){pnew.onclick=function(){newProject()}}
+var pren=document.getElementById("proj-ren");
+if(pren){pren.onclick=function(){renameProject()}}
+var pdel=document.getElementById("proj-del");
+if(pdel){pdel.onclick=function(){deleteProject()}}
+var psave=document.getElementById("proj-save");
+if(psave){psave.onclick=function(){sv();toastSave("Project saved ✓")}}
+var bemd=document.getElementById("btn-export-md");
+if(bemd){bemd.onclick=function(){exportMarkdown()}}
+var bejson=document.getElementById("btn-export-json");
+if(bejson){bejson.onclick=function(){exportJson()}}
+var bijson=document.getElementById("btn-import-json");
+var fimp=document.getElementById("import-file");
+if(bijson&&fimp){
+bijson.onclick=function(){fimp.click()};
+fimp.onchange=function(e){
+var file=e.target.files&&e.target.files[0];
+if(!file)return;
+var reader=new FileReader();
+reader.onload=function(evt){
+importProjectJson(evt.target.result);
+fimp.value="";
+};
+reader.readAsText(file);
+};
+}
 var AD_CLIENT="ca-pub-6130384188487467";
 var AD_DESK={slot:"2384724793",w:728,h:90};
 var AD_MOB={slot:"8830609413",w:320,h:70};
@@ -412,14 +966,37 @@ idbSave({v:V,d:D,ai:curAI,theme:curTheme});
 };
 }
 applyTheme(curTheme);
-idbLoad(function(err,saved){
-if(!err&&saved){
+initProjects();
+renderProjectSelector();
+idbLoad(function(err,res){
+if(!err&&res){
 var dirty=false;
-if(saved.v){for(var k in saved.v){if(saved.v[k]&&(!V[k]||V[k].length<saved.v[k].length)){V[k]=saved.v[k];dirty=true}}}
-if(saved.d){for(var dk in saved.d){if(saved.d[dk]&&!D[dk]){D[dk]=true;dirty=true}}}
+if(res.meta&&res.meta.projects&&res.meta.projects.length){
+res.meta.projects.forEach(function(mp){
+var existing=projects.find(function(p){return p.id===mp.id});
+if(!existing){
+projects.push(mp);
+dirty=true;
+}else if(mp.updatedAt&&(mp.updatedAt>(existing.updatedAt||0))){
+existing.name=mp.name;
+existing.updatedAt=mp.updatedAt;
+dirty=true;
+}
+});
+}
+var saved=res.cur||res.legacy;
+var curP=getCurProj();
+if(saved){
+var curUpdated=curP.updatedAt||0;
+var savedUpdated=saved.updatedAt||0;
+if(savedUpdated>curUpdated){
+if(saved.v){V=saved.v;dirty=true}
+if(saved.d){D=saved.d;dirty=true}
+}
 if(saved.ai&&saved.ai!==curAI&&AIS[saved.ai]){curAI=saved.ai;var ait=document.getElementById("ai-tool");if(ait)ait.value=curAI;dirty=true}
 if(saved.theme&&saved.theme!==curTheme){applyTheme(saved.theme)}
-if(dirty){stage();fs()}
+}
+if(dirty){renderProjectSelector();stage();fs()}
 }
 });
 stage();fs();initAds();

@@ -11,6 +11,8 @@ Turn a real problem into a profitable ebook. Answer simple questions, get ready-
 ### Features & Capabilities
 
 - **15-Stage Ebook System**: Covers Setup, Ideas, Research, Validation, Positioning, Planning, Writing, Editing, Cover Briefs, Offers, Sales Pages, Funnels, Traffic, Launch, and Scaling.
+- **Multi-Project Workspace**: Create, switch, rename, and manage multiple ebook projects within the app with isolated storage.
+- **Export & Backup (Markdown & JSON)**: Download a complete structured Markdown document (`.md`) of your whole ebook blueprint and generate JSON backups (`.json`) with one-click restore.
 - **AI-Agnostic & Model Switcher**: Integrated one-click copying and deep-linking for Claude, ChatGPT, Gemini, DeepSeek, Copilot, and custom AIs.
 - **Light & Dark Mode**: One-click toggle (`🌙 Dark` / `☀️ Light`) with system sync and persistent theme selection.
 - **Bulletproof Dual Storage**: Real-time dual persistence using `localStorage` and `IndexedDB` (`EbookLaunchpadDB`) so your progress, answers, and drafts are never lost.

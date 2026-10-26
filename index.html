@@ -193,6 +193,8 @@ footer a:hover{text-decoration:underline}
 .modal-actions button.m-cancel{background:transparent;border:1px solid var(--line);color:var(--mute)}
 .modal-actions button.m-primary{background:var(--brand);border:1px solid var(--brand);color:var(--brand-ink)}
 .modal-actions button.m-danger{background:#dc2626;border:1px solid #dc2626;color:#fff}
+.app-toast{position:fixed;top:20px;left:50%;transform:translate(-50%,-20px);background:var(--ink);color:var(--card);padding:10px 22px;border-radius:99px;font-size:.86rem;font-weight:700;letter-spacing:.01em;box-shadow:0 8px 24px rgba(0,0,0,.22),0 2px 6px rgba(0,0,0,.12);border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px;z-index:100000;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s cubic-bezier(.2,.8,.2,1),visibility .25s;max-width:calc(100vw - 32px);text-align:center;line-height:1.35}
+.app-toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
 .ad-slot-wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:105px;overflow:hidden;scroll-margin-top:100px}
 @media (min-width:768px){.ad-slot-wrap{min-height:105px;margin:14px auto;scroll-margin-top:105px}}
 .ad-label{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);opacity:.7;margin:0 auto 4px;line-height:1;text-align:center;user-select:none}
@@ -321,6 +323,7 @@ reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:1
 <!-- Ebook-buddy 728x90 3 (Desktop) / Ebook-buddy 320x90 3 (Mobile) -->
 <div class="ad-slot-wrap" id="ad-bottom" data-ad-slot-num="3" data-ad-slot-desk="9246930392" data-ad-slot-mob="5231663766"><span class="ad-label">Advertisement</span></div>
 <div class="nav"><button class="b alt" id="pv">← Back</button><button class="b" id="nx">Next stage →</button></div>
+<div id="app-toast" class="app-toast" role="status" aria-live="polite"></div>
 <div id="app-modal" class="modal-wrap" style="display:none">
 <div class="modal-box">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
@@ -423,7 +426,7 @@ b.type="button";
 b.className=a.cls||"m-primary";
 b.textContent=a.text;
 b.onclick=function(){
-if(a.onClick){if(a.onClick()!==false)closeModal()}else{closeModal()}
+if(a.onClick){if(a.onClick.call(b)!==false)closeModal()}else{closeModal()}
 };
 act.appendChild(b);
 });
@@ -852,7 +855,7 @@ showModal(
 {text:"Close",cls:"m-cancel"},
 {text:"📋 Copy Markdown",cls:"m-primary",onClick:function(){
 var ta=document.getElementById("modal-export-area");
-if(ta)cp(ta.value,this);
+if(ta)cp(ta.value,this,"📥 Markdown blueprint copied to clipboard!");
 return false;
 }},
 {text:"⬇️ Download File",cls:"m-primary",onClick:function(){
@@ -879,7 +882,7 @@ showModal(
 {text:"Close",cls:"m-cancel"},
 {text:"📋 Copy JSON",cls:"m-primary",onClick:function(){
 var ta=document.getElementById("modal-json-area");
-if(ta)cp(ta.value,this);
+if(ta)cp(ta.value,this,"💾 Backup JSON copied to clipboard!");
 return false;
 }},
 {text:"⬇️ Download File",cls:"m-primary",onClick:function(){
@@ -958,34 +961,103 @@ h+='<div class="card'+(D[k]?" ok":"")+(j==0?" open":"")+'" data-id="'+k+'"><div 
 document.getElementById("stage").innerHTML=h;
 document.querySelectorAll("#stage [data-k]").forEach(function(e){e.value=V[e.dataset.k]||""});s.i.forEach(function(_,j){upd(j)});chips();prog()}
 function upd(j){var k=id(cur,j),it=S[cur].i[j],m=miss(it.p);document.getElementById("pv-"+k).textContent=build(it.p);document.getElementById("ms-"+k).textContent=m.length?"Still empty: "+m.map(function(x){return L[x]?L[x][0]:x}).join(", ")+" (you can still copy and fill later)":"All filled. Ready to paste into your AI."}
-function toast(b,t){var o=b.textContent;b.textContent=t;setTimeout(function(){b.textContent=o},1400)}
-function cp(t,b){function fb(){var a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy");toast(b,"Copied ✓")}catch(e){toast(b,"Press and hold to copy")}document.body.removeChild(a)}
-if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast(b,"Copied ✓")},fb)}else fb()}
+var toastTimer=null;
+function showToast(msg){
+var el=document.getElementById("app-toast");
+if(!el){
+el=document.createElement("div");
+el.id="app-toast";
+el.className="app-toast";
+el.setAttribute("role","status");
+el.setAttribute("aria-live","polite");
+document.body.appendChild(el);
+}
+el.innerHTML=msg||"✓ Copied to clipboard!";
+el.classList.add("show");
+if(toastTimer)clearTimeout(toastTimer);
+toastTimer=setTimeout(function(){el.classList.remove("show")},2200);
+}
+function toast(b,t){
+if(!b||typeof b.textContent==="undefined")return;
+var o=b.textContent;
+b.textContent=t;
+setTimeout(function(){b.textContent=o},1500);
+}
+function copyText(t,b,msg){
+var noticeMsg=msg||"✓ Copied to clipboard!";
+function done(){
+if(b&&b.nodeType===1)toast(b,"Copied ✓");
+showToast(noticeMsg);
+}
+function fb(){
+var a=document.createElement("textarea");
+a.value=t;
+a.style.position="fixed";
+a.style.opacity="0";
+a.style.left="-9999px";
+document.body.appendChild(a);
+a.select();
+try{
+document.execCommand("copy");
+done();
+}catch(e){
+if(b&&b.nodeType===1)toast(b,"Press to copy");
+showToast("⚠️ Could not auto-copy. Please copy manually.");
+}
+document.body.removeChild(a);
+}
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(t).then(done,fb);
+}else{
+fb();
+}
+}
+var cp=copyText;
 document.addEventListener("input",function(e){var k=e.target.dataset&&e.target.dataset.k;if(!k)return;V[k]=e.target.value;document.querySelectorAll('[data-k="'+k+'"]').forEach(function(x){if(x!==e.target)x.value=e.target.value});S[cur].i.forEach(function(_,j){upd(j)});sv()});
+function snapToStageHeader(smooth){
+requestAnimationFrame(function(){
+var stage=document.getElementById("stage");
+if(!stage)return;
+var header=stage.querySelector("h2")||stage;
+var nav=document.getElementById("sticky-nav");
+if(!nav||!header)return;
+var navBottom=nav.getBoundingClientRect().bottom;
+var headerTop=header.getBoundingClientRect().top;
+var diff=headerTop-navBottom;
+var targetY=Math.max(0,window.pageYOffset+diff-8);
+window.scrollTo({top:targetY,behavior:smooth!==false?"smooth":"auto"});
+});
+}
+window.snapToStageHeader=snapToStageHeader;
 function scrollToStage(){
 requestAnimationFrame(function(){
 var ad=document.getElementById("ad-top");
-var targetEl=(ad&&ad.offsetHeight>0&&!ad.classList.contains("ad-collapsed"))?ad:document.getElementById("stage");
-if(!targetEl)return;
+var stage=document.getElementById("stage");
+var header=stage?(stage.querySelector("h2")||stage):stage;
 var nav=document.getElementById("sticky-nav");
-var navH=nav?nav.getBoundingClientRect().height:100;
-var targetY=window.pageYOffset+targetEl.getBoundingClientRect().top-navH-8;
-window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"});
+if(!header||!nav)return;
+var hasActiveAd=ad&&!ad.classList.contains("ad-collapsed")&&ad.offsetHeight>20&&(ad.querySelector("iframe")!==null||(ad.querySelector("ins")&&ad.querySelector("ins").getAttribute("data-ad-status")==="filled"));
+var targetEl=hasActiveAd?ad:header;
+var navBottom=nav.getBoundingClientRect().bottom;
+var targetTop=targetEl.getBoundingClientRect().top;
+var diff=targetTop-navBottom;
+var targetY=Math.max(0,window.pageYOffset+diff-8);
+window.scrollTo({top:targetY,behavior:"smooth"});
 });
 }
 document.addEventListener("click",function(e){var t=e.target;
 if(t.classList.contains("chip")){cur=+t.dataset.i;stage();scrollToStage();refreshAds();return}
-var ch=t.closest(".ch");if(ch){var cp=ch.parentNode;cp.classList.toggle("open");if(cp.classList.contains("open")){setTimeout(function(){var nav=document.getElementById("sticky-nav");var navH=nav?nav.getBoundingClientRect().height:100;var rect=cp.getBoundingClientRect();if(rect.top<navH+10){var targetY=window.pageYOffset+rect.top-navH-14;window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"})}},60)}return}
+var ch=t.closest(".ch");if(ch){var cardEl=ch.parentNode;cardEl.classList.toggle("open");if(cardEl.classList.contains("open")){setTimeout(function(){var nav=document.getElementById("sticky-nav");var navH=nav?nav.getBoundingClientRect().height:100;var rect=cardEl.getBoundingClientRect();if(rect.top<navH+10){var targetY=window.pageYOffset+rect.top-navH-14;window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"})}},60)}return}
 var d=t.dataset||{};
 if(d.t){var hx=t.parentNode.nextElementSibling;hx.classList.toggle('show');t.textContent=hx.classList.contains('show')?'Hide Hint':'See Hint';return}
 if(d.m){V.__mode=d.m;sv();fs();return}
-if(d.a=='fc'){cp(fsP(),t);return}
+if(d.a=='fc'){copyText(fsP(),t,"✓ Fast-start prompt copied!");return}
 if(d.a=='fo'){go(fsP(),t);return}
 if(d.h){var bx=document.getElementById('hp-'+d.h+'-'+d.w);if(bx.innerHTML){bx.innerHTML='';return}HPT[d.h+d.w]=helpP(d.h);bx.innerHTML='<div class="pv"></div><div class="row"><button class="b" data-a="hc" data-x="'+d.h+d.w+'">Copy helper prompt</button><button class="b alt" data-a="ho" data-x="'+d.h+d.w+'">'+aiBtn()+'</button></div><p class="miss">Paste the FINAL ANSWER from your AI into the box above.</p>';bx.firstChild.textContent=HPT[d.h+d.w];return}
-if(d.a=='hc'){cp(HPT[d.x],t);return}
+if(d.a=='hc'){copyText(HPT[d.x],t,"✓ Helper prompt copied!");return}
 if(d.a=='ho'){go(HPT[d.x],t);return}
 var a=t.dataset&&t.dataset.a;if(!a)return;var j=+t.dataset.p,it=S[cur].i[j],k=id(cur,j),txt=build(it.p);
-if(a=="copy"){cp(txt,t)}
+if(a=="copy"){copyText(txt,t,"✓ Prompt copied to clipboard!")}
 if(a=="open"){go(txt,t)}
 if(a=="done"){D[k]=!D[k];sv();stage()}});
 document.getElementById("nx").onclick=function(){if(cur<S.length-1){cur++;stage();scrollToStage();refreshAds()}};
@@ -1102,7 +1174,7 @@ window.location.href="mailto:?subject="+encodeURIComponent(SHARE_DATA.title)+"&b
 window.open("https://pinterest.com/pin/create/button/?url="+encodedUrl+"&description="+encodedText,"_blank","noopener,noreferrer");
 }else if(platform==="copy"){
 var btn=document.getElementById("btn-copy-share")||document.body;
-cp(url,btn);
+cp(url,btn,"📋 Share link copied to clipboard!");
 toastSave("Share link copied! 📋");
 }else if(platform==="native"){
 var sharePayload={
@@ -1151,7 +1223,7 @@ showModal(
 {text:"Close",cls:"m-cancel"},
 {text:"📋 Copy Link",cls:"m-primary",onClick:function(){
 var inp=document.getElementById("share-modal-input");
-if(inp)cp(inp.value,this);
+if(inp)cp(inp.value,this,"📋 Share link copied to clipboard!");
 toastSave("Link copied! 📋");
 return false;
 }}
@@ -1231,7 +1303,12 @@ return false;
 }
 function collapseAd(){
 if(adLoaded)return;
+var isTopAd=c.id==="ad-top";
+var wasInLayout=!c.classList.contains("ad-collapsed")&&c.offsetHeight>0;
 c.classList.add("ad-collapsed");
+if(isTopAd&&wasInLayout&&typeof snapToStageHeader==="function"){
+snapToStageHeader(true);
+}
 }
 if(window.MutationObserver){
 obs=new window.MutationObserver(function(muts){

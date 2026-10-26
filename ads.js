@@ -163,7 +163,12 @@
 
     function collapseAd() {
       if (adLoaded) return; // NEVER collapse if ad has loaded!
+      var isTopAd = el.id === "ad-top";
+      var wasInLayout = !el.classList.contains("ad-collapsed") && el.offsetHeight > 0;
       el.classList.add("ad-collapsed");
+      if (isTopAd && wasInLayout && typeof window.snapToStageHeader === "function") {
+        window.snapToStageHeader(true);
+      }
     }
 
     // 1. MutationObserver watching for status changes or DOM insertion

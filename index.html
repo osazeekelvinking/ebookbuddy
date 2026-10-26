@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ebook Launchpad · SabiMentors × FunnelCraft AI</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
+<style>
+:root{--brand:#F26B21;--brand-ink:#fff;--bg:#FAF8F5;--card:#fff;--ink:#1B1B22;--mute:#6B6B78;--line:#E8E4DD;--soft:#FFF1E8;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="light"]{--bg:#FAF8F5;--card:#fff;--ink:#1B1B22;--mute:#6B6B78;--line:#E8E4DD;--soft:#FFF1E8;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14141A;--card:#1E1E27;--ink:#F3F1EE;--mute:#A3A3B2;--line:#2E2E3A;--soft:#2A1E16;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14141A;--card:#1E1E27;--ink:#F3F1EE;--mute:#A3A3B2;--line:#2E2E3A;--soft:#2A1E16;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:16px}
+.hero{background:linear-gradient(135deg,var(--brand),#c2410c);color:#fff;border-radius:18px;padding:20px;margin-bottom:14px}
+.hero h1{margin:0 0 6px;font-size:1.5rem;line-height:1.2}
+.hero p{margin:0;opacity:.95;font-size:.95rem}
+.logo{display:inline-block;font-weight:800;font-size:.75rem;letter-spacing:.08em;background:rgba(255,255,255,.2);padding:3px 10px;border-radius:99px;margin-bottom:10px}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.how div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;font-size:.82rem;color:var(--mute)}
+.how b{display:block;color:var(--brand);font-size:1rem}
+.sticky-nav{position:sticky;top:0;z-index:90;background:var(--bg);padding:6px 0 2px;margin:4px 0 10px;border-bottom:1px solid var(--line)}
+#stage{scroll-margin-top:120px}
+.card{scroll-margin-top:125px}
+.bar{height:7px;background:var(--line);border-radius:9px;overflow:hidden;margin:4px 0 2px}
+.bar i{display:block;height:100%;background:var(--brand);width:0;transition:width .3s}
+.pm{font-size:.78rem;color:var(--mute);margin-bottom:6px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;scrollbar-width:thin}
+.chip{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:8px 13px;font-size:.85rem;cursor:pointer}
+.chip.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.chip.done{border-color:var(--brand)}
+h2{font-size:1.2rem;margin:6px 0 4px}
+.sd{color:var(--mute);font-size:.9rem;margin:0 0 12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.ch{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer}
+.ch b{flex:1}
+.ch small{display:block;color:var(--mute);font-weight:400}
+.tick{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:.75rem;color:#fff}
+.card.ok .tick{background:var(--brand);border-color:var(--brand)}
+.cv{flex:none;width:30px;height:30px;border-radius:50%;background:var(--brand);display:grid;place-items:center;transition:transform .2s}
+.cv::before{content:'';width:9px;height:9px;border-right:3px solid #fff;border-bottom:3px solid #fff;transform:translateY(-2px) rotate(45deg)}
+.card.open .cv{transform:rotate(180deg)}
+.body{display:none;padding:0 14px 14px}
+.card.open .body{display:block}
+label{display:block;font-size:.8rem;font-weight:600;margin:10px 0 4px}
+.hint{display:block;font-size:.78rem;color:var(--mute);margin:-2px 0 6px;line-height:1.4}
+.lr{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sh{background:none;border:0;color:var(--mute);font:inherit;font-size:.75rem;text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0;flex:none}
+.sh:hover{color:var(--brand)}
+.hx{display:none;background:var(--soft);border-left:3px solid var(--brand);border-radius:8px;padding:8px 10px;font-size:.8rem;color:var(--ink);line-height:1.45;margin:0 0 8px}
+.hx.show{display:block}
+.hb{background:none;border:0;color:var(--brand);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;padding:6px 0}
+button.b.alt.on{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+input,textarea{width:100%;font:inherit;font-size:.95rem;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--brand);border-color:transparent}
+textarea{min-height:70px;resize:vertical}
+.pv{white-space:pre-wrap;background:var(--soft);border:1px dashed var(--brand);border-radius:10px;padding:12px;font-size:.85rem;margin:12px 0 8px;max-height:260px;overflow:auto;overflow-wrap:anywhere}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button.b{flex:1;min-width:120px;border:0;border-radius:10px;padding:11px;font:inherit;font-weight:600;cursor:pointer;background:var(--brand);color:var(--brand-ink)}
+button.b.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.miss{font-size:.78rem;color:var(--mute);margin:0 0 8px}
+.nav{display:flex;justify-content:space-between;gap:8px;margin:14px 0}
+footer{text-align:center;color:var(--mute);font-size:.8rem;padding:20px 8px 28px;border-top:1px solid var(--line);margin-top:18px}
+footer b{color:var(--brand)}
+footer a{color:var(--brand);font-weight:700;text-decoration:none}
+footer a:hover{text-decoration:underline}
+.promo{background:var(--soft);border:1px solid var(--brand);border-radius:12px;padding:12px 14px;margin:14px 0;text-align:left;color:var(--ink);line-height:1.6}
+.promo p{margin:0 0 8px}.promo p:last-child{margin:0}
+.ph{margin:0 0 10px;font-size:.78rem;letter-spacing:.08em;color:var(--brand);font-weight:800}
+.tools{display:flex;justify-content:flex-end;gap:8px}
+.tools button{background:none;border:1px solid var(--line);color:var(--mute);border-radius:8px;padding:4px 10px;font-size:.78rem;cursor:pointer}
+.hero-cta{margin-top:14px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);border-radius:12px;padding:11px 14px;font-size:.88rem;line-height:1.45;color:#fff}
+.hero-cta a{color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.hero-cta a:hover{opacity:.9}
+.ai-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:12px 0 6px}
+.ai-select-wrap{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--mute)}
+.ai-select{font:inherit;font-size:.82rem;font-weight:600;padding:5px 9px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.stage-recom{background:var(--soft);border:1px solid var(--brand);border-radius:12px;padding:12px 14px;margin:10px 0 14px;display:flex;gap:12px;align-items:flex-start}
+.stage-recom-icon{font-size:1.4rem;line-height:1.2;flex:none}
+.stage-recom-body{flex:1;font-size:.83rem;line-height:1.5;color:var(--ink)}
+.stage-recom-body b{color:var(--brand)}
+.stage-recom-body p{margin:2px 0 8px}
+.stage-recom-btn{display:inline-block;margin-right:8px;margin-top:4px;background:var(--brand);color:var(--brand-ink);padding:5px 12px;border-radius:8px;font-size:.78rem;font-weight:700;text-decoration:none}
+.stage-recom-btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.stage-recom-btn:hover{opacity:.9}
+.proj-bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:10px 0 10px;padding:9px 12px;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.proj-left,.proj-right{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.proj-label{font-size:.82rem;font-weight:700;color:var(--mute);display:flex;align-items:center;gap:4px}
+.proj-select{font:inherit;font-size:.82rem;font-weight:600;padding:5px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);max-width:180px;text-overflow:ellipsis;cursor:pointer}
+.t-btn{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:5px 9px;font:inherit;font-size:.78rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s}
+.t-btn:hover{border-color:var(--brand);color:var(--brand)}
+.ad-slot-wrap{display:flex;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:70px;overflow:hidden;scroll-margin-top:100px}
+@media (min-width:768px){.ad-slot-wrap{min-height:90px;margin:14px auto;scroll-margin-top:105px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<span class="logo">SABIMENTORS × FUNNELCRAFT AI</span>
+<h1>Ebook Launchpad</h1>
+<p>Turn a real problem into a profitable ebook. Answer simple questions, get ready-made prompts, paste them into your favorite AI tool.</p>
+<div class="hero-cta">🚀 <b>When your Ebook is ready:</b> Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> to sell it, and use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a> to build your funnel in minutes.</div>
+</div>
+<div class="how"><div><b>1</b>Fill the boxes</div><div><b>2</b>Copy the prompt</div><div><b>3</b>Paste in any AI</div></div>
+<div class='card open'><div class='ch'><b>⚡ Fast start: let your AI fill your fields<small>Do not know what to write? Pick your path, copy the prompt, then paste your AI’s answer back here.</small></b><span class='cv'></span></div><div class='body'><label>1. Choose your path</label><div class='row'><button class='b alt' data-m='exp' id='m1'>🧠 I will use my own experience</button><button class='b alt' data-m='res' id='m2'>🔎 Start from problem research</button></div><label>2. Copy this prompt into your AI</label><small class='hint'>Your AI will ask a few simple questions (or research for you), then write all your starting fields.</small><div class='pv' id='fsp'></div><div class='row'><button class='b' data-a='fc'>Copy prompt</button><button class='b alt' data-a='fo' id='fob'>Open in AI ↗</button></div><label for='imp'>3. Paste your AI’s MY BRIEF here</label><small class='hint'>Paste the whole MY BRIEF section. The app reads it and fills your boxes in every stage.</small><textarea id='imp' placeholder='country: ...
+reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:100%'>Fill my fields</button><p class='miss' id='imm'></p></div></div>
+<div class="ai-bar">
+<div class="ai-select-wrap">
+<span>🤖 Preferred AI:</span>
+<select id="ai-tool" class="ai-select">
+<option value="claude">Claude</option>
+<option value="chatgpt">ChatGPT</option>
+<option value="gemini">Google Gemini</option>
+<option value="deepseek">DeepSeek</option>
+<option value="copilot">Microsoft Copilot</option>
+<option value="custom">Any AI / Other</option>
+</select>
+</div>
+<div class="tools"><button id="thm" title="Switch Light/Dark Mode">🌙 Dark</button><button id="rs">Reset all</button></div>
+</div>
+<div class="sticky-nav" id="sticky-nav">
+<div class="bar"><i id="pb"></i></div><div class="pm" id="pm"></div>
+<div class="chips" id="chips"></div>
+</div>
+<div class="ad-slot-wrap" id="ad-top"></div>
+<div id="stage"></div>
+<div class="ad-slot-wrap" id="ad-bottom"></div>
+<div class="nav"><button class="b alt" id="pv">← Back</button><button class="b" id="nx">Next stage →</button></div>
+<footer>© 2026 Created by <b>Osazee Kelvin King</b><br>Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a><div class='promo'><h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4><p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p><p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p></div>Always verify facts (laws, fees, visa rules, health info) from official sources before publishing.</footer>
+</div>
+<script>
+var L={country:["Your country / city","e.g. your country and city"],reader:["Target reader","e.g. new graduates looking for remote jobs"],niche:["Topic / niche","e.g. exam prep, poultry farming, freelancing"],problem:["Problem you solve","e.g. students fail Maths because of poor study plans"],ideas:["Your ideas (paste list)","One idea per line",1],title:["Ebook title","Working title is fine"],background:["Your background and skills","What you know, did, or solved",1],hours:["Hours per week","e.g. 10"],budget:["Budget","e.g. $50 or 20,000 in your currency"],goal:["90-day goal","e.g. publish 1 ebook, 50 sales"],quotes:["Real customer quotes","Paste exact comments from your research",1],data:["Pasted research data","Comments, reviews, competitor details",1],numbers:["Your numbers","Visitors, signups, sales, revenue...",1],price:["Price (your currency)","e.g. $9 or £7"],offer:["Your offer","Ebook + bonuses + deadline",1],outline:["Chapter outline","Paste the outline for this chapter",1],chapter:["Chapter number and title","e.g. 3: Build your 30-day plan"],text:["Paste your text","Draft, chapter or sales page",1],platform:["Main platform","e.g. TikTok, WhatsApp Status"],feedback:["Buyer feedback","Reviews, questions, DMs",1],lang:["Language","e.g. French, Spanish, Hindi, Arabic"]};
+var H={country:"Where you and your buyers are. This helps your AI use local prices, examples and platforms.",reader:"Describe ONE specific person, not everybody. Include job or situation, plus location. Example: 'new graduates in your city who want remote jobs'.",niche:"The subject area your ebook lives in, in a few words. Example: 'exam preparation for school leavers' or 'poultry farming for beginners'.",problem:"The painful problem your ebook fixes, in the buyer’s own words. Example: 'I keep failing my exams because I don’t know how to study'.",ideas:"Paste 3 to 10 ebook ideas, one per line. Not sure yet? Run the Ideas stage first, then come back and paste the best ones.",title:"A working title is fine, you can change it later. Best format: result + for whom. Example: 'Land Your First Remote Job: A 30-Day Plan for Busy Graduates'.",background:"Your work history, skills, experience, languages, and problems you have already solved. Honest and simple is best. Example: 'Teacher for 6 years, good at Maths, run a small online study group'.",hours:"Hours you can really work each week, just a number. Be realistic. Example: 8.",budget:"What you can spend on tools, ads and design. Zero is fine, just write 0. Use your own currency.",goal:"One clear target for the next 90 days. Example: 'Publish my first ebook and get 50 paying buyers'.",quotes:"Copy-paste real words from your target buyers (Facebook groups, comments, DMs, interviews). Real quotes beat made-up ones. 5 to 15 lines is enough.",data:"Paste raw material from your research: comments, questions, reviews of competing ebooks, or notes from interviews. More real data means better results.",numbers:"Type or paste your real figures. Example: '120 page visitors, 35 signups, 6 sales, $250 revenue, 1 refund'. Guessing is OK if you haven’t tracked yet.",price:"Your price idea in your own currency or USD. Not sure? Let your AI suggest a price for your market.",offer:"What the buyer gets and any deadline. Example: 'Ebook + 30-day tracker + WhatsApp group access, launch price $9 until Friday'.",outline:"Paste the outline for this chapter only (from the Plan stage). Bullet points are fine.",chapter:"The number and title of the chapter you’re writing now. Example: '2: Build your weekly study timetable'.",text:"Paste the exact text you want improved or checked: a chapter, your sales page, or a section to translate. Remove anything private first.",platform:"Where you will post most often. Pick one to start. Example: 'TikTok' or 'WhatsApp Status'.",feedback:"Paste what buyers and followers say: reviews, questions, DMs, comments. These tell you what to create next.",lang:"The language you want the translation in. Example: 'French', 'Spanish', 'Hindi' or 'Arabic'."};
+var S=[
+{t:"Setup",e:"🧭",d:"Teach your AI who you are so every answer fits your reality.",i:[
+{t:"Master context",d:"Paste this first in a new AI chat.",p:"You are my expert partner for building a profitable ebook business serving readers in my country and around the world.\n\nAbout me:\n- Location: {{country}}\n- Background and skills: {{background}}\n- Hours per week: {{hours}}\n- Budget: {{budget}}\n- 90-day goal: {{goal}}\n\nRules: be practical for my market (mobile readers, data costs, how people pay, local currency, and the platforms they use). Plain English, short sentences. Never invent facts, laws, prices, links or testimonials; mark uncertain items [VERIFY]. For health, legal, finance and immigration topics give general educational info only. Ask at most 3 clarifying questions. End every answer with Next step: and one action.\n\nConfirm you understand, then ask what you need to start."}]},
+{t:"Ideas",e:"💡",d:"Find pressing problems people will pay to solve.",i:[
+{t:"Pressing problems brainstorm",d:"50 real problems in your market.",p:"List 50 pressing, painful everyday problems people in {{country}} would pay to solve. Group by money, jobs, education, migration, small business, agriculture, energy, relationships, health (educational only), digital skills, legal literacy, personal growth. For each: who has it, why it hurts, how they cope now, and likelihood to pay (low/medium/high). Do not invent statistics."},
+{t:"Narrow the niche",d:"Specific beats broad.",p:"Take this broad problem: {{problem}}. Break it into 20 narrow ebook topics, each naming a specific person, a specific result and a specific obstacle: How [person] can [result] without [obstacle]. Mark the 5 most likely to sell and say why."},
+{t:"Score your ideas",d:"Pick a winner with numbers.",p:"Score each idea 1 to 5 on pain intensity, willingness to pay, reachability, beatable competition, my credibility, speed to create, and catalogue potential. Return a table with totals out of 35, one-line reasons, and your top 3. Flag high legal, medical or financial risk.\n\nIdeas:\n{{ideas}}"}]},
+{t:"Research",e:"🔎",d:"Learn what your buyers actually say and want.",i:[
+{t:"Search phrases",d:"60 phrases real people use.",p:"Give me 60 search phrases and questions people in {{country}} type or post about {{niche}}. Include plain English, local slang or local languages, misspellings, how-to, cost of, scam, step by step. Group by buyer intent: curious, comparing, ready to buy."},
+{t:"Voice-of-customer analysis",d:"Find their exact words.",p:"Analyze these real comments about {{niche}}. Return: top 10 problems ranked, top 10 repeated questions, verbatim emotional phrases, wrong beliefs, objections to buying a guide, and words I should use in my title and sales copy.\n\nData:\n{{data}}"},
+{t:"Competitor gaps",d:"Be clearly different.",p:"Here are competing ebooks and courses on {{niche}}:\n{{data}}\n\nTable of strengths, weaknesses and review complaints. Then give: 5 gaps nobody fills (local relevance, price, simplicity, templates, language, updates), what buyers praise that I must match, what they hate that I must fix, and a positioning statement."}]},
+{t:"Validate",e:"✅",d:"Prove people want it before you write.",i:[
+{t:"Validation posts",d:"Ask your audience without being salesy.",p:"Write 5 short natural posts (Facebook groups, WhatsApp Status, X, TikTok captions) asking my audience about their biggest challenge with {{problem}}. One clear question each, follow group rules, offer a free checklist as thanks."},
+{t:"Waitlist and pre-sale page",d:"Collect signups or early buyers.",p:"Write copy for a waitlist/pre-sale page for an ebook called {{title}}: headline, subheadline, 5 benefits, who it is for, free gift now, founder price {{price}} with deadline, delivery date, refund promise, button label. Add a WhatsApp version under 100 words. No exaggerated results."},
+{t:"Go / no-go verdict",d:"Strong signal = 10 buyers or 100 signups.",p:"Judge whether I should build, change the angle, or drop this idea. Threshold: 10 pre-sale buyers or 100 waitlist signups is a strong signal. Explain your reasoning and give 3 improvements to test if weak.\n\nMy results:\n{{numbers}}"}]},
+{t:"Position",e:"🎯",d:"Promise, title and angle.",i:[
+{t:"Promise and positioning",d:"One line your buyer instantly gets.",p:"Using my research, write: 1) a one-line promise (Help [who] [achieve what] in [time] without [obstacle]), 2) a positioning statement, 3) 5 result-based benefits, 4) 5 proof ideas I can create, 5) 3 honest limits to build trust.\n\nTopic: {{niche}} for {{reader}}\nReal quotes: {{quotes}}"},
+{t:"Title generator",d:"30 titles, 5 best picks.",p:"Generate 30 title and subtitle combinations for an ebook helping {{reader}} with {{problem}}. Use these real phrases: {{quotes}}. Mix benefit, how-to, number-based, warning and curiosity styles. No hype I cannot deliver. Pick the best 5, explain why, and give a 20-word tagline each."}]},
+{t:"Plan",e:"🗺️",d:"Outline and bonuses.",i:[
+{t:"Ebook outline",d:"25 to 40 mobile-friendly pages.",p:"Create a detailed outline for the ebook {{title}} for {{reader}} in {{country}}. 25 to 40 pages, short paragraphs, beginner level, low data. Structure: welcome, quick win, core system (3 to 7 steps), examples, templates and checklists, mistakes and scams, action plan, resources, next steps. For each chapter: goal, key points, one local example, one template, a do-this-today action, and facts to verify."},
+{t:"Bonuses that stop piracy",d:"Value that is hard to forward.",p:"Suggest 15 easy-to-create bonuses for {{title}} (templates, scripts, trackers, calculators, voice notes, private WhatsApp group). Rank by value divided by effort. Pick the best 4 and explain how each makes the ebook harder to share for free."}]},
+{t:"Write",e:"✍️",d:"Draft each part in your voice.",i:[
+{t:"Introduction",d:"Hook, promise, quick win.",p:"Write the introduction (350 to 500 words) for {{title}}. Open with this real quote: {{quotes}}. Describe the problem, promise the result, say who it is for and not for, explain how to use the book, and give a 10-minute quick win. Be honest. Leave [MY STORY HERE] where my own experience belongs. Do not invent stories."},
+{t:"Chapter drafter",d:"Repeat for every chapter.",p:"Write Chapter {{chapter}} of my ebook for {{reader}} in {{country}}. Voice: warm, clear, practical, like a smart older sibling. Short sentences.\n\nOutline: {{outline}}\n\nInclude a hook from this quote: {{quotes}}, step-by-step instructions, one local example with local prices, a checklist or template, a Common mistakes box, and a Do this today action. Do not invent statistics, laws or prices; write [VERIFY: what to check]. Write [MY EXPERIENCE HERE] where my story adds authority. 900 to 1,500 words."},
+{t:"Full ebook in one go",d:"Your AI writes the whole book from your brief. Reply continue if it stops.",p:"Write my complete ebook in one go.\n\nTitle: {{title}}\nReader: {{reader}} in {{country}}\nProblem it solves: {{problem}}\nMy background (for authority): {{background}}\nReal reader words: {{quotes}}\nOutline (if empty, create a strong one first): {{outline}}\n\nQuality bar: a valuable, practical, specific book a stranger would happily pay for. Voice: warm, clear, like a smart older sibling. Short paragraphs for phone reading. Include a 10-minute quick win near the start; in every chapter include step-by-step instructions, a local example with local prices, a checklist or fill-in template, a Common mistakes box and a Do this today action; then a 30-day action plan and a resources list. Do not invent statistics, laws, prices, links or testimonials; write [VERIFY: what to check]. Write [MY EXPERIENCE HERE] where my personal story would add authority. Add a disclaimer page if the topic touches health, law, money or immigration.\n\nFormat: cover page text, table of contents, introduction, all chapters, conclusion, bonus section, disclaimer. If you reach your length limit, stop at the end of a section, write CONTINUE FROM: and the next heading, and I will reply continue."},
+{t:"Chapter by chapter (guided)",d:"Write the book step by step with you steering every chapter.",p:"Let us write my ebook one chapter at a time, with me in control.\n\nTitle: {{title}}\nReader: {{reader}} in {{country}}\nVoice: warm, clear, practical, short paragraphs for phone reading.\nOutline: {{outline}}\nReal reader words: {{quotes}}\n\nProcess: 1) Show the table of contents and wait for my OK. 2) Write only Chapter 1 (900 to 1,500 words) with a hook, step-by-step instructions, a local example, a checklist or template, a Common mistakes box and a Do this today action. 3) Stop and ask me for one real story, example or correction to add. 4) When I reply NEXT, write the next chapter; if I send a correction, revise first. Never invent statistics, laws, prices or testimonials; use [VERIFY: what to check] and [MY EXPERIENCE HERE]. Begin with step 1."},
+{t:"Templates and checklists",d:"Tools readers will actually use.",p:"Create 5 practical tools for my ebook {{title}} on {{problem}}: a checklist, a message script (WhatsApp/email), a tracker table, a cost worksheet, and a text decision flowchart. Simple, printable, phone-friendly."}]},
+{t:"Edit",e:"🧪",d:"Polish, fact-check, protect yourself.",i:[
+{t:"Ruthless editor",d:"Tighter, clearer, phone-ready.",p:"Act as a strict editor. Review for clarity, repetition, weak advice, missing steps, unsupported claims and phone readability. Return problems ranked by severity, a tightened rewrite, 3 ways to add usefulness, and anything needing fact-checking.\n\n{{text}}"},
+{t:"Fact-check list",d:"Know what to verify.",p:"List every claim I must verify before publishing (laws, fees, deadlines, requirements, prices, statistics, URLs, health or finance statements). For each give the claim, the risk, and which official source type to check. Do not confirm claims yourself.\n\n{{text}}"},
+{t:"Disclaimer page",d:"Short and clear.",p:"Write a short disclaimer page for my ebook on {{niche}}: educational not professional advice, information may change, results vary, consult qualified professionals, plus a last-updated line and update promise. Remind me to get a professional review if my topic is high-risk."}]},
+{t:"Design",e:"🎨",d:"Cover and layout that look professional.",i:[
+{t:"Cover brief",d:"High-contrast, clear outcome.",p:"Create a cover design brief for {{title}} aimed at {{reader}}: dominant visual, high-contrast colour palette, font style, text hierarchy, 3 layout options, what to avoid. Add 3 prompts for Canva or an image tool that avoid copyrighted material."},
+{t:"Phone-friendly layout",d:"Under 5 MB, easy to read.",p:"Give step-by-step instructions to format my ebook in Canva or Google Docs for phone reading: page size, margins, font sizes, headings, colours, clickable table of contents, callout boxes, exporting a PDF under 5 MB, and testing on a low-end Android phone."}]},
+{t:"Offer",e:"💰",d:"Price and package it.",i:[
+{t:"Pricing strategy",d:"Local and international prices.",p:"Help me price {{title}} for {{reader}} in {{country}}. Starting idea: {{price}}. Give local and international price ranges, launch vs normal price, a bundle, order bump, upsell and refund policy. Explain using the value of the result, buyer income, currency risk and competitor prices. Include 3 cheap price tests."},
+{t:"Offer stack",d:"Make buying a no-brainer.",p:"Create an offer stack for {{title}}: core ebook, 3 bonuses, a limited-time launch discount, an upgrade option, a guarantee and a clear reason to buy now. Write it for a sales page and a WhatsApp message. No fake scarcity."}]},
+{t:"Sales page",e:"🛒",d:"Copy that converts honestly.",i:[
+{t:"Sales page copy",d:"Full page, mobile-first.",p:"Write a sales page for {{title}} for {{reader}}. Structure: headline and subheadline; the problem in their words ({{quotes}}); cost of not solving it; the solution; what is inside; who it is for and not for; bonuses; [TESTIMONIAL HERE] placeholders; FAQ (payment, delivery, devices, data size, refund); guarantee; offer: {{offer}}; strong call to action. Honest tone, no exaggerated claims, short paragraphs."},
+{t:"Short-form copy pack",d:"WhatsApp, Status, social, ads.",p:"From this sales page write a 100-word WhatsApp pitch, a 60-word Status caption, a Facebook/Instagram caption, a 6-post X thread and 10 ad headlines. Keep each honest and specific.\n\n{{text}}"}]},
+{t:"Funnel",e:"🧲",d:"Lead magnet and nurture sequence.",i:[
+{t:"Lead magnet",d:"A free win that leads to the sale.",p:"Suggest 10 lead magnet ideas for {{title}}, ranked by conversion potential. Then write the full content for the best one (3 to 5 pages) for {{reader}}: a real quick win, my teaching style, and a soft invitation to get the ebook [LINK]."},
+{t:"7-day nurture sequence",d:"Email and WhatsApp versions.",p:"Write a 7-day sequence (email with subject lines, and WhatsApp under 80 words each) for new subscribers of {{title}}: Day 1 welcome and deliver lead magnet, 2 quick tip, 3 story, 4 mistake to avoid, 5 proof, 6 objection handling and offer, 7 deadline reminder. No fake urgency or testimonials."}]},
+{t:"Traffic",e:"📣",d:"Content that brings buyers.",i:[
+{t:"30-day content plan",d:"Daily posts with hooks.",p:"Create a 30-day content plan for {{platform}} promoting {{title}} and its lead magnet. For each day: format, hook (first 3 seconds), 3-point script under 45 seconds, call to action, caption, hashtags. Mix tips, myths, stories, mistakes, demos, proof and offers, with examples from {{country}}."},
+{t:"Hook bank",d:"50 scroll-stoppers.",p:"Write 50 scroll-stopping hooks about {{problem}} for {{reader}}: questions, warnings, myth-busting, numbers, stories, stop-doing-this, nobody-tells-you. No clickbait I cannot deliver."}]},
+{t:"Launch",e:"🚀",d:"Go live and collect proof.",i:[
+{t:"14-day launch plan",d:"Pre-launch to close.",p:"Create a day-by-day 14-day launch plan for {{title}}: 7 days pre-launch, launch day, 5 days open cart, final-day close. For each day give content, message, channel and one metric. Offer: {{offer}}. No fake scarcity."},
+{t:"Testimonial collector",d:"Real proof, with permission.",p:"For {{title}} write: a feedback request message, 5 easy questions that produce useful testimonials, a permission request to use their words and first name, a template to shape feedback into a short testimonial without changing meaning, and a reminder. Never fabricate testimonials."}]},
+{t:"Scale",e:"📈",d:"Improve weekly and grow a catalogue.",i:[
+{t:"Weekly performance review",d:"Fix the weakest step first.",p:"Here are my numbers this week:\n{{numbers}}\n\nFind the weakest step in my funnel, explain the likely cause, and give 3 tests to run this week ranked by impact and effort."},
+{t:"Next ebook finder",d:"Let buyers choose your next product.",p:"Based on this buyer feedback, suggest 10 follow-up ebooks, bundles or products (templates, workbook, advanced guide, audio, community). For each: target reader, promise, price, link to my first ebook, and demand evidence to check.\n\n{{feedback}}"},
+{t:"Localise and translate",d:"Reach new countries and languages.",p:"Adapt this section for {{country}}, replacing examples, prices, institutions, laws, payment platforms and slang with correct local equivalents and flag what I must verify. Then translate into {{lang}} in a natural conversational tone for phone readers.\n\n{{text}}"}]}
+];
+var V={},D={},cur=0,K="fc_ebook_v1",aiK="fc_ai_pref",thK="fc_theme_pref";
+var AIS={
+claude:{name:"Claude",url:"https://claude.ai/new?q="},
+chatgpt:{name:"ChatGPT",url:"https://chatgpt.com/"},
+gemini:{name:"Google Gemini",url:"https://gemini.google.com/app"},
+deepseek:{name:"DeepSeek",url:"https://chat.deepseek.com/"},
+copilot:{name:"Copilot",url:"https://copilot.microsoft.com/"},
+custom:{name:"AI",url:""}
+};
+var curAI="claude",curTheme="light";
+try{
+var o=JSON.parse(localStorage.getItem(K)||"{}");V=o.v||{};D=o.d||{};
+var sa=localStorage.getItem(aiK);if(sa&&AIS[sa])curAI=sa;
+var sth=localStorage.getItem(thK);
+if(sth){curTheme=sth}else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){curTheme="dark"}
+}catch(e){}
+function applyTheme(t){
+curTheme=t;
+document.documentElement.setAttribute('data-theme',t);
+try{localStorage.setItem(thK,t)}catch(e){}
+var btn=document.getElementById("thm");
+if(btn){btn.textContent=(t==="dark"?"☀️ Light":"🌙 Dark")}
+}
+var IDB_NAME="EbookLaunchpadDB",IDB_STORE="project_state",idbInst=null;
+function getIDB(cb){
+if(idbInst)return cb(null,idbInst);
+if(!window.indexedDB)return cb(new Error("IDB unsupported"));
+var req=window.indexedDB.open(IDB_NAME,1);
+req.onupgradeneeded=function(e){
+var db=e.target.result;
+if(!db.objectStoreNames.contains(IDB_STORE)){db.createObjectStore(IDB_STORE,{keyPath:"id"})}
+};
+req.onsuccess=function(e){idbInst=e.target.result;cb(null,idbInst)};
+req.onerror=function(e){cb(e.target.error)};
+}
+function idbSave(data){
+getIDB(function(err,db){
+if(err||!db)return;
+try{
+var tx=db.transaction(IDB_STORE,"readwrite");
+data.id="current";
+data.updatedAt=Date.now();
+tx.objectStore(IDB_STORE).put(data);
+}catch(e){}
+});
+}
+function idbLoad(cb){
+getIDB(function(err,db){
+if(err||!db)return cb(err);
+try{
+var tx=db.transaction(IDB_STORE,"readonly");
+var req=tx.objectStore(IDB_STORE).get("current");
+req.onsuccess=function(){cb(null,req.result)};
+req.onerror=function(e){cb(e.target.error)};
+}catch(e){cb(e)}
+});
+}
+function aiName(){return AIS[curAI]?AIS[curAI].name:"AI"}
+function aiBtn(){return "Open in "+aiName()+" ↗"}
+var REC={
+3:{icon:"🚀",title:"Ready to validate or take pre-orders?",text:"Build a high-converting waitlist or pre-sale landing page in minutes using <b>FunnelCraft AI</b>. Want to collect payments upfront? Use <b>SabiMentors</b> for zero-stress digital checkouts.",links:[{t:"Build waitlist on FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"},{t:"Pre-sell on SabiMentors ↗",u:"https://sabimentors.com"}]},
+9:{icon:"💳",title:"Host and price your offer without fees eating your profit",text:"Use <b>SabiMentors</b> to host your ebook, order bumps, bonus files, and private community links. Accept local and international currencies with instant payouts.",links:[{t:"Set up offer on SabiMentors ↗",u:"https://sabimentors.com"}]},
+10:{icon:"⚡",title:"Turn your AI sales copy into a live page in minutes",text:"Don’t struggle with complex web builders. Paste your generated copy into <b>FunnelCraft AI</b> to generate a mobile-responsive, conversion-optimized ebook sales page instantly.",links:[{t:"Build sales page with FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"}]},
+11:{icon:"🧲",title:"Automate your lead generation & nurture sequences",text:"Connect your free lead magnet opt-in page directly to automated email and WhatsApp delivery funnels using <b>FunnelCraft AI</b>.",links:[{t:"Launch lead funnel with FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"}]},
+13:{icon:"🎉",title:"Launch engine: Funnels + Instant Checkout",text:"Pair <b>FunnelCraft AI</b> (for high-converting launch pages and countdowns) with <b>SabiMentors</b> (for secure customer checkouts, zero delivery headaches, and automated access).",links:[{t:"Sell with SabiMentors ↗",u:"https://sabimentors.com"},{t:"Launch with FunnelCraft AI ↗",u:"https://www.funnelcraftai.com"}]},
+14:{icon:"📈",title:"Scale your catalogue and recruit affiliates",text:"Ready to expand? <b>SabiMentors</b> lets you bundle multiple ebooks, launch order bumps, and recruit an army of affiliates to promote your digital products.",links:[{t:"Scale store on SabiMentors ↗",u:"https://sabimentors.com"}]}
+};
+function renderRec(r){
+var lks=r.links.map(function(l){return '<a href="'+l.u+'" target="_blank" rel="noopener" class="stage-recom-btn">'+l.t+'</a>'}).join(" ");
+return '<div class="stage-recom"><div class="stage-recom-icon">'+r.icon+'</div><div class="stage-recom-body"><b>'+r.title+'</b><p>'+r.text+'</p><div>'+lks+'</div></div></div>';
+}
+function sv(){try{localStorage.setItem(K,JSON.stringify({v:V,d:D}))}catch(e){}idbSave({v:V,d:D,ai:curAI,theme:curTheme});}
+function keys(p){var m=p.match(/\{\{(\w+)\}\}/g)||[],u=[];m.forEach(function(x){x=x.slice(2,-2);if(u.indexOf(x)<0)u.push(x)});return u}
+function build(p){return p.replace(/\{\{(\w+)\}\}/g,function(_,k){return V[k]&&V[k].trim()?V[k].trim():"["+(L[k]?L[k][0]:k)+"]"})}
+function miss(p){return keys(p).filter(function(k){return !(V[k]&&V[k].trim())})}
+function id(s,i){return s+"-"+i}
+function tot(){var n=0;S.forEach(function(s){n+=s.i.length});return n}
+function prog(){var d=Object.keys(D).filter(function(k){return D[k]}).length,t=tot();document.getElementById("pb").style.width=(d/t*100)+"%";document.getElementById("pm").textContent=d+" of "+t+" prompts done"+(d==t?" 🎉 You are ready to sell!":"");}
+function chips(){var h="";S.forEach(function(s,i){var all=s.i.every(function(_,j){return D[id(i,j)]});h+='<button class="chip'+(i==cur?" on":"")+(all?" done":"")+'" data-i="'+i+'">'+s.e+" "+(i+1)+". "+s.t+(all?" ✓":"")+"</button>"});var c=document.getElementById("chips");c.innerHTML=h;var on=c.querySelector(".on");if(on)on.scrollIntoView({inline:"center",block:"nearest"})}
+function stage(){var s=S[cur],h="<h2>"+s.e+" "+(cur+1)+". "+s.t+'</h2><p class="sd">'+s.d+"</p>";
+if(REC[cur])h+=renderRec(REC[cur]);
+s.i.forEach(function(it,j){var k=id(cur,j),f="";keys(it.p).forEach(function(q){var l=L[q]||[q,""];f+='<div class="lr"><label for="f-'+q+'-'+k+'">'+l[0]+"</label>"+(H[q]?'<button type="button" class="sh" data-t="1">See Hint</button>':"")+"</div>"+(H[q]?'<small class="hx">💡 '+H[q]+"</small>":"")+(l[2]?'<textarea id="f-'+q+"-"+k+'" data-k="'+q+'" placeholder="'+l[1]+'"></textarea>':'<input id="f-'+q+"-"+k+'" data-k="'+q+'" placeholder="'+l[1]+'">')+'<button class="hb" data-h="'+q+'" data-w="'+k+'">✨ Help me fill this</button><div id="hp-'+q+'-'+k+'"></div>'});
+h+='<div class="card'+(D[k]?" ok":"")+(j==0?" open":"")+'" data-id="'+k+'"><div class="ch"><span class="tick">'+(D[k]?"✓":"")+"</span><b>"+it.t+"<small>"+it.d+'</small></b><span class="cv"></span></div><div class="body">'+f+'<div class="pv" id="pv-'+k+'"></div><p class="miss" id="ms-'+k+'"></p><div class="row"><button class="b" data-a="copy" data-p="'+j+'">Copy prompt</button><button class="b alt" data-a="open" data-p="'+j+'">'+aiBtn()+'</button><button class="b alt" data-a="done" data-p="'+j+'">Mark done</button></div></div></div>'});
+document.getElementById("stage").innerHTML=h;
+document.querySelectorAll("#stage [data-k]").forEach(function(e){e.value=V[e.dataset.k]||""});s.i.forEach(function(_,j){upd(j)});chips();prog()}
+function upd(j){var k=id(cur,j),it=S[cur].i[j],m=miss(it.p);document.getElementById("pv-"+k).textContent=build(it.p);document.getElementById("ms-"+k).textContent=m.length?"Still empty: "+m.map(function(x){return L[x]?L[x][0]:x}).join(", ")+" (you can still copy and fill later)":"All filled. Ready to paste into your AI."}
+function toast(b,t){var o=b.textContent;b.textContent=t;setTimeout(function(){b.textContent=o},1400)}
+function cp(t,b){function fb(){var a=document.createElement("textarea");a.value=t;a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();try{document.execCommand("copy");toast(b,"Copied ✓")}catch(e){toast(b,"Press and hold to copy")}document.body.removeChild(a)}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast(b,"Copied ✓")},fb)}else fb()}
+document.addEventListener("input",function(e){var k=e.target.dataset&&e.target.dataset.k;if(!k)return;V[k]=e.target.value;document.querySelectorAll('[data-k="'+k+'"]').forEach(function(x){if(x!==e.target)x.value=e.target.value});S[cur].i.forEach(function(_,j){upd(j)});sv()});
+function scrollToStage(){
+requestAnimationFrame(function(){
+var ad=document.getElementById("ad-top");
+var targetEl=ad||document.getElementById("stage");
+if(!targetEl)return;
+var nav=document.getElementById("sticky-nav");
+var navH=nav?nav.getBoundingClientRect().height:100;
+var targetY=window.pageYOffset+targetEl.getBoundingClientRect().top-navH-8;
+window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"});
+});
+}
+document.addEventListener("click",function(e){var t=e.target;
+if(t.classList.contains("chip")){cur=+t.dataset.i;stage();scrollToStage();return}
+var ch=t.closest(".ch");if(ch){var cp=ch.parentNode;cp.classList.toggle("open");if(cp.classList.contains("open")){setTimeout(function(){var nav=document.getElementById("sticky-nav");var navH=nav?nav.getBoundingClientRect().height:100;var rect=cp.getBoundingClientRect();if(rect.top<navH+10){var targetY=window.pageYOffset+rect.top-navH-14;window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"})}},60)}return}
+var d=t.dataset||{};
+if(d.t){var hx=t.parentNode.nextElementSibling;hx.classList.toggle('show');t.textContent=hx.classList.contains('show')?'Hide Hint':'See Hint';return}
+if(d.m){V.__mode=d.m;sv();fs();return}
+if(d.a=='fc'){cp(fsP(),t);return}
+if(d.a=='fo'){go(fsP(),t);return}
+if(d.h){var bx=document.getElementById('hp-'+d.h+'-'+d.w);if(bx.innerHTML){bx.innerHTML='';return}HPT[d.h+d.w]=helpP(d.h);bx.innerHTML='<div class="pv"></div><div class="row"><button class="b" data-a="hc" data-x="'+d.h+d.w+'">Copy helper prompt</button><button class="b alt" data-a="ho" data-x="'+d.h+d.w+'">'+aiBtn()+'</button></div><p class="miss">Paste the FINAL ANSWER from your AI into the box above.</p>';bx.firstChild.textContent=HPT[d.h+d.w];return}
+if(d.a=='hc'){cp(HPT[d.x],t);return}
+if(d.a=='ho'){go(HPT[d.x],t);return}
+var a=t.dataset&&t.dataset.a;if(!a)return;var j=+t.dataset.p,it=S[cur].i[j],k=id(cur,j),txt=build(it.p);
+if(a=="copy"){cp(txt,t)}
+if(a=="open"){go(txt,t)}
+if(a=="done"){D[k]=!D[k];sv();stage()}});
+document.getElementById("nx").onclick=function(){if(cur<S.length-1){cur++;stage();scrollToStage()}};
+document.getElementById("pv").onclick=function(){if(cur>0){cur--;stage();scrollToStage()}};
+document.getElementById("rs").onclick=function(){if(confirm("Clear all your answers and progress?")){V={};D={};sv();stage()}};
+var HPT={};
+function mode(){return V.__mode=='res'?'res':'exp'}
+var MT={exp:'Work from MY OWN EXPERIENCE. Interview me with simple everyday questions, one at a time (maximum 5), and give example answers I can pick from. Label guesses [MY GUESS]. Never invent facts, statistics or real people.',res:'Work from PROBLEM RESEARCH. If you can search the web, find real public discussions (Facebook groups, forums, Reddit, X, review sites, local communities) from my target country and give links; use only real material. If you cannot browse, give me a 15-minute research mission (exact search phrases, where to look, what to copy) and wait for me to paste what I find. Never invent quotes, statistics or testimonials.'};
+var X={niche:'Suggest 8 narrow niches that fit my background and a market that already pays, then recommend the best one.',reader:'Suggest 5 specific reader profiles (job, situation, location) who would pay, say why, then recommend one.',problem:'Give 5 specific, urgent problems this reader has, in their own words, then recommend the most painful and most payable one.',ideas:'Give 10 narrow ebook ideas, one per line, in the form: How [person] can [result] without [obstacle].',title:'Give 10 title options, pick the strongest, and put only that title in FINAL ANSWER.',background:'Help me discover my skills, experience, results and problems I have solved, then write 3 to 5 plain sentences.',quotes:'Give 10 to 15 short lines in the way my buyers really talk about this problem. In experience mode label each [MY RECALL]; in research mode use only real sources and add the link.',data:'Collect real raw material about this topic: comments, questions and competitor reviews, each with its source link.',outline:'Create a chapter outline of 6 to 9 chapters: a 10-minute quick win first, then core steps, templates and checklists, mistakes to avoid, and a 30-day action plan. Give each chapter a goal and key points.',chapter:'Look at my outline and give me only the number and title of the next chapter to write.',price:'Recommend a price in my local currency and in USD with a short reason and a launch discount idea. Put one line in FINAL ANSWER.',offer:'Build my offer in 2 lines: the ebook, 3 easy bonuses, a guarantee and a launch deadline.',platform:'Recommend the one best platform to start on for my buyers and why. Put only its name in FINAL ANSWER.',goal:'Suggest 3 realistic 90-day goals for my time and budget, then recommend one.',numbers:'Show me where to find my real numbers (store dashboard, WhatsApp, social insights) and help me list them clearly.',text:'If I do not have a draft yet, tell me which earlier stage creates this text and ask me what I already have.',feedback:'Help me gather and list real buyer reviews, questions and DMs, and tell me where to look.'};
+function brief(){var r='';Object.keys(L).forEach(function(k){if(V[k]&&V[k].trim())r+='- '+L[k][0]+': '+V[k].trim()+'\n'});return r||'(nothing yet)'}
+function helpP(k){return 'You are coaching a first-time ebook creator who does not know what to write. I am filling the field "'+L[k][0]+'" in my ebook planning app.\nWhat this field needs: '+(H[k]||'')+'\n\n'+MT[mode()]+'\n'+(X[k]||'')+'\n\nMy brief so far:\n'+brief()+'\n\nRules: simple language, local context for my country, quality over length, mark unverified items [VERIFY]. End with a section titled FINAL ANSWER containing ONLY the text I should paste into the field (plain text, no heading, no quotation marks).'}
+function fsP(){return 'You are my ebook coach. Help me build a Project Brief for a valuable, problem-solving ebook, even though I may not know what to write.\n\n'+MT[mode()]+'\n\nStart by asking my country, what I know or have lived through, and who I would like to help. Before the final pick, show the 3 strongest problem options and why one is specific, urgent and already paid for. Mark unverified items [VERIFY].\n\nFinish with a section titled MY BRIEF in exactly this format, one field per line as key: value (multi-line values may continue on the next lines). Use exactly these keys: country, background, hours, budget, goal, niche, reader, problem, title, price, platform, quotes, offer. Keep the language simple.'}
+function go(p,b){
+cp(p,b);
+var conf=AIS[curAI]||AIS.claude;
+if(curAI=="claude"){
+var u="https://claude.ai/new?q="+encodeURIComponent(p);
+if(u.length>7000){alert("Prompt copied to clipboard! It is long, so paste it into Claude.");window.open("https://claude.ai/new","_blank","noopener");return}
+window.open(u,"_blank","noopener");
+return;
+}
+if(curAI=="chatgpt"){
+if(p.length<1500){window.open("https://chatgpt.com/?q="+encodeURIComponent(p),"_blank","noopener")}
+else{window.open("https://chatgpt.com/","_blank","noopener")}
+return;
+}
+if(conf.url){
+window.open(conf.url,"_blank","noopener");
+}else{
+alert("Prompt copied to clipboard! Paste it into your AI tool.");
+}
+}
+function fs(){
+document.getElementById('m1').classList.toggle('on',mode()=='exp');
+document.getElementById('m2').classList.toggle('on',mode()=='res');
+document.getElementById('fsp').textContent=fsP();
+var fob=document.getElementById('fob');if(fob)fob.textContent=aiBtn();
+}
+document.getElementById('imb').onclick=function(){var c=null,n=0;document.getElementById('imp').value.split('\n').forEach(function(l){var m=l.match(/^\s*[-*#]*\s*\**\s*(\w+)\s*\**\s*:\**\s*(.*)$/);if(m&&L[m[1].toLowerCase()]){c=m[1].toLowerCase();V[c]=m[2].trim();n++}else if(c&&l.trim())V[c]+='\n'+l.trim()});sv();document.getElementById('imm').textContent=n?'Filled '+n+' fields ✓ Now start with Stage 1 and keep going.':'No key: value lines found. Ask your AI to use the exact MY BRIEF format.';stage()};
+var ait=document.getElementById("ai-tool");
+if(ait){ait.value=curAI;ait.onchange=function(){curAI=this.value;try{localStorage.setItem(aiK,curAI)}catch(e){}stage();fs()}}
+var AD_CLIENT="ca-pub-6130384188487467";
+var AD_DESK={slot:"2384724793",w:728,h:90};
+var AD_MOB={slot:"8830609413",w:320,h:70};
+var AD_REFRESH_SEC=35;
+function renderAd(id){
+var c=document.getElementById(id);
+if(!c)return;
+var isDesk=window.innerWidth>=768;
+var cfg=isDesk?AD_DESK:AD_MOB;
+c.innerHTML="";
+var ins=document.createElement("ins");
+ins.className="adsbygoogle";
+ins.style.display="inline-block";
+ins.style.width=cfg.w+"px";
+ins.style.height=cfg.h+"px";
+ins.setAttribute("data-ad-client",AD_CLIENT);
+ins.setAttribute("data-ad-slot",cfg.slot);
+c.appendChild(ins);
+try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
+}
+function refreshAds(){
+if(document.hidden)return;
+renderAd("ad-top");
+renderAd("ad-bottom");
+}
+var adTimer=null,lastIsDesk=window.innerWidth>=768,resizeAdTimer=null;
+function initAds(){
+refreshAds();
+if(adTimer)clearInterval(adTimer);
+adTimer=setInterval(refreshAds,AD_REFRESH_SEC*1000);
+}
+window.addEventListener("resize",function(){
+clearTimeout(resizeAdTimer);
+resizeAdTimer=setTimeout(function(){
+var nowDesk=window.innerWidth>=768;
+if(nowDesk!==lastIsDesk){
+lastIsDesk=nowDesk;
+refreshAds();
+}
+},300);
+});
+document.addEventListener("visibilitychange",function(){
+if(!document.hidden){
+refreshAds();
+}
+});
+var thmBtn=document.getElementById("thm");
+if(thmBtn){
+thmBtn.onclick=function(){
+applyTheme(curTheme==="dark"?"light":"dark");
+idbSave({v:V,d:D,ai:curAI,theme:curTheme});
+};
+}
+applyTheme(curTheme);
+idbLoad(function(err,saved){
+if(!err&&saved){
+var dirty=false;
+if(saved.v){for(var k in saved.v){if(saved.v[k]&&(!V[k]||V[k].length<saved.v[k].length)){V[k]=saved.v[k];dirty=true}}}
+if(saved.d){for(var dk in saved.d){if(saved.d[dk]&&!D[dk]){D[dk]=true;dirty=true}}}
+if(saved.ai&&saved.ai!==curAI&&AIS[saved.ai]){curAI=saved.ai;var ait=document.getElementById("ai-tool");if(ait)ait.value=curAI;dirty=true}
+if(saved.theme&&saved.theme!==curTheme){applyTheme(saved.theme)}
+if(dirty){stage();fs()}
+}
+});
+stage();fs();initAds();
+</script>
+</body>
+</html>

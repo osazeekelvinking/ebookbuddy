@@ -1,0 +1,23 @@
+{
+  "name": "EbookBuddy - Turn Problems Into Profitable Ebooks",
+  "short_name": "EbookBuddy",
+  "description": "Turn a real problem into a profitable ebook with AI. 15 guided stages powered by SabiMentors × FunnelCraft AI.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF8F5",
+  "theme_color": "#F26B21",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

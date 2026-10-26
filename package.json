@@ -1,0 +1,12 @@
+{
+  "name": "ebookbuddy",
+  "version": "1.0.0",
+  "description": "EbookBuddy - AI-powered ebook creation and publishing tool",
+  "scripts": {
+    "dev": "python -m http.server 8080",
+    "dev:wrangler": "npx wrangler dev",
+    "start": "python -m http.server 8080",
+    "build:blog": "node cms/build.js",
+    "test:seo": "node test_seo.js"
+  }
+}

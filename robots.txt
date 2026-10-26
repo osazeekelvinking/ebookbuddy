@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cms/
+Disallow: /cms
+
+Sitemap: https://eb.sabimentors.com/sitemap.xml

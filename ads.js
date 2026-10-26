@@ -130,54 +130,77 @@
     ins.setAttribute("data-ad-slot", slotId);
     el.appendChild(ins);
 
-    // Watch for AdSense status changes to collapse if unfilled
-    function applyStatusCheck() {
-      var status = ins.getAttribute("data-ad-status");
-      if (status === "unfilled") {
-        el.classList.add("ad-collapsed");
-        return true;
+    var adLoaded = false;
+    var collapseTimer = null;
+    var observer = null;
+
+    function markLoaded() {
+      if (adLoaded) return;
+      adLoaded = true;
+      el.classList.remove("ad-collapsed");
+      if (collapseTimer) {
+        clearTimeout(collapseTimer);
+        collapseTimer = null;
       }
-      var iframe = ins.querySelector("iframe");
-      if (iframe || status === "filled") {
-        el.classList.remove("ad-collapsed");
+      if (observer) {
+        observer.disconnect();
+      }
+    }
+
+    function checkAdLoaded() {
+      if (adLoaded) return true;
+      var status = ins.getAttribute("data-ad-status");
+      var gStatus = ins.getAttribute("data-adsbygoogle-status");
+      var hasIframe = ins.getElementsByTagName("iframe").length > 0;
+      var hasContent = ins.children.length > 0 && ins.offsetHeight > 20;
+
+      if (status === "filled" || gStatus === "done" || hasIframe || hasContent) {
+        markLoaded();
         return true;
       }
       return false;
     }
 
+    function collapseAd() {
+      if (adLoaded) return; // NEVER collapse if ad has loaded!
+      el.classList.add("ad-collapsed");
+    }
+
+    // 1. MutationObserver watching for status changes or DOM insertion
     if (window.MutationObserver) {
-      var observer = new window.MutationObserver(function (mutations) {
+      observer = new window.MutationObserver(function (mutations) {
         for (var i = 0; i < mutations.length; i++) {
           var m = mutations[i];
           if (m.type === "attributes" && m.attributeName === "data-ad-status") {
             if (ins.getAttribute("data-ad-status") === "unfilled") {
-              el.classList.add("ad-collapsed");
-              observer.disconnect();
+              if (!adLoaded) {
+                collapseAd();
+                if (observer) observer.disconnect();
+              }
               return;
             } else if (ins.getAttribute("data-ad-status") === "filled") {
-              el.classList.remove("ad-collapsed");
+              markLoaded();
+              return;
             }
           }
         }
-        applyStatusCheck();
+        checkAdLoaded();
       });
-      observer.observe(ins, { attributes: true, childList: true });
+      observer.observe(ins, { attributes: true, childList: true, subtree: true });
     }
 
-    // Safety timeout: if ad blocker blocked it or no creative rendered within 3.2s, collapse empty space
-    setTimeout(function () {
-      var status = ins.getAttribute("data-ad-status");
-      var iframe = ins.querySelector("iframe");
-      if (status === "unfilled" || (!iframe && status !== "filled")) {
-        el.classList.add("ad-collapsed");
+    // 2. Safety timeout for ad blockers or completely dead requests (8 seconds)
+    collapseTimer = setTimeout(function () {
+      if (!checkAdLoaded()) {
+        collapseAd();
       }
-    }, 3200);
+    }, 8000);
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {
       // If push throws an error, collapse
-      el.classList.add("ad-collapsed");
+      collapseAd();
     }
   }
 

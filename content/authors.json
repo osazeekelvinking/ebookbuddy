@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ebookbuddy",
+    "name": "EbookBuddy",
+    "slug": "ebookbuddy",
+    "role": "Official Editorial Team",
+    "tagline": "Turn real problems into profitable ebooks with AI.",
+    "avatar": "/promotional_assets/images/post1_mascot_breakthrough.png",
+    "fallbackInitials": "EB",
+    "bio": "The official editorial and publishing team at EbookBuddy. We guide creators, entrepreneurs, and experts on how to validate ideas, craft high-impact prompts, write compelling ebooks with AI, and build profitable funnels.",
+    "links": {
+      "app": "/",
+      "sabimentors": "https://sabimentors.com",
+      "funnelcraft": "https://www.funnelcraftai.com"
+    }
+  }
+]

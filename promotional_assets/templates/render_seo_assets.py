@@ -1,0 +1,308 @@
+import os
+import subprocess
+
+edge_path = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+base_dir = r"c:\Users\USER\Downloads\EbookBuddy"
+templates_dir = os.path.join(base_dir, "promotional_assets", "templates")
+images_dir = os.path.join(base_dir, "promotional_assets", "images")
+os.makedirs(images_dir, exist_ok=True)
+
+# 1. HTML template for 1200x630 Open Graph Banner
+og_banner_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: #0E0F17;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 56px 64px 48px;
+    position: relative;
+  }
+  /* Ambient glowing gradients */
+  .glow-1 {
+    position: absolute;
+    top: -120px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,107,33,0.22) 0%, rgba(242,107,33,0) 70%);
+    pointer-events: none;
+  }
+  .glow-2 {
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    width: 550px;
+    height: 550px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(194,65,12,0.18) 0%, rgba(194,65,12,0) 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+  }
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 10px 22px;
+    border-radius: 999px;
+  }
+  .brand-badge .icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .brand-badge span {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #FFF;
+  }
+  .brand-badge b {
+    color: #F26B21;
+  }
+  .category-pill {
+    background: rgba(242, 107, 33, 0.15);
+    border: 1px solid rgba(242, 107, 33, 0.5);
+    color: #F26B21;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 999px;
+  }
+
+  /* Main Hero Content */
+  .hero {
+    z-index: 2;
+    margin: auto 0;
+  }
+  .headline {
+    font-size: 52px;
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    max-width: 1020px;
+  }
+  .headline span.highlight {
+    background: linear-gradient(135deg, #FF8A48 0%, #F26B21 50%, #C2410C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .subtitle {
+    font-size: 22px;
+    line-height: 1.45;
+    color: #A3A3B2;
+    max-width: 900px;
+    margin-bottom: 24px;
+  }
+
+  /* Feature Pills */
+  .pills-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #E2E1EC;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pill b {
+    color: #F26B21;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    z-index: 2;
+  }
+  .partners {
+    font-size: 16px;
+    color: #8C8C9E;
+    font-weight: 500;
+  }
+  .partners b {
+    color: #FFF;
+  }
+  .url-badge {
+    font-size: 16px;
+    font-weight: 700;
+    color: #F26B21;
+    background: rgba(242, 107, 33, 0.1);
+    border: 1px solid rgba(242, 107, 33, 0.3);
+    padding: 6px 16px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <div class="header">
+    <div class="brand-badge">
+      <span class="icon">📖</span>
+      <span>Ebook<b>Buddy</b></span>
+    </div>
+    <div class="category-pill">⚡ 15-Stage AI System</div>
+  </div>
+
+  <div class="hero">
+    <h1 class="headline">
+      Turn A Real Problem Into A <span class="highlight">Profitable Ebook</span> In Minutes
+    </h1>
+    <p class="subtitle">
+      Answer simple guided questions, get high-converting AI prompts, and launch your digital product with zero guesswork.
+    </p>
+    <div class="pills-row">
+      <div class="pill"><span>🎯</span> 15 Step-by-Step Stages</div>
+      <div class="pill"><span>🤖</span> Works with Claude, ChatGPT, Gemini, DeepSeek</div>
+      <div class="pill"><span>💰</span> Monetization & Funnel Ready</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="partners">
+      Created by <b>Osazee Kelvin King</b> · Powered by <b>SabiMentors</b> × <b>FunnelCraft AI</b>
+    </div>
+    <div class="url-badge">eb.sabimentors.com</div>
+  </div>
+</body>
+</html>
+"""
+
+# 2. HTML template for 180x180 Apple Touch Icon
+touch_icon_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F26B21 0%, #C2410C 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-symbol {
+    font-size: 96px;
+    line-height: 1;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
+  }
+</style>
+</head>
+<body>
+  <div class="icon-symbol">📖</div>
+</body>
+</html>
+"""
+
+# Save templates
+og_tmpl_path = os.path.join(templates_dir, "og_banner.html")
+with open(og_tmpl_path, "w", encoding="utf-8") as f:
+    f.write(og_banner_html)
+
+touch_tmpl_path = os.path.join(templates_dir, "touch_icon.html")
+with open(touch_tmpl_path, "w", encoding="utf-8") as f:
+    f.write(touch_icon_html)
+
+# Render OG Banner (1200x630)
+out_og_root = os.path.join(base_dir, "og-image.png")
+out_og_prom = os.path.join(images_dir, "og-ebookbuddy-banner.png")
+file_url_og = "file:///" + og_tmpl_path.replace("\\", "/")
+
+cmd_og = [
+    edge_path,
+    "--headless",
+    "--disable-gpu",
+    "--hide-scrollbars",
+    "--window-size=1200,630",
+    f"--screenshot={out_og_root}",
+    file_url_og
+]
+
+print("Rendering OG Banner (1200x630)...")
+subprocess.run(cmd_og, capture_output=True, text=True)
+
+if os.path.exists(out_og_root):
+    import shutil
+    shutil.copyfile(out_og_root, out_og_prom)
+    print(f"  [OK] Saved OG banner: {out_og_root} ({os.path.getsize(out_og_root):,} bytes)")
+
+# Render Apple Touch Icon (180x180)
+out_touch = os.path.join(base_dir, "apple-touch-icon.png")
+file_url_touch = "file:///" + touch_tmpl_path.replace("\\", "/")
+
+cmd_touch = [
+    edge_path,
+    "--headless",
+    "--disable-gpu",
+    "--hide-scrollbars",
+    "--window-size=180,180",
+    f"--screenshot={out_touch}",
+    file_url_touch
+]
+
+print("Rendering Apple Touch Icon (180x180)...")
+subprocess.run(cmd_touch, capture_output=True, text=True)
+if os.path.exists(out_touch):
+    print(f"  [OK] Saved touch icon: {out_touch} ({os.path.getsize(out_touch):,} bytes)")
+
+# Generate favicon.ico from 32x32 / touch icon
+try:
+    from PIL import Image
+    im = Image.open(out_touch)
+    im.save(os.path.join(base_dir, "favicon.ico"), format='ICO', sizes=[(16,16), (32,32), (48,48)])
+    print("  [OK] Generated favicon.ico with PIL")
+except Exception as e:
+    # If PIL not installed, copy touch icon as fallback or create 32x32 via Edge
+    print("  Note on PIL:", e)
+    # Render 32x32 via Edge as fallback
+    cmd_fav = [
+        edge_path,
+        "--headless",
+        "--disable-gpu",
+        "--hide-scrollbars",
+        "--window-size=32,32",
+        f"--screenshot={os.path.join(base_dir, 'favicon.ico')}",
+        file_url_touch
+    ]
+    subprocess.run(cmd_fav, capture_output=True, text=True)
+
+print("SEO visual assets successfully generated!")

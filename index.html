@@ -197,7 +197,9 @@ footer a:hover{text-decoration:underline}
 .app-toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
 .ad-slot-wrap{display:flex;flex-direction:column;justify-content:center;align-items:center;margin:12px auto;text-align:center;min-height:105px;overflow:hidden;scroll-margin-top:100px}
 @media (min-width:768px){.ad-slot-wrap{min-height:105px;margin:14px auto;scroll-margin-top:105px}}
+.ad-slot-wrap.ad-autorelaxed{min-height:140px;max-width:100%;margin:18px auto 14px}
 .ad-label{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);opacity:.7;margin:0 auto 4px;line-height:1;text-align:center;user-select:none}
+.ad-slot-wrap.ad-autorelaxed ins.adsbygoogle{display:block!important;width:100%!important;min-height:120px}
 .ad-slot-wrap.ad-collapsed,.ad-slot-wrap:has(ins[data-ad-status="unfilled"]){display:none!important;min-height:0!important;height:0!important;margin:0!important;padding:0!important}
 .share-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0 10px;box-shadow:0 1px 4px rgba(0,0,0,.02);transition:margin .2s ease}
 .share-head{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
@@ -334,6 +336,8 @@ reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:1
 <div class="modal-actions" id="modal-actions"></div>
 </div>
 </div>
+<!-- Ebook-buddy Footer Multiplex Ad (Slot: 3385897927) -->
+<div class="ad-slot-wrap ad-autorelaxed" id="ad-footer" data-ad-slot-num="footer" data-ad-slot="3385897927" data-ad-format="autorelaxed"><span class="ad-label">Advertisement</span></div>
 <footer>© 2026 <b>EbookBuddy</b> · Created by <b>Osazee Kelvin King</b> · <a href="/blog">Blog</a><br>Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a><div class='promo'><h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4><p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p><p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p></div><div style="margin:12px 0 6px;font-size:.82rem;color:var(--mute)">Loving EbookBuddy? <a href="javascript:void(0)" id="footer-share-link" style="color:var(--brand);font-weight:700">Share with fellow creators 🚀</a></div>Always verify facts (laws, fees, visa rules, health info) from official sources before publishing.</footer>
 </div>
 <script>
@@ -1266,9 +1270,9 @@ if(window.EbookBuddyAds&&window.EbookBuddyAds.renderAd){return window.EbookBuddy
 var c=typeof id==="string"?document.getElementById(id):id;
 if(!c)return;
 var isDesk=window.innerWidth>=768;
-var slotMap={"ad-hero":isDesk?"4369386116":"8117059432","ad-top":isDesk?"3056304442":"6229262699","ad-bottom":isDesk?"9246930392":"5231663766"};
+var slotMap={"ad-hero":isDesk?"4369386116":"8117059432","ad-top":isDesk?"3056304442":"6229262699","ad-bottom":isDesk?"9246930392":"5231663766","ad-footer":"3385897927"};
 var num=c.getAttribute("data-ad-slot-num");
-var slot=c.getAttribute(isDesk?"data-ad-slot-desk":"data-ad-slot-mob")||(num==1?(isDesk?"4369386116":"8117059432"):num==2?(isDesk?"3056304442":"6229262699"):num==3?(isDesk?"9246930392":"5231663766"):null)||slotMap[c.id];
+var slot=c.getAttribute(isDesk?"data-ad-slot-desk":"data-ad-slot-mob")||c.getAttribute("data-ad-slot")||(num==1?(isDesk?"4369386116":"8117059432"):num==2?(isDesk?"3056304442":"6229262699"):num==3?(isDesk?"9246930392":"5231663766"):num=="footer"?"3385897927":null)||slotMap[c.id];
 if(!slot)return;
 c.classList.remove("ad-collapsed");
 c.innerHTML="";
@@ -1276,11 +1280,17 @@ var lbl=document.createElement("span");
 lbl.className="ad-label";
 lbl.textContent="Advertisement";
 c.appendChild(lbl);
+var isAuto=c.getAttribute("data-ad-format")==="autorelaxed"||c.classList.contains("ad-autorelaxed")||c.id==="ad-footer";
 var ins=document.createElement("ins");
 ins.className="adsbygoogle";
+if(isAuto){
+ins.style.display="block";
+ins.setAttribute("data-ad-format","autorelaxed");
+}else{
 ins.style.display="inline-block";
 ins.style.width=(isDesk?728:320)+"px";
 ins.style.height="90px";
+}
 ins.setAttribute("data-ad-client",AD_CLIENT);
 ins.setAttribute("data-ad-slot",slot);
 c.appendChild(ins);
@@ -1330,7 +1340,7 @@ obs.observe(ins,{attributes:true,childList:true,subtree:true});
 }
 collapseTimer=setTimeout(function(){
 if(!checkAdLoaded()){collapseAd();}
-},8000);
+},15000);
 try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){collapseAd();}
 }
 function refreshAds(){
@@ -1339,6 +1349,7 @@ if(window.EbookBuddyAds&&window.EbookBuddyAds.refreshAds){return window.EbookBud
 renderAd("ad-hero");
 renderAd("ad-top");
 renderAd("ad-bottom");
+renderAd("ad-footer");
 }
 var lastIsDesk=window.innerWidth>=768,resizeAdTimer=null;
 function initAds(){

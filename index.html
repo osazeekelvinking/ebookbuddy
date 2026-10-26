@@ -200,7 +200,7 @@ footer a:hover{text-decoration:underline}
 .ad-slot-wrap.ad-autorelaxed{min-height:140px;max-width:100%;margin:18px auto 14px}
 .ad-label{display:block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);opacity:.7;margin:0 auto 4px;line-height:1;text-align:center;user-select:none}
 .ad-slot-wrap.ad-autorelaxed ins.adsbygoogle{display:block!important;width:100%!important;min-height:120px}
-.ad-slot-wrap.ad-collapsed,.ad-slot-wrap:has(ins[data-ad-status="unfilled"]){display:none!important;min-height:0!important;height:0!important;margin:0!important;padding:0!important}
+.ad-slot-wrap.ad-collapsed{display:none!important;min-height:0!important;height:0!important;margin:0!important;padding:0!important}
 .share-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:12px 0 10px;box-shadow:0 1px 4px rgba(0,0,0,.02);transition:margin .2s ease}
 .share-head{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
 .share-head-info{flex:1 1 auto;min-width:0}
@@ -336,9 +336,10 @@ reader: ...'></textarea><button class='b' id='imb' style='margin-top:8px;width:1
 <div class="modal-actions" id="modal-actions"></div>
 </div>
 </div>
+<footer>© 2026 <b>EbookBuddy</b> · Created by <b>Osazee Kelvin King</b> · <a href="/blog">Blog</a><br>Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a><div class='promo'><h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4><p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p><p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p></div><div style="margin:12px 0 6px;font-size:.82rem;color:var(--mute)">Loving EbookBuddy? <a href="javascript:void(0)" id="footer-share-link" style="color:var(--brand);font-weight:700">Share with fellow creators 🚀</a></div><p style="margin:6px 0 14px">Always verify facts (laws, fees, visa rules, health info) from official sources before publishing.</p>
 <!-- Ebook-buddy Footer Multiplex Ad (Slot: 3385897927) -->
 <div class="ad-slot-wrap ad-autorelaxed" id="ad-footer" data-ad-slot-num="footer" data-ad-slot="3385897927" data-ad-format="autorelaxed"><span class="ad-label">Advertisement</span></div>
-<footer>© 2026 <b>EbookBuddy</b> · Created by <b>Osazee Kelvin King</b> · <a href="/blog">Blog</a><br>Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a><div class='promo'><h4 class='ph'>RECOMMENDED PLATFORMS FOR YOU…</h4><p>Want a free and powerful platform to sell your ebooks and digital products? Use <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a>.</p><p>Want an AI-powered funnel builder to build your ebook funnel in minutes? Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a>, you can start for free.</p></div><div style="margin:12px 0 6px;font-size:.82rem;color:var(--mute)">Loving EbookBuddy? <a href="javascript:void(0)" id="footer-share-link" style="color:var(--brand);font-weight:700">Share with fellow creators 🚀</a></div>Always verify facts (laws, fees, visa rules, health info) from official sources before publishing.</footer>
+</footer>
 </div>
 <script>
 var L={country:["Your country / city","e.g. your country and city"],reader:["Target reader","e.g. new graduates looking for remote jobs"],niche:["Topic / niche","e.g. exam prep, poultry farming, freelancing"],problem:["Problem you solve","e.g. students fail Maths because of poor study plans"],ideas:["Your ideas (paste list)","One idea per line",1],title:["Ebook title","Working title is fine"],background:["Your background and skills","What you know, did, or solved",1],hours:["Hours per week","e.g. 10"],budget:["Budget","e.g. $50 or 20,000 in your currency"],goal:["90-day goal","e.g. publish 1 ebook, 50 sales"],quotes:["Real customer quotes","Paste exact comments from your research",1],data:["Pasted research data","Comments, reviews, competitor details",1],numbers:["Your numbers","Visitors, signups, sales, revenue...",1],price:["Price (your currency)","e.g. $9 or £7"],offer:["Your offer","Ebook + bonuses + deadline",1],outline:["Chapter outline","Paste the outline for this chapter",1],chapter:["Chapter number and title","e.g. 3: Build your 30-day plan"],text:["Paste your text","Draft, chapter or sales page",1],platform:["Main platform","e.g. TikTok, WhatsApp Status"],feedback:["Buyer feedback","Reviews, questions, DMs",1],lang:["Language","e.g. French, Spanish, Hindi, Arabic"]};
@@ -1302,13 +1303,13 @@ c.classList.remove("ad-collapsed");
 if(collapseTimer){clearTimeout(collapseTimer);collapseTimer=null;}
 if(obs){obs.disconnect();}
 }
-function checkAdLoaded(){
+function isAdLoaded(){
 if(adLoaded)return true;
 var st=ins.getAttribute("data-ad-status");
-var gst=ins.getAttribute("data-adsbygoogle-status");
-var ifr=ins.getElementsByTagName("iframe").length>0;
-var cnt=ins.children.length>0&&ins.offsetHeight>20;
-if(st==="filled"||gst==="done"||ifr||cnt){markLoaded();return true;}
+if(st==="filled"){markLoaded();return true;}
+if(st==="unfilled")return false;
+var creativeIframe=ins.querySelector("iframe[id^='google_ads_iframe']");
+if(creativeIframe&&creativeIframe.offsetHeight>20){markLoaded();return true;}
 return false;
 }
 function collapseAd(){
@@ -1325,23 +1326,20 @@ obs=new window.MutationObserver(function(muts){
 for(var i=0;i<muts.length;i++){
 var m=muts[i];
 if(m.type==="attributes"&&m.attributeName==="data-ad-status"){
-if(ins.getAttribute("data-ad-status")==="unfilled"){
-if(!adLoaded){collapseAd();if(obs)obs.disconnect();}
-return;
-}else if(ins.getAttribute("data-ad-status")==="filled"){
+if(ins.getAttribute("data-ad-status")==="filled"){
 markLoaded();
 return;
 }
 }
 }
-checkAdLoaded();
+isAdLoaded();
 });
 obs.observe(ins,{attributes:true,childList:true,subtree:true});
 }
 collapseTimer=setTimeout(function(){
-if(!checkAdLoaded()){collapseAd();}
-},15000);
-try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){collapseAd();}
+if(!isAdLoaded()){collapseAd();}
+},10000);
+try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}
 }
 function refreshAds(){
 if(document.hidden)return;

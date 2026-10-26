@@ -72,8 +72,7 @@
       ".ad-slot-wrap.ad-autorelaxed ins.adsbygoogle{" +
       "display:block!important;width:100%!important;min-height:120px;" +
       "}" +
-      ".ad-slot-wrap.ad-collapsed," +
-      ".ad-slot-wrap:has(ins[data-ad-status='unfilled']){" +
+      ".ad-slot-wrap.ad-collapsed{" +
       "display:none!important;min-height:0!important;height:0!important;" +
       "margin:0!important;padding:0!important;" +
       "}";
@@ -171,14 +170,20 @@
       }
     }
 
-    function checkAdLoaded() {
+    function isAdLoaded() {
       if (adLoaded) return true;
       var status = ins.getAttribute("data-ad-status");
-      var gStatus = ins.getAttribute("data-adsbygoogle-status");
-      var hasIframe = ins.getElementsByTagName("iframe").length > 0;
-      var hasContent = ins.children.length > 0 && ins.offsetHeight > 20;
-
-      if (status === "filled" || gStatus === "done" || hasIframe || hasContent) {
+      if (status === "filled") {
+        markLoaded();
+        return true;
+      }
+      if (status === "unfilled") {
+        return false;
+      }
+      // Only an actual creative iframe (google_ads_iframe) counts as filled,
+      // NOT Google's initial empty handshake iframe (aswift_0)
+      var creativeIframe = ins.querySelector("iframe[id^='google_ads_iframe']");
+      if (creativeIframe && creativeIframe.offsetHeight > 20) {
         markLoaded();
         return true;
       }
@@ -201,35 +206,28 @@
         for (var i = 0; i < mutations.length; i++) {
           var m = mutations[i];
           if (m.type === "attributes" && m.attributeName === "data-ad-status") {
-            if (ins.getAttribute("data-ad-status") === "unfilled") {
-              if (!adLoaded) {
-                collapseAd();
-                if (observer) observer.disconnect();
-              }
-              return;
-            } else if (ins.getAttribute("data-ad-status") === "filled") {
+            if (ins.getAttribute("data-ad-status") === "filled") {
               markLoaded();
               return;
             }
           }
         }
-        checkAdLoaded();
+        isAdLoaded();
       });
       observer.observe(ins, { attributes: true, childList: true, subtree: true });
     }
 
-    // 2. Safety timeout for ad blockers or completely dead requests (15 seconds)
+    // 2. Auto-collapse after 10 seconds when no ad is rendered/loaded
     collapseTimer = setTimeout(function () {
-      if (!checkAdLoaded()) {
+      if (!isAdLoaded()) {
         collapseAd();
       }
-    }, 15000);
+    }, 10000);
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (e) {
-      // If push throws an error, collapse
-      collapseAd();
+      // Allow the 10-second timer to handle graceful collapse without throwing
     }
   }
 

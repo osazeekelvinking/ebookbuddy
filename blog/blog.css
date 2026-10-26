@@ -897,6 +897,12 @@ a:hover {
   max-width: 760px;
 }
 
+.ad-slot-wrap.ad-autorelaxed {
+  min-height: 140px;
+  max-width: 100%;
+  margin: 18px auto 14px;
+}
+
 .ad-label {
   display: block;
   font-size: 10px;
@@ -909,7 +915,13 @@ a:hover {
   line-height: 1;
 }
 
-.ad-slot-wrap.ad-collapsed, .ad-slot-wrap:has(ins[data-ad-status="unfilled"]) {
+.ad-slot-wrap.ad-autorelaxed ins.adsbygoogle {
+  display: block !important;
+  width: 100% !important;
+  min-height: 120px;
+}
+
+.ad-slot-wrap.ad-collapsed {
   display: none !important;
   min-height: 0 !important;
   height: 0 !important;

@@ -184,6 +184,8 @@ function getFooter(relDepth) {
 <footer class="site-footer">
   <p>© 2026 <b>EbookBuddy</b> · Powered by <a href="https://sabimentors.com" target="_blank" rel="noopener">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener">FunnelCraft AI</a></p>
   <p style="margin-top:6px;font-size:0.75rem;color:var(--mute)">Turn any real-world problem into a profitable digital ebook in minutes.</p>
+  <!-- Ebook-buddy Footer Multiplex Ad (Slot: 3385897927) -->
+  <div class="ad-slot-wrap ad-autorelaxed" id="ad-footer" data-ad-slot-num="footer" data-ad-slot="3385897927" data-ad-format="autorelaxed" style="margin:20px auto 10px;"><span class="ad-label">Advertisement</span></div>
 </footer>
 <script>
   (function(){
@@ -857,7 +859,9 @@ function generateFullHtmlForCurrentPost() {
       '</div></section>\\n' : '') +
     '<div class="product-cta-banner"><h3>Turn Your Idea Into a Profitable Ebook</h3><p>Use EbookBuddy\\'s 15-stage prompt builder to launch your book today.</p><a href="/" class="product-cta-btn">Start Free &rarr;</a></div>\\n' +
     '</article>\\n</main>\\n' +
-    '<footer class="site-footer"><p>© 2026 <b>EbookBuddy</b> · Powered by <a href="https://sabimentors.com" target="_blank">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank">FunnelCraft AI</a></p></footer>\\n' +
+    '<footer class="site-footer"><p>© 2026 <b>EbookBuddy</b> · Powered by <a href="https://sabimentors.com" target="_blank">SabiMentors</a> × <a href="https://www.funnelcraftai.com" target="_blank">FunnelCraft AI</a></p>' +
+    '<!-- Ebook-buddy Footer Multiplex Ad (Slot: 3385897927) -->' +
+    '<div class="ad-slot-wrap ad-autorelaxed" id="ad-footer" data-ad-slot-num="footer" data-ad-slot="3385897927" data-ad-format="autorelaxed" style="margin:20px auto 10px;"><span class="ad-label">Advertisement</span></div></footer>\\n' +
     '</body>\\n</html>';
 }
 

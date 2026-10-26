@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0D0E15;
+    color: #FFF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .canvas {
+    width: 1200px;
+    height: 1200px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, #1F202E 0%, #0D0E15 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 70px 70px;
+  }
+
+  /* Header */
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 24px;
+    border-radius: 999px;
+  }
+
+  .brand-badge .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #F26B21;
+    box-shadow: 0 0 16px #F26B21;
+  }
+
+  .brand-badge span {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #FFF;
+    text-transform: uppercase;
+  }
+
+  .brand-badge b { color: #F26B21; }
+
+  .header-tag {
+    background: rgba(242, 107, 33, 0.15);
+    border: 1px solid #F26B21;
+    color: #F26B21;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 10px 22px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Headline: Minimal & Punchy */
+  .headline-wrap {
+    text-align: center;
+    margin-top: 10px;
+    z-index: 10;
+  }
+
+  .headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+
+  .headline span {
+    color: #F26B21;
+    text-shadow: 0 0 35px rgba(242, 107, 33, 0.4);
+  }
+
+  .subhead {
+    font-size: 22px;
+    color: #A3A3B2;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* Mascot Stage Area */
+  .mascot-stage {
+    position: relative;
+    width: 780px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  /* Speech Bubble */
+  .speech-bubble {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: #FFFFFF;
+    color: #14141A;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 18px 28px;
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 36px;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: #FFFFFF transparent;
+    display: block;
+    width: 0;
+  }
+
+  .speech-bubble.left {
+    right: auto;
+    left: 40px;
+  }
+
+  .speech-bubble.left::after {
+    left: auto;
+    right: 36px;
+  }
+
+  /* Footer Minimal Call to Action */
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    z-index: 10;
+  }
+
+  .footer-left {
+    font-size: 22px;
+    color: #8C8C9E;
+    font-weight: 600;
+  }
+
+  .footer-left b { color: #FFF; }
+
+  .footer-cta {
+    background: #F26B21;
+    color: #FFF;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 14px 34px;
+    border-radius: 14px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 8px 30px rgba(242, 107, 33, 0.4);
+  }
+</style>
+</head>
+<body>
+
+  <!-- ==================== MASCOT 1: BREAKTHROUGH ==================== -->
+  <div class="canvas" id="mascot-1">
+    <div class="header">
+      <div class="brand-badge">
+        <div class="dot"></div>
+        <span>Ebook <b>Buddy</b></span>
+      </div>
+      <div class="header-tag">AI EBOOK GENERATOR</div>
+    </div>
+
+    <div class="headline-wrap">
+      <h1 class="headline">Stop Staring at a <span>Blank Page.</span></h1>
+      <p class="subhead">Answer 3 simple questions. Get your full ebook blueprint.</p>
+    </div>
+
+    <div class="mascot-stage">
+      <div class="speech-bubble">
+        <span>✨</span> Done in 10 minutes!
+      </div>
+
+      <!-- Buddy SVG Character: Magic Writing -->
+      <svg width="600" height="520" viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#F26B21" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#F26B21" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/>
+            <stop offset="60%" stop-color="#F0EDEA"/>
+            <stop offset="100%" stop-color="#D9D5D0"/>
+          </linearGradient>
+          <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FF8A48"/>
+            <stop offset="100%" stop-color="#F26B21"/>
+          </linearGradient>
+          <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#242634"/>
+            <stop offset="100%" stop-color="#14151E"/>
+          </linearGradient>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity="0.45"/>
+          </filter>
+        </defs>
+
+        <!-- Ambient Backdrop Glow -->
+        <circle cx="300" cy="280" r="220" fill="url(#glowOrange)"/>
+
+        <!-- Shadow under character -->
+        <ellipse cx="300" cy="460" rx="140" ry="24" fill="#06070A" opacity="0.8"/>
+
+        <!-- FLOATING MAGIC HARDCOVER BOOK (Right) -->
+        <g transform="translate(370, 160) rotate(-12)" filter="url(#shadow)">
+          <!-- Pages depth -->
+          <rect x="0" y="0" width="130" height="170" rx="14" fill="#FFFFFF"/>
+          <rect x="4" y="4" width="122" height="162" rx="12" fill="#FAF6EE"/>
+          <!-- Cover -->
+          <rect x="0" y="0" width="128" height="170" rx="14" fill="url(#orangeGrad)"/>
+          <!-- Spine shadow -->
+          <rect x="0" y="0" width="18" height="170" rx="10" fill="#D35400" opacity="0.6"/>
+          <!-- Book Emboss Star -->
+          <circle cx="68" cy="75" r="24" fill="#FFF" opacity="0.9"/>
+          <path d="M68 60L72 72L84 75L72 78L68 90L64 78L52 75L64 72Z" fill="#F26B21"/>
+          <!-- Book title lines -->
+          <rect x="36" y="115" width="60" height="8" rx="4" fill="#FFF" opacity="0.85"/>
+          <rect x="46" y="130" width="40" height="6" rx="3" fill="#FFF" opacity="0.6"/>
+          <!-- Sparkles emitting from book -->
+          <circle cx="140" cy="20" r="6" fill="#FCD34D"/>
+          <circle cx="-15" cy="50" r="4" fill="#FCD34D"/>
+          <circle cx="150" cy="110" r="8" fill="#FCD34D"/>
+          <circle cx="120" cy="-20" r="5" fill="#FFF"/>
+        </g>
+
+        <!-- BUDDY CHARACTER -->
+        <!-- Antenna -->
+        <rect x="294" y="90" width="12" height="40" rx="6" fill="#A3A3B2"/>
+        <circle cx="300" cy="85" r="16" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+        <circle cx="300" cy="85" r="8" fill="#FFF" opacity="0.8"/>
+
+        <!-- Ears / Headphone Cushions -->
+        <rect x="180" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+        <rect x="398" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+
+        <!-- Head Base Shape -->
+        <rect x="195" y="125" width="210" height="160" rx="55" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Face Screen Visor -->
+        <rect x="215" y="145" width="170" height="120" rx="40" fill="url(#screenGrad)"/>
+
+        <!-- Expressive Smiling Eyes (Cyan/White Glow) -->
+        <!-- Left Eye (Winking Star or Big Happy Arc) -->
+        <path d="M245 200C245 186 260 186 260 200" stroke="#00F5D4" stroke-width="9" stroke-linecap="round"/>
+        <!-- Right Eye (Wide Happy Sparkling) -->
+        <ellipse cx="335" cy="195" rx="18" ry="24" fill="#00F5D4"/>
+        <circle cx="330" cy="188" rx="7" ry="9" fill="#FFFFFF"/>
+        <circle cx="342" cy="205" r="4" fill="#FFFFFF"/>
+
+        <!-- Cute Rosy Cheeks -->
+        <circle cx="238" cy="225" r="12" fill="#F26B21" opacity="0.6"/>
+        <circle cx="362" cy="225" r="12" fill="#F26B21" opacity="0.6"/>
+
+        <!-- Cute Digital Smile -->
+        <path d="M285 228Q300 240 315 228" stroke="#00F5D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+        <!-- Body / Torso -->
+        <path d="M225 295C225 285 375 285 375 295L385 410C385 435 365 445 300 445C235 445 215 435 215 410Z" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Chest Heart / Power Core (Orange glowing "B") -->
+        <circle cx="300" cy="355" r="30" fill="url(#orangeGrad)"/>
+        <circle cx="300" cy="355" r="24" fill="#FFFFFF" opacity="0.2"/>
+        <path d="M292 342H302C308 342 312 345 312 350C312 353 309 355 305 356C310 357 314 360 314 365C314 370 309 373 302 373H292V342ZM298 353H302C305 353 307 351 307 348C307 345 305 344 302 344H298V353ZM298 368H302C306 368 308 366 308 363C308 360 306 358 302 358H298V368Z" fill="#FFFFFF"/>
+
+        <!-- Left Arm (Waving Cheerfully) -->
+        <g transform="translate(195, 305) rotate(-35)">
+          <rect x="-15" y="0" width="30" height="75" rx="15" fill="url(#bodyGrad)"/>
+          <circle cx="0" cy="85" r="20" fill="url(#orangeGrad)"/>
+        </g>
+
+        <!-- Right Arm (Holding Magic Wand / Pointing to Book) -->
+        <g transform="translate(385, 320) rotate(45)">
+          <rect x="-15" y="0" width="30" height="85" rx="15" fill="url(#bodyGrad)"/>
+          <circle cx="0" cy="95" r="22" fill="url(#orangeGrad)"/>
+          <!-- Magic Wand -->
+          <rect x="-6" y="90" width="12" height="70" rx="6" fill="#FBBF24"/>
+          <!-- Star Tip -->
+          <circle cx="0" cy="165" r="14" fill="#FFF"/>
+          <circle cx="0" cy="165" r="10" fill="#F59E0B"/>
+        </g>
+
+        <!-- Cute Feet / Stabilizers -->
+        <ellipse cx="255" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+        <ellipse cx="345" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">Turn your knowledge into an ebook · <b>100% Free Tool</b></div>
+      <div class="footer-cta">Get Started Free →</div>
+    </div>
+  </div>
+
+  <!-- ==================== MASCOT 2: WEEKEND LAUNCH ==================== -->
+  <div class="canvas" id="mascot-2">
+    <div class="header">
+      <div class="brand-badge">
+        <div class="dot"></div>
+        <span>Ebook <b>Buddy</b></span>
+      </div>
+      <div class="header-tag">48-HOUR FAST START</div>
+    </div>
+
+    <div class="headline-wrap">
+      <h1 class="headline">Launch Your Ebook <span>This Weekend.</span></h1>
+      <p class="subhead">No stress. No endless writing. Just 3 simple steps.</p>
+    </div>
+
+    <div class="mascot-stage">
+      <div class="speech-bubble">
+        <span>🍹</span> That was easy!
+      </div>
+
+      <!-- Buddy SVG Character: Chilling with Sunglasses -->
+      <svg width="600" height="520" viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glowTeal" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#22C55E" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Ambient Backdrop Glow -->
+        <circle cx="300" cy="280" r="220" fill="url(#glowTeal)"/>
+        <ellipse cx="300" cy="460" rx="150" ry="24" fill="#06070A" opacity="0.8"/>
+
+        <!-- Laptop on a mini stand (Right) -->
+        <g transform="translate(370, 310)" filter="url(#shadow)">
+          <!-- Laptop Screen -->
+          <rect x="0" y="0" width="130" height="90" rx="10" fill="#1E1E27" stroke="#2E2E3A" stroke-width="2"/>
+          <rect x="10" y="10" width="110" height="70" rx="6" fill="#14141A"/>
+          <!-- Green Success Badge on Laptop -->
+          <rect x="20" y="25" width="90" height="24" rx="12" fill="#22C55E"/>
+          <text x="65" y="41" font-size="11" font-weight="900" fill="#FFF" text-anchor="middle">PUBLISHED 100%</text>
+          <!-- Checkmark -->
+          <circle cx="65" cy="62" r="8" fill="#22C55E"/>
+          <path d="M62 62L64 64L68 60" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+          <!-- Laptop Base -->
+          <path d="M-15 90H145L135 105H-5Z" fill="#A3A3B2"/>
+        </g>
+
+        <!-- Coconut Drink with Straw (Left) -->
+        <g transform="translate(130, 330)" filter="url(#shadow)">
+          <ellipse cx="35" cy="50" rx="35" ry="32" fill="#8B5A2B"/>
+          <!-- Drink opening -->
+          <ellipse cx="35" cy="30" rx="28" ry="16" fill="#F5E6D3"/>
+          <ellipse cx="35" cy="30" rx="22" ry="12" fill="#38BDF8"/>
+          <!-- Straw -->
+          <path d="M35 30L20 -15L5 -20" stroke="#EF4444" stroke-width="8" stroke-linecap="round" fill="none"/>
+          <!-- Mini umbrella -->
+          <path d="M45 15L75 -5C65 -20 40 -15 45 15Z" fill="#FACC15"/>
+        </g>
+
+        <!-- BUDDY CHARACTER -->
+        <!-- Antenna with tropical flower -->
+        <rect x="294" y="90" width="12" height="40" rx="6" fill="#A3A3B2"/>
+        <circle cx="300" cy="85" r="16" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+        <!-- Flower -->
+        <circle cx="316" cy="85" r="8" fill="#EC4899"/>
+        <circle cx="316" cy="85" r="3" fill="#FACC15"/>
+
+        <!-- Ears / Headphone Cushions -->
+        <rect x="180" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+        <rect x="398" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+
+        <!-- Head Base -->
+        <rect x="195" y="125" width="210" height="160" rx="55" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Face Screen -->
+        <rect x="215" y="145" width="170" height="120" rx="40" fill="url(#screenGrad)"/>
+
+        <!-- COOL RETRO SUNGLASSES -->
+        <g filter="url(#shadow)">
+          <!-- Frames -->
+          <rect x="228" y="175" width="64" height="42" rx="12" fill="#18181B" stroke="#F26B21" stroke-width="4"/>
+          <rect x="308" y="175" width="64" height="42" rx="12" fill="#18181B" stroke="#F26B21" stroke-width="4"/>
+          <!-- Bridge -->
+          <rect x="290" y="185" width="20" height="6" rx="3" fill="#F26B21"/>
+          <!-- Lens Glare -->
+          <path d="M236 208L252 183" stroke="#FFF" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+          <path d="M316 208L332 183" stroke="#FFF" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+        </g>
+
+        <!-- Big Confident Grin -->
+        <path d="M275 235Q300 255 325 235" stroke="#00F5D4" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+        <!-- Body / Torso (Relaxed lean back) -->
+        <path d="M225 295C225 285 375 285 375 295L385 410C385 435 365 445 300 445C235 445 215 435 215 410Z" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Chest Badge -->
+        <circle cx="300" cy="355" r="28" fill="url(#orangeGrad)"/>
+        <!-- Star symbol -->
+        <path d="M300 338L304 350L316 352L306 358L309 370L300 363L291 370L294 358L284 352L296 350Z" fill="#FFF"/>
+
+        <!-- Left Arm Chilling -->
+        <g transform="translate(195, 320) rotate(-20)">
+          <rect x="-15" y="0" width="30" height="80" rx="15" fill="url(#bodyGrad)"/>
+          <circle cx="0" cy="85" r="20" fill="url(#orangeGrad)"/>
+        </g>
+
+        <!-- Right Arm Peace Sign -->
+        <g transform="translate(385, 310) rotate(30)">
+          <rect x="-15" y="0" width="30" height="75" rx="15" fill="url(#bodyGrad)"/>
+          <circle cx="0" cy="85" r="22" fill="url(#orangeGrad)"/>
+        </g>
+
+        <!-- Feet -->
+        <ellipse cx="255" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+        <ellipse cx="345" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">Spend your weekend launching, not writing · <b>Free App</b></div>
+      <div class="footer-cta">Start 48H Draft →</div>
+    </div>
+  </div>
+
+  <!-- ==================== MASCOT 3: 15-STAGE MAP ==================== -->
+  <div class="canvas" id="mascot-3">
+    <div class="header">
+      <div class="brand-badge">
+        <div class="dot"></div>
+        <span>Ebook <b>Buddy</b></span>
+      </div>
+      <div class="header-tag">THE MASTER ROADMAP</div>
+    </div>
+
+    <div class="headline-wrap">
+      <h1 class="headline">The 15-Stage <span>Ebook Blueprint.</span></h1>
+      <p class="subhead">Never wonder what to do next. Follow the proven roadmap.</p>
+    </div>
+
+    <div class="mascot-stage">
+      <div class="speech-bubble left">
+        <span>🗺️</span> I've got the map!
+      </div>
+
+      <!-- Buddy SVG Character: Architect with Blueprint -->
+      <svg width="600" height="520" viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ambient Glow -->
+        <circle cx="300" cy="280" r="220" fill="url(#glowOrange)"/>
+        <ellipse cx="300" cy="460" rx="150" ry="24" fill="#06070A" opacity="0.8"/>
+
+        <!-- BLUEPRINT SCROLL HELD IN FRONT -->
+        <g transform="translate(140, 280)" filter="url(#shadow)">
+          <!-- Glowing Blueprint paper -->
+          <rect x="0" y="0" width="320" height="150" rx="16" fill="#1E3A8A" stroke="#3B82F6" stroke-width="4"/>
+          <!-- Grid lines -->
+          <line x1="20" y1="30" x2="300" y2="30" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+          <line x1="20" y1="60" x2="300" y2="60" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+          <line x1="20" y1="90" x2="300" y2="90" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+          <line x1="20" y1="120" x2="300" y2="120" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+
+          <!-- 5 Stepping Nodes -->
+          <circle cx="45" cy="75" r="14" fill="#F26B21"/>
+          <text x="45" y="80" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">1</text>
+
+          <line x1="60" y1="75" x2="95" y2="75" stroke="#FBBF24" stroke-width="4" stroke-dasharray="4 4"/>
+
+          <circle cx="110" cy="75" r="14" fill="#F26B21"/>
+          <text x="110" y="80" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">5</text>
+
+          <line x1="125" y1="75" x2="160" y2="75" stroke="#FBBF24" stroke-width="4" stroke-dasharray="4 4"/>
+
+          <circle cx="175" cy="75" r="14" fill="#F26B21"/>
+          <text x="175" y="80" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">10</text>
+
+          <line x1="190" y1="75" x2="225" y2="75" stroke="#FBBF24" stroke-width="4" stroke-dasharray="4 4"/>
+
+          <!-- Final Launch Trophy -->
+          <circle cx="255" cy="75" r="22" fill="#22C55E"/>
+          <text x="255" y="81" font-size="18" text-anchor="middle">🏆</text>
+
+          <text x="160" y="132" font-size="14" font-weight="800" fill="#93C5FD" text-anchor="middle" letter-spacing="1">15 STAGES · IDEA TO LAUNCH</text>
+        </g>
+
+        <!-- BUDDY CHARACTER (PEEKING FROM BEHIND BLUEPRINT) -->
+        <!-- Cute Yellow Builder Hardhat -->
+        <g transform="translate(200, 75)" filter="url(#shadow)">
+          <path d="M10 65C10 20 190 20 190 65H10Z" fill="#FACC15"/>
+          <rect x="0" y="60" width="200" height="16" rx="8" fill="#EAB308"/>
+          <!-- Hardhat light -->
+          <circle cx="100" cy="40" r="12" fill="#FFF"/>
+          <circle cx="100" cy="40" r="8" fill="#60A5FA"/>
+        </g>
+
+        <!-- Ears -->
+        <rect x="180" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+        <rect x="398" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+
+        <!-- Head Base -->
+        <rect x="195" y="125" width="210" height="160" rx="55" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Face Screen -->
+        <rect x="215" y="145" width="170" height="120" rx="40" fill="url(#screenGrad)"/>
+
+        <!-- Happy Winking / Determined Eyes -->
+        <circle cx="260" cy="195" r="16" fill="#00F5D4"/>
+        <circle cx="256" cy="190" r="6" fill="#FFF"/>
+
+        <circle cx="340" cy="195" r="16" fill="#00F5D4"/>
+        <circle cx="336" cy="190" r="6" fill="#FFF"/>
+
+        <!-- Cute Smile -->
+        <path d="M285 224Q300 236 315 224" stroke="#00F5D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+        <!-- Hands holding the scroll (Drawn in front of blueprint) -->
+        <circle cx="170" cy="355" r="24" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+        <circle cx="430" cy="355" r="24" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+
+        <!-- Feet -->
+        <ellipse cx="255" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+        <ellipse cx="345" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">Validation, outlines, copy & funnels in 1 app · <b>Free</b></div>
+      <div class="footer-cta">Get The Roadmap →</div>
+    </div>
+  </div>
+
+  <!-- ==================== MASCOT 4: 100% FREE GIFT ==================== -->
+  <div class="canvas" id="mascot-4">
+    <div class="header">
+      <div class="brand-badge">
+        <div class="dot"></div>
+        <span>Ebook <b>Buddy</b></span>
+      </div>
+      <div class="header-tag" style="border-color:#22C55E; color:#22C55E;">100% FREE WEB APP</div>
+    </div>
+
+    <div class="headline-wrap">
+      <h1 class="headline">No Subscription. <span>100% Free.</span></h1>
+      <p class="subhead">No $497 courses. No credit cards. No lock-in.</p>
+    </div>
+
+    <div class="mascot-stage">
+      <div class="speech-bubble">
+        <span>🎁</span> Keep your wallet closed!
+      </div>
+
+      <!-- Buddy SVG Character: Popping out of Gift Box -->
+      <svg width="600" height="520" viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="280" r="220" fill="url(#glowTeal)"/>
+        <ellipse cx="300" cy="470" rx="160" ry="24" fill="#06070A" opacity="0.8"/>
+
+        <!-- Confetti Particles -->
+        <rect x="120" y="140" width="16" height="8" rx="4" fill="#F43F5E" transform="rotate(25 120 140)"/>
+        <rect x="440" y="130" width="18" height="9" rx="4" fill="#3B82F6" transform="rotate(-30 440 130)"/>
+        <circle cx="160" cy="220" r="8" fill="#FACC15"/>
+        <circle cx="460" cy="240" r="7" fill="#10B981"/>
+        <rect x="200" y="80" width="14" height="7" rx="3" fill="#A855F7" transform="rotate(45 200 80)"/>
+        <circle cx="390" cy="90" r="6" fill="#F97316"/>
+
+        <!-- BUDDY CHARACTER (Top half) -->
+        <!-- Antenna -->
+        <rect x="294" y="60" width="12" height="40" rx="6" fill="#A3A3B2"/>
+        <circle cx="300" cy="55" r="16" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+
+        <!-- Ears -->
+        <rect x="180" y="140" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+        <rect x="398" y="140" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+
+        <!-- Head Base -->
+        <rect x="195" y="95" width="210" height="160" rx="55" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Face Screen -->
+        <rect x="215" y="115" width="170" height="120" rx="40" fill="url(#screenGrad)"/>
+
+        <!-- Joyful Anime Cheerful Eyes -->
+        <path d="M240 170Q255 150 270 170" stroke="#00F5D4" stroke-width="8" stroke-linecap="round" fill="none"/>
+        <path d="M330 170Q345 150 360 170" stroke="#00F5D4" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+        <!-- Rosy Cheeks -->
+        <circle cx="242" cy="190" r="14" fill="#F26B21" opacity="0.6"/>
+        <circle cx="358" cy="190" r="14" fill="#F26B21" opacity="0.6"/>
+
+        <!-- Big Open Laughing Mouth -->
+        <path d="M280 185Q300 215 320 185Z" fill="#F43F5E"/>
+
+        <!-- Arms Raised in Celebration (Hurray!) -->
+        <g transform="translate(180, 200) rotate(-65)">
+          <rect x="-15" y="0" width="30" height="85" rx="15" fill="url(#bodyGrad)"/>
+          <circle cx="0" cy="95" r="22" fill="url(#orangeGrad)"/>
+        </g>
+        <g transform="translate(420, 200) rotate(65)">
+          <rect x="-15" y="0" width="30" height="85" rx="15" fill="url(#bodyGrad)"/>
+          <circle cx="0" cy="95" r="22" fill="url(#orangeGrad)"/>
+        </g>
+
+        <!-- GIFT BOX (Front) -->
+        <g transform="translate(150, 250)" filter="url(#shadow)">
+          <!-- Box Base -->
+          <rect x="0" y="40" width="300" height="180" rx="20" fill="url(#orangeGrad)"/>
+          <!-- Vertical Ribbon -->
+          <rect x="120" y="40" width="60" height="180" fill="#FFFFFF"/>
+          <!-- Golden Badge "$0 FREE" on Box -->
+          <circle cx="150" cy="130" r="45" fill="#22C55E" filter="url(#shadow)"/>
+          <text x="150" y="125" font-size="28" font-weight="900" fill="#FFF" text-anchor="middle">$0</text>
+          <text x="150" y="148" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">FREE</text>
+
+          <!-- Open Lid tilted back -->
+          <path d="M-20 40L150 -10L320 40H-20Z" fill="#D35400" opacity="0.5"/>
+          <!-- Lid Rim -->
+          <rect x="-15" y="30" width="330" height="24" rx="8" fill="#FF8A48"/>
+          <rect x="110" y="30" width="80" height="24" fill="#FFFFFF"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">Works with Claude, ChatGPT, Gemini & DeepSeek · <b>Free</b></div>
+      <div class="footer-cta">Access Free App →</div>
+    </div>
+  </div>
+
+  <!-- ==================== MASCOT 5: PASSIVE INCOME ==================== -->
+  <div class="canvas" id="mascot-5">
+    <div class="header">
+      <div class="brand-badge">
+        <div class="dot"></div>
+        <span>Ebook <b>Buddy</b></span>
+      </div>
+      <div class="header-tag" style="border-color:#22C55E; color:#22C55E;">PASSIVE INCOME</div>
+    </div>
+
+    <div class="headline-wrap">
+      <h1 class="headline">Turn 1 Problem Into <span>$50/Day.</span></h1>
+      <p class="subhead">Sell 2 copies a day. Make $19,440/year on autopilot.</p>
+    </div>
+
+    <div class="mascot-stage">
+      <div class="speech-bubble">
+        <span>💰</span> Sales while you sleep!
+      </div>
+
+      <!-- Buddy SVG Character: Hugging Giant Gold Coin -->
+      <svg width="600" height="520" viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="300" cy="280" r="220" fill="url(#glowTeal)"/>
+        <ellipse cx="300" cy="460" rx="160" ry="24" fill="#06070A" opacity="0.8"/>
+
+        <!-- Raining Golden Coins and Notes around -->
+        <g transform="translate(80, 120) rotate(-20)" filter="url(#shadow)">
+          <circle cx="30" cy="30" r="24" fill="#FACC15" stroke="#EAB308" stroke-width="4"/>
+          <text x="30" y="38" font-size="22" font-weight="900" fill="#713F12" text-anchor="middle">$</text>
+        </g>
+        <g transform="translate(460, 140) rotate(25)" filter="url(#shadow)">
+          <circle cx="30" cy="30" r="28" fill="#FACC15" stroke="#EAB308" stroke-width="4"/>
+          <text x="30" y="39" font-size="26" font-weight="900" fill="#713F12" text-anchor="middle">$</text>
+        </g>
+        <g transform="translate(110, 260) rotate(15)" filter="url(#shadow)">
+          <rect x="0" y="0" width="70" height="38" rx="6" fill="#22C55E" stroke="#16A34A" stroke-width="2"/>
+          <circle cx="35" cy="19" r="10" fill="#DCFCE7"/>
+          <text x="35" y="24" font-size="14" font-weight="900" fill="#166534" text-anchor="middle">$27</text>
+        </g>
+        <g transform="translate(440, 280) rotate(-15)" filter="url(#shadow)">
+          <rect x="0" y="0" width="70" height="38" rx="6" fill="#22C55E" stroke="#16A34A" stroke-width="2"/>
+          <circle cx="35" cy="19" r="10" fill="#DCFCE7"/>
+          <text x="35" y="24" font-size="14" font-weight="900" fill="#166534" text-anchor="middle">$27</text>
+        </g>
+
+        <!-- BUDDY CHARACTER (Behind Coin) -->
+        <!-- Antenna with dollar sign -->
+        <rect x="294" y="80" width="12" height="40" rx="6" fill="#A3A3B2"/>
+        <circle cx="300" cy="75" r="16" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+        <text x="300" y="81" font-size="16" font-weight="900" fill="#FFF" text-anchor="middle">$</text>
+
+        <!-- Ears -->
+        <rect x="180" y="160" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+        <rect x="398" y="160" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+
+        <!-- Head Base -->
+        <rect x="195" y="115" width="210" height="160" rx="55" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Face Screen -->
+        <rect x="215" y="135" width="170" height="120" rx="40" fill="url(#screenGrad)"/>
+
+        <!-- Dollar Sign Star Eyes -->
+        <text x="258" y="200" font-size="34" font-weight="900" fill="#22C55E" text-anchor="middle">$$</text>
+        <text x="342" y="200" font-size="34" font-weight="900" fill="#22C55E" text-anchor="middle">$$</text>
+
+        <!-- Rosy Cheeks -->
+        <circle cx="238" cy="215" r="12" fill="#F26B21" opacity="0.6"/>
+        <circle cx="362" cy="215" r="12" fill="#F26B21" opacity="0.6"/>
+
+        <!-- Happy Open Grin -->
+        <path d="M275 220Q300 245 325 220" stroke="#00F5D4" stroke-width="6" stroke-linecap="round" fill="none"/>
+
+        <!-- GIANT GOLDEN COIN HUGGED BY BUDDY -->
+        <g transform="translate(185, 230)" filter="url(#shadow)">
+          <circle cx="115" cy="115" r="105" fill="#EAB308"/>
+          <circle cx="115" cy="115" r="98" fill="url(#orangeGrad)"/>
+          <circle cx="115" cy="115" r="88" fill="#FACC15"/>
+          <!-- Inner border -->
+          <circle cx="115" cy="115" r="76" stroke="#CA8A04" stroke-width="3" stroke-dasharray="6 6" fill="none"/>
+          <!-- Massive Dollar Symbol -->
+          <text x="115" y="145" font-size="95" font-weight="900" fill="#854D0E" text-anchor="middle">$</text>
+        </g>
+
+        <!-- Buddy's Hands Hugging The Coin (Drawn over coin) -->
+        <circle cx="190" cy="330" r="26" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+        <circle cx="410" cy="330" r="26" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+
+        <!-- Feet -->
+        <ellipse cx="255" cy="450" rx="28" ry="16" fill="url(#orangeGrad)"/>
+        <ellipse cx="345" cy="450" rx="28" ry="16" fill="url(#orangeGrad)"/>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">Package your knowledge into digital income · <b>Free Tool</b></div>
+      <div class="footer-cta">Start Free Today →</div>
+    </div>
+  </div>
+
+</body>
+</html>

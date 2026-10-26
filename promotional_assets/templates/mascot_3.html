@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0D0E15;
+    color: #FFF;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .canvas {
+    width: 1200px;
+    height: 1200px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, #1F202E 0%, #0D0E15 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 70px 70px;
+  }
+
+  /* Header */
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 12px 24px;
+    border-radius: 999px;
+  }
+
+  .brand-badge .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #F26B21;
+    box-shadow: 0 0 16px #F26B21;
+  }
+
+  .brand-badge span {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #FFF;
+    text-transform: uppercase;
+  }
+
+  .brand-badge b { color: #F26B21; }
+
+  .header-tag {
+    background: rgba(242, 107, 33, 0.15);
+    border: 1px solid #F26B21;
+    color: #F26B21;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 10px 22px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Headline: Minimal & Punchy */
+  .headline-wrap {
+    text-align: center;
+    margin-top: 10px;
+    z-index: 10;
+  }
+
+  .headline {
+    font-size: 64px;
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+
+  .headline span {
+    color: #F26B21;
+    text-shadow: 0 0 35px rgba(242, 107, 33, 0.4);
+  }
+
+  .subhead {
+    font-size: 22px;
+    color: #A3A3B2;
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* Mascot Stage Area */
+  .mascot-stage {
+    position: relative;
+    width: 780px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  /* Speech Bubble */
+  .speech-bubble {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: #FFFFFF;
+    color: #14141A;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 18px 28px;
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 36px;
+    border-width: 14px 14px 0;
+    border-style: solid;
+    border-color: #FFFFFF transparent;
+    display: block;
+    width: 0;
+  }
+
+  .speech-bubble.left {
+    right: auto;
+    left: 40px;
+  }
+
+  .speech-bubble.left::after {
+    left: auto;
+    right: 36px;
+  }
+
+  /* Footer Minimal Call to Action */
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+    z-index: 10;
+  }
+
+  .footer-left {
+    font-size: 22px;
+    color: #8C8C9E;
+    font-weight: 600;
+  }
+
+  .footer-left b { color: #FFF; }
+
+  .footer-cta {
+    background: #F26B21;
+    color: #FFF;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 14px 34px;
+    border-radius: 14px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 8px 30px rgba(242, 107, 33, 0.4);
+  }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0D0E15;
+  width: 1200px;
+  height: 1200px;
+  overflow: hidden;
+}
+.canvas {
+  width: 1200px !important;
+  height: 1200px !important;
+}
+</style>
+</head>
+<body>
+<svg style="position:absolute; width:0; height:0;" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="glowOrange" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#F26B21" stop-opacity="0.6"/>
+    <stop offset="100%" stop-color="#F26B21" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowTeal" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#22C55E" stop-opacity="0.45"/>
+    <stop offset="100%" stop-color="#22C55E" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#FFFFFF"/>
+    <stop offset="60%" stop-color="#F0EDEA"/>
+    <stop offset="100%" stop-color="#D9D5D0"/>
+  </linearGradient>
+  <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#FF8A48"/>
+    <stop offset="100%" stop-color="#F26B21"/>
+  </linearGradient>
+  <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#242634"/>
+    <stop offset="100%" stop-color="#14151E"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity="0.45"/>
+  </filter>
+</defs>
+</svg>
+<div class="canvas" id="mascot-3">
+    <div class="header">
+      <div class="brand-badge">
+        <div class="dot"></div>
+        <span>Ebook <b>Buddy</b></span>
+      </div>
+      <div class="header-tag">THE MASTER ROADMAP</div>
+    </div>
+
+    <div class="headline-wrap">
+      <h1 class="headline">The 15-Stage <span>Ebook Blueprint.</span></h1>
+      <p class="subhead">Never wonder what to do next. Follow the proven roadmap.</p>
+    </div>
+
+    <div class="mascot-stage">
+      <div class="speech-bubble left">
+        <span>🗺️</span> I've got the map!
+      </div>
+
+      <!-- Buddy SVG Character: Architect with Blueprint -->
+      <svg width="600" height="520" viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ambient Glow -->
+        <circle cx="300" cy="280" r="220" fill="url(#glowOrange)"/>
+        <ellipse cx="300" cy="460" rx="150" ry="24" fill="#06070A" opacity="0.8"/>
+
+        <!-- BLUEPRINT SCROLL HELD IN FRONT -->
+        <g transform="translate(140, 280)" filter="url(#shadow)">
+          <!-- Glowing Blueprint paper -->
+          <rect x="0" y="0" width="320" height="150" rx="16" fill="#1E3A8A" stroke="#3B82F6" stroke-width="4"/>
+          <!-- Grid lines -->
+          <line x1="20" y1="30" x2="300" y2="30" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+          <line x1="20" y1="60" x2="300" y2="60" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+          <line x1="20" y1="90" x2="300" y2="90" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+          <line x1="20" y1="120" x2="300" y2="120" stroke="#60A5FA" stroke-width="1" opacity="0.4"/>
+
+          <!-- 5 Stepping Nodes -->
+          <circle cx="45" cy="75" r="14" fill="#F26B21"/>
+          <text x="45" y="80" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">1</text>
+
+          <line x1="60" y1="75" x2="95" y2="75" stroke="#FBBF24" stroke-width="4" stroke-dasharray="4 4"/>
+
+          <circle cx="110" cy="75" r="14" fill="#F26B21"/>
+          <text x="110" y="80" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">5</text>
+
+          <line x1="125" y1="75" x2="160" y2="75" stroke="#FBBF24" stroke-width="4" stroke-dasharray="4 4"/>
+
+          <circle cx="175" cy="75" r="14" fill="#F26B21"/>
+          <text x="175" y="80" font-size="12" font-weight="900" fill="#FFF" text-anchor="middle">10</text>
+
+          <line x1="190" y1="75" x2="225" y2="75" stroke="#FBBF24" stroke-width="4" stroke-dasharray="4 4"/>
+
+          <!-- Final Launch Trophy -->
+          <circle cx="255" cy="75" r="22" fill="#22C55E"/>
+          <text x="255" y="81" font-size="18" text-anchor="middle">🏆</text>
+
+          <text x="160" y="132" font-size="14" font-weight="800" fill="#93C5FD" text-anchor="middle" letter-spacing="1">15 STAGES · IDEA TO LAUNCH</text>
+        </g>
+
+        <!-- BUDDY CHARACTER (PEEKING FROM BEHIND BLUEPRINT) -->
+        <!-- Cute Yellow Builder Hardhat -->
+        <g transform="translate(200, 75)" filter="url(#shadow)">
+          <path d="M10 65C10 20 190 20 190 65H10Z" fill="#FACC15"/>
+          <rect x="0" y="60" width="200" height="16" rx="8" fill="#EAB308"/>
+          <!-- Hardhat light -->
+          <circle cx="100" cy="40" r="12" fill="#FFF"/>
+          <circle cx="100" cy="40" r="8" fill="#60A5FA"/>
+        </g>
+
+        <!-- Ears -->
+        <rect x="180" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+        <rect x="398" y="170" width="22" height="54" rx="10" fill="url(#orangeGrad)"/>
+
+        <!-- Head Base -->
+        <rect x="195" y="125" width="210" height="160" rx="55" fill="url(#bodyGrad)" filter="url(#shadow)"/>
+
+        <!-- Face Screen -->
+        <rect x="215" y="145" width="170" height="120" rx="40" fill="url(#screenGrad)"/>
+
+        <!-- Happy Winking / Determined Eyes -->
+        <circle cx="260" cy="195" r="16" fill="#00F5D4"/>
+        <circle cx="256" cy="190" r="6" fill="#FFF"/>
+
+        <circle cx="340" cy="195" r="16" fill="#00F5D4"/>
+        <circle cx="336" cy="190" r="6" fill="#FFF"/>
+
+        <!-- Cute Smile -->
+        <path d="M285 224Q300 236 315 224" stroke="#00F5D4" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+        <!-- Hands holding the scroll (Drawn in front of blueprint) -->
+        <circle cx="170" cy="355" r="24" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+        <circle cx="430" cy="355" r="24" fill="url(#orangeGrad)" filter="url(#shadow)"/>
+
+        <!-- Feet -->
+        <ellipse cx="255" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+        <ellipse cx="345" cy="445" rx="28" ry="16" fill="url(#orangeGrad)"/>
+      </svg>
+    </div>
+
+    <div class="footer">
+      <div class="footer-left">Validation, outlines, copy & funnels in 1 app · <b>Free</b></div>
+      <div class="footer-cta">Get The Roadmap →</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -129,6 +129,16 @@
     var width = isDesk ? 728 : 320;
     var height = 90;
 
+    // Cancel any previous timer/observer on this container
+    if (el._ebookBuddyTimer) {
+      clearTimeout(el._ebookBuddyTimer);
+      el._ebookBuddyTimer = null;
+    }
+    if (el._ebookBuddyObserver) {
+      el._ebookBuddyObserver.disconnect();
+      el._ebookBuddyObserver = null;
+    }
+
     // Uncollapse container when preparing new ad
     el.classList.remove("ad-collapsed");
     el.innerHTML = "";
@@ -165,8 +175,17 @@
         clearTimeout(collapseTimer);
         collapseTimer = null;
       }
+      if (el._ebookBuddyTimer) {
+        clearTimeout(el._ebookBuddyTimer);
+        el._ebookBuddyTimer = null;
+      }
       if (observer) {
         observer.disconnect();
+        observer = null;
+      }
+      if (el._ebookBuddyObserver) {
+        el._ebookBuddyObserver.disconnect();
+        el._ebookBuddyObserver = null;
       }
     }
 
@@ -180,18 +199,39 @@
       if (status === "unfilled") {
         return false;
       }
-      // Only an actual creative iframe (google_ads_iframe) counts as filled,
-      // NOT Google's initial empty handshake iframe (aswift_0)
+
+      // 1. Direct creative iframe check
       var creativeIframe = ins.querySelector("iframe[id^='google_ads_iframe']");
-      if (creativeIframe && creativeIframe.offsetHeight > 20) {
-        markLoaded();
-        return true;
+      if (creativeIframe) {
+        var ch = creativeIframe.offsetHeight || (creativeIframe.getBoundingClientRect ? creativeIframe.getBoundingClientRect().height : 0);
+        if (ch > 20) {
+          markLoaded();
+          return true;
+        }
       }
+
+      // 2. Visible AdSense container iframe check (aswift_0, etc.)
+      var iframes = ins.getElementsByTagName("iframe");
+      for (var i = 0; i < iframes.length; i++) {
+        var ifr = iframes[i];
+        var rect = ifr.getBoundingClientRect ? ifr.getBoundingClientRect() : null;
+        var h = (rect && rect.height) ? rect.height : (ifr.offsetHeight || 0);
+        var w = (rect && rect.width) ? rect.width : (ifr.offsetWidth || 0);
+        var style = window.getComputedStyle ? window.getComputedStyle(ifr) : ifr.style;
+        var isHidden = ifr.style.display === "none" || (style && style.display === "none") ||
+                       ifr.style.visibility === "hidden" || (style && style.visibility === "hidden");
+        if (!isHidden && h > 20 && w > 20) {
+          markLoaded();
+          return true;
+        }
+      }
+
       return false;
     }
 
     function collapseAd() {
       if (adLoaded) return; // NEVER collapse if ad has loaded!
+      if (ins.parentElement !== el) return; // Ignore stale timer
       var isTopAd = el.id === "ad-top";
       var wasInLayout = !el.classList.contains("ad-collapsed") && el.offsetHeight > 0;
       el.classList.add("ad-collapsed");
@@ -200,7 +240,7 @@
       }
     }
 
-    // 1. MutationObserver watching for status changes or DOM insertion
+    // 1. MutationObserver watching for explicit filled status or creative iframe
     if (window.MutationObserver) {
       observer = new window.MutationObserver(function (mutations) {
         for (var i = 0; i < mutations.length; i++) {
@@ -212,17 +252,25 @@
             }
           }
         }
-        isAdLoaded();
+        var creativeIframe = ins.querySelector("iframe[id^='google_ads_iframe']");
+        if (creativeIframe && creativeIframe.offsetHeight > 20) {
+          markLoaded();
+        }
       });
       observer.observe(ins, { attributes: true, childList: true, subtree: true });
+      el._ebookBuddyObserver = observer;
     }
 
     // 2. Auto-collapse after 10 seconds when no ad is rendered/loaded
     collapseTimer = setTimeout(function () {
-      if (!isAdLoaded()) {
-        collapseAd();
+      if (ins.parentElement !== el) return; // Container was re-rendered, ignore old timer
+      if (isAdLoaded()) {
+        markLoaded();
+        return; // NEVER collapse loaded ads!
       }
+      collapseAd();
     }, 10000);
+    el._ebookBuddyTimer = collapseTimer;
 
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});

@@ -143,6 +143,7 @@ ${extraMeta}<!-- Twitter Cards -->
 
 <!-- Theme & App Icons -->
 <meta name="theme-color" content="#F26B21">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="EbookBuddy">
@@ -157,7 +158,7 @@ ${BLOG_CSS}
 </style>
 <link rel="stylesheet" href="${rootRel}blog/blog.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6130384188487467" crossorigin="anonymous"></script>
-<script src="${rootRel}ads.js" defer></script>
+<script src="${rootRel}ads.js?v=20261027d"></script>
 `;
 }
 

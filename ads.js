@@ -56,7 +56,7 @@
       "display:flex;flex-direction:column;justify-content:center;align-items:center;" +
       "margin:14px auto;text-align:center;min-height:105px;" +
       "overflow:hidden;clear:both;width:100%;max-width:760px;" +
-      "scroll-margin-top:105px;" +
+      "scroll-margin-top:105px;position:relative;" +
       "}" +
       ".ad-slot-wrap.ad-autorelaxed{" +
       "min-height:140px;max-width:100%;margin:18px auto 14px;" +
@@ -67,8 +67,9 @@
       "margin:0 auto 4px;line-height:1;text-align:center;user-select:none;" +
       "}" +
       ".ad-slot-wrap ins.adsbygoogle{" +
-      "display:inline-block!important;" +
+      "display:inline-block!important;position:relative;" +
       "}" +
+      ".ad-slot-wrap ins.adsbygoogle iframe{max-width:100%;}" +
       ".ad-slot-wrap.ad-autorelaxed ins.adsbygoogle{" +
       "display:block!important;width:100%!important;min-height:120px;" +
       "}" +
@@ -166,10 +167,18 @@
     var adLoaded = false;
     var collapseTimer = null;
     var observer = null;
+    var startTime = Date.now();
+    var slotName = el.id || el.getAttribute("data-ad-slot-num") || "slot";
+
+    if (window.location && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+      console.log("[EbookBuddy Ads] #" + slotName + " initialized at " + new Date().toLocaleTimeString() + ". 10.0s safety countdown started. (Note: AdSense returns unfilled on localhost).");
+    }
 
     function markLoaded() {
       if (adLoaded) return;
       adLoaded = true;
+      var elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+      console.log("[EbookBuddy Ads] #" + slotName + " ad LOADED after " + elapsed + "s. Auto-collapse cancelled.");
       el.classList.remove("ad-collapsed");
       if (collapseTimer) {
         clearTimeout(collapseTimer);
@@ -192,35 +201,58 @@
     function isAdLoaded() {
       if (adLoaded) return true;
       var status = ins.getAttribute("data-ad-status");
+      if (status === "unfilled") {
+        return false;
+      }
       if (status === "filled") {
         markLoaded();
         return true;
-      }
-      if (status === "unfilled") {
-        return false;
       }
 
       // 1. Direct creative iframe check
       var creativeIframe = ins.querySelector("iframe[id^='google_ads_iframe']");
       if (creativeIframe) {
-        var ch = creativeIframe.offsetHeight || (creativeIframe.getBoundingClientRect ? creativeIframe.getBoundingClientRect().height : 0);
-        if (ch > 20) {
-          markLoaded();
-          return true;
-        }
+        markLoaded();
+        return true;
       }
 
       // 2. Visible AdSense container iframe check (aswift_0, etc.)
       var iframes = ins.getElementsByTagName("iframe");
       for (var i = 0; i < iframes.length; i++) {
         var ifr = iframes[i];
+        if (ifr.id === "google_esf") continue; // Skip hidden tracking iframe
+
+        var isHidden = ifr.style.display === "none" || ifr.style.visibility === "hidden";
+        if (isHidden) continue;
+
+        // If it's an AdSense wrapper (aswift_0, etc.) and not unfilled and not hidden
+        if (ifr.id && (ifr.id.indexOf("aswift") === 0 || ifr.id.indexOf("google_ads") === 0)) {
+          markLoaded();
+          return true;
+        }
+
         var rect = ifr.getBoundingClientRect ? ifr.getBoundingClientRect() : null;
         var h = (rect && rect.height) ? rect.height : (ifr.offsetHeight || 0);
         var w = (rect && rect.width) ? rect.width : (ifr.offsetWidth || 0);
-        var style = window.getComputedStyle ? window.getComputedStyle(ifr) : ifr.style;
-        var isHidden = ifr.style.display === "none" || (style && style.display === "none") ||
-                       ifr.style.visibility === "hidden" || (style && style.visibility === "hidden");
-        if (!isHidden && h > 20 && w > 20) {
+        var attrH = parseInt(ifr.getAttribute("height") || ifr.style.height || "0", 10);
+        var attrW = parseInt(ifr.getAttribute("width") || ifr.style.width || "0", 10);
+        if (h > 20 || w > 20 || attrH > 20 || attrW > 20) {
+          markLoaded();
+          return true;
+        }
+      }
+
+      // 3. Fallback: check if ins has active rendered content and data-adsbygoogle-status="done"
+      if (ins.getAttribute("data-adsbygoogle-status") === "done" && ins.children.length > 0 && status !== "unfilled") {
+        var hasVisibleContent = false;
+        for (var j = 0; j < ins.children.length; j++) {
+          var ch = ins.children[j];
+          if (ch.id !== "google_esf" && ch.style.display !== "none" && ch.style.visibility !== "hidden") {
+            hasVisibleContent = true;
+            break;
+          }
+        }
+        if (hasVisibleContent) {
           markLoaded();
           return true;
         }
@@ -264,10 +296,13 @@
     // 2. Auto-collapse after 10 seconds when no ad is rendered/loaded
     collapseTimer = setTimeout(function () {
       if (ins.parentElement !== el) return; // Container was re-rendered, ignore old timer
+      var elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
       if (isAdLoaded()) {
+        console.log("[EbookBuddy Ads] #" + slotName + " 10s timer check: Ad is LOADED (" + elapsed + "s). Preserving slot.");
         markLoaded();
         return; // NEVER collapse loaded ads!
       }
+      console.log("[EbookBuddy Ads] #" + slotName + " safety timer fired after " + elapsed + "s. Auto-collapsing empty slot.");
       collapseAd();
     }, 10000);
     el._ebookBuddyTimer = collapseTimer;
@@ -282,6 +317,8 @@
   // Refresh all ad slots on the page (called on user navigation, e.g. clicking stage tabs)
   function refreshAds() {
     if (document.hidden) return;
+    isInitialized = true;
+    injectStyles();
 
     var targets = document.querySelectorAll(
       ".ad-slot-wrap, [data-ad-slot-desk], [data-ad-slot-num], #ad-hero, #ad-top, #ad-bottom, #ad-footer"
@@ -299,8 +336,11 @@
 
   var lastIsDesk = window.innerWidth >= DESKTOP_BP;
   var resizeAdTimer = null;
+  var isInitialized = false;
 
   function initAds() {
+    if (isInitialized) return;
+    isInitialized = true;
     injectStyles();
     refreshAds();
   }

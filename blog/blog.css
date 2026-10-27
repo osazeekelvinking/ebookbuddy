@@ -895,6 +895,7 @@ a:hover {
   clear: both;
   width: 100%;
   max-width: 760px;
+  position: relative;
 }
 
 .ad-slot-wrap.ad-autorelaxed {
@@ -913,6 +914,15 @@ a:hover {
   opacity: 0.7;
   margin: 0 auto 4px;
   line-height: 1;
+}
+
+.ad-slot-wrap ins.adsbygoogle {
+  display: inline-block !important;
+  position: relative;
+}
+
+.ad-slot-wrap ins.adsbygoogle iframe {
+  max-width: 100%;
 }
 
 .ad-slot-wrap.ad-autorelaxed ins.adsbygoogle {

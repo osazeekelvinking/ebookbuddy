@@ -253,6 +253,83 @@ footer a:hover{text-decoration:underline}
 }
 .hero-share-pill{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35);padding:4px 10px;border-radius:99px;font:inherit;font-size:.75rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:background .2s}
 .hero-share-pill:hover{background:rgba(255,255,255,.35)}
+.hero-tutorial-btn{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.5);font-weight:800}
+.hero-tutorial-btn:hover{background:rgba(255,255,255,.45)}
+
+/* Interactive Tutorial Component Styles */
+.tutorial-card{border:1.5px solid var(--line);border-radius:16px;margin:12px 0 14px;box-shadow:0 3px 12px rgba(0,0,0,.03);transition:border-color .2s}
+.tutorial-card.open{border-color:var(--brand)}
+.tut-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none}
+.tut-head-left{display:flex;align-items:center;gap:12px;flex:1 1 auto;min-width:0}
+.tut-head-icon{font-size:1.45rem;flex:none}
+.tut-meter-pill{display:inline-block;margin-left:6px;font-size:.72rem;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--soft);color:var(--brand);border:1px solid var(--brand);vertical-align:middle}
+.tut-meter-pill.complete{background:var(--brand);color:#fff}
+.tut-progress-wrap{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:12px;scroll-margin-top:14px}
+.tut-progress-bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:6px}
+.tut-progress-fill{height:100%;background:linear-gradient(90deg,var(--brand),#ea580c);width:0;transition:width .3s cubic-bezier(.4,0,.2,1);border-radius:99px}
+.tut-progress-text{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--mute);flex-wrap:wrap;gap:4px}
+.tut-progress-status{font-weight:700;color:var(--brand)}
+.tut-stepper{display:flex;gap:6px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none;margin-bottom:12px;-webkit-overflow-scrolling:touch;scroll-margin-top:14px}
+.tut-stepper::-webkit-scrollbar{display:none}
+.tut-step-content{scroll-margin-top:14px}
+.tut-step-btn{flex:none;background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:6px 12px;font-size:.78rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .2s;white-space:nowrap}
+.tut-step-btn:hover{border-color:var(--brand);color:var(--brand)}
+.tut-step-btn.active{background:var(--soft);border-color:var(--brand);color:var(--brand);font-weight:800}
+.tut-step-btn.done{border-color:var(--brand)}
+.tut-step-btn .s-num{width:18px;height:18px;border-radius:50%;background:var(--line);display:grid;place-items:center;font-size:.66rem;font-weight:800;color:var(--ink)}
+.tut-step-btn.active .s-num{background:var(--brand);color:#fff}
+.tut-step-btn.done .s-num{background:var(--brand);color:#fff}
+.tut-step-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.tut-step-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.tut-step-header h3{margin:0;font-size:1.1rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tut-step-badge{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--brand);border:1px solid var(--line);text-transform:uppercase;letter-spacing:.03em}
+.tut-why-box{background:var(--soft);border-left:3px solid var(--brand);border-radius:8px;padding:10px 12px;margin:10px 0 14px;font-size:.85rem;line-height:1.5;color:var(--ink)}
+.tut-why-box b{color:var(--brand);display:block;margin-bottom:3px;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.tut-checklist-title{font-size:.84rem;font-weight:800;color:var(--ink);margin:12px 0 8px;display:flex;align-items:center;gap:6px}
+.tut-checklist{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.tut-check-item{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;cursor:pointer;user-select:none;transition:all .15s ease}
+.tut-check-item:hover{border-color:var(--brand)}
+.tut-check-item.done{background:var(--soft);border-color:var(--brand)}
+.tut-check-box{width:20px;height:20px;border-radius:5px;border:2px solid var(--line);background:var(--card);display:grid;place-items:center;flex:none;margin-top:1px;font-size:.75rem;color:#fff;transition:all .15s}
+.tut-check-item.done .tut-check-box{background:var(--brand);border-color:var(--brand)}
+.tut-check-text{font-size:.86rem;line-height:1.45;color:var(--ink);flex:1}
+.tut-check-item.done .tut-check-text{text-decoration:line-through;color:var(--mute)}
+.tut-rec-box{background:linear-gradient(135deg,rgba(242,107,33,.08),rgba(234,88,12,.03));border:1.5px solid var(--brand);border-radius:12px;padding:14px;margin:14px 0}
+.tut-rec-header{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.88rem;color:var(--brand);margin-bottom:6px}
+.tut-rec-desc{font-size:.84rem;line-height:1.5;color:var(--ink);margin:0 0 10px}
+.tut-rec-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.tut-rec-btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:6px;background:var(--brand);color:#fff;font-weight:700;font-size:.78rem;padding:9px 12px;border-radius:9px;text-decoration:none;transition:opacity .2s;min-height:38px;line-height:1.2;box-sizing:border-box}
+.tut-rec-btn.alt{background:var(--card);color:var(--brand);border:1.5px solid var(--brand)}
+.tut-rec-btn:hover{opacity:.9}
+.tut-video-slot{background:linear-gradient(135deg,#1f1f28,#2a2a38);color:#fff;border-radius:12px;padding:13px 15px;margin:14px 0;display:flex;align-items:center;gap:14px;box-shadow:0 3px 10px rgba(0,0,0,.15);position:relative;overflow:hidden}
+.tut-video-thumb{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;flex:none;font-size:1.2rem;transition:transform .2s}
+.tut-video-slot:hover .tut-video-thumb{transform:scale(1.06)}
+.tut-video-info{flex:1;min-width:0}
+.tut-video-badge{display:inline-block;background:var(--brand);color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.05em;padding:2px 7px;border-radius:4px;text-transform:uppercase;margin-bottom:3px}
+.tut-video-title{font-size:.88rem;font-weight:700;line-height:1.3;margin-bottom:2px;color:#fff}
+.tut-video-sub{font-size:.74rem;color:rgba(255,255,255,.75);line-height:1.3}
+.tut-video-frame-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;margin-top:10px}
+.tut-video-frame-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+/* Structured, Responsive Tutorial Navigation & Action Controls */
+.tut-nav-bar{display:flex;flex-direction:column;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.tut-nav-main{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center}
+@media (max-width:560px){
+  .tut-nav-main{grid-template-columns:1fr 1fr;gap:8px}
+  .tut-btn-step-done{grid-column:1 / -1;order:3}
+}
+.tut-nav-sub{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.tut-btn{border:none;border-radius:9px;padding:9px 14px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:all .15s ease;min-height:38px;line-height:1.2;box-sizing:border-box}
+.tut-btn:disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+.tut-btn.primary{background:var(--brand);color:var(--brand-ink)}
+.tut-btn.alt{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.tut-btn.alt:hover:not(:disabled){border-color:var(--brand);color:var(--brand)}
+.tut-btn-step-done{white-space:nowrap}
+.tut-btn-step-done.is-complete{background:var(--soft);color:var(--brand);border-color:var(--brand)}
+.tut-stage-jump-btn{flex:1 1 230px;background:var(--soft);color:var(--brand);border:1.5px solid var(--brand);border-radius:9px;padding:9px 14px;font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:6px;cursor:pointer;transition:all .2s;text-decoration:none;min-height:38px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tut-stage-jump-btn:hover{background:var(--brand);color:#fff}
+.tut-btn.link{background:none;border:none;color:var(--mute);padding:6px 10px;font-size:.76rem;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.tut-btn.link:hover{color:var(--brand)}
 </style>
 </head>
 <body>
@@ -261,6 +338,7 @@ footer a:hover{text-decoration:underline}
 <div class="hero-top">
 <div class="app-logo"><span>📖</span> <b>EbookBuddy</b></div>
 <div class="hero-actions">
+<button type="button" class="hero-share-pill hero-tutorial-btn" id="hero-tutorial-btn" title="Open Interactive Ebook Tutorial">🎓 Tutorial</button>
 <a href="/blog" class="hero-share-pill" style="text-decoration:none">📖 Blog</a>
 <button type="button" class="hero-share-pill" id="hero-share-btn" title="Share EbookBuddy">📢 Share</button>
 </div>
@@ -309,6 +387,33 @@ footer a:hover{text-decoration:underline}
 <button type="button" class="t-btn" id="btn-export-json" title="Download backup JSON">💾 Backup JSON</button>
 <button type="button" class="t-btn" id="btn-import-json" title="Import backup JSON file">📂 Import</button>
 <input type="file" id="import-file" accept=".json" style="display:none">
+</div>
+</div>
+<div class="card tutorial-card" id="tutorial-card">
+<div class="ch tut-head" id="tut-header" role="button" aria-expanded="false" aria-controls="tut-body" title="Tap to expand or collapse tutorial" onclick="toggleTutorial(event)">
+<div class="tut-head-left">
+<span class="tut-head-icon">🎓</span>
+<div>
+<b>How to Create a Profitable Ebook: Interactive Tutorial
+<span class="tut-meter-pill" id="tut-meter-pill">0% Done</span>
+</b>
+<small>9 bite-sized steps · Actionable checklist · Recommended: SabiMentors × FunnelCraft AI</small>
+</div>
+</div>
+<span class="cv"></span>
+</div>
+<div class="body tut-body" id="tut-body">
+<div class="tut-progress-wrap" id="tut-progress-wrap">
+<div class="tut-progress-bar"><div class="tut-progress-fill" id="tut-progress-fill" style="width:0%"></div></div>
+<div class="tut-progress-text">
+<span id="tut-progress-count">0 of 27 checklist tasks completed</span>
+<span id="tut-progress-status" class="tut-progress-status">Ready to start</span>
+</div>
+</div>
+<!-- Ebook-buddy Tutorial 728x90 (Desktop) / 320x90 (Mobile) -->
+<div class="ad-slot-wrap" id="ad-tutorial" data-ad-slot-num="tutorial" data-ad-slot-desk="3056304442" data-ad-slot-mob="6229262699"><span class="ad-label">Advertisement</span></div>
+<div class="tut-stepper" id="tut-stepper"></div>
+<div id="tut-step-content" class="tut-step-content"></div>
 </div>
 </div>
 <div class='card open' id='fast-start-card'><div class='ch'><b>⚡ Fast start: let your AI fill your fields<small>Do not know what to write? Pick your path, copy the prompt, then paste your AI’s answer back here.</small></b><span class='cv'></span></div><div class='body'><label>1. Choose your path</label><div class='row'><button class='b alt' data-m='exp' id='m1'>🧠 I will use my own experience</button><button class='b alt' data-m='res' id='m2'>🔎 Start from problem research</button></div><label>2. Copy this prompt into your AI</label><small class='hint'>Your AI will ask a few simple questions (or research for you), then write all your starting fields.</small><div class='pv' id='fsp'></div><div class='row'><button class='b' data-a='fc'>Copy prompt</button><button class='b alt' data-a='fo' id='fob'>Open in AI ↗</button></div><label for='imp'>3. Paste your AI’s MY BRIEF here</label><small class='hint'>Paste the whole MY BRIEF section. The app reads it and fills your boxes in every stage.</small><textarea id='imp' placeholder='country: ...
@@ -1123,6 +1228,22 @@ window.scrollTo({top:targetY,behavior:smooth!==false?"smooth":"auto"});
 });
 }
 window.snapToStageHeader=snapToStageHeader;
+function toggleTutorial(e, forceOpen){
+  if(e && e.stopPropagation) e.stopPropagation();
+  var tc = document.getElementById("tutorial-card");
+  var tutHead = document.getElementById("tut-header");
+  if(!tc) return;
+  var willOpen = (typeof forceOpen === "boolean") ? forceOpen : !tc.classList.contains("open");
+  if(willOpen){
+    tc.classList.add("open");
+    if(tutHead) tutHead.setAttribute("aria-expanded", "true");
+    try{renderAd("ad-tutorial")}catch(err){}
+  } else {
+    tc.classList.remove("open");
+    if(tutHead) tutHead.setAttribute("aria-expanded", "false");
+  }
+}
+window.toggleTutorial = toggleTutorial;
 function scrollToStage(){
 requestAnimationFrame(function(){
 var ad=document.getElementById("ad-top");
@@ -1142,7 +1263,7 @@ window.scrollTo({top:targetY,behavior:"smooth"});
 document.addEventListener("click",function(e){var t=e.target;
 var pBtn=t.closest(".phase-btn");if(pBtn){var pIdx=+pBtn.dataset.phase;var targetStage=PHASES[pIdx].stages[0];if(targetStage!==cur){cur=targetStage;stage();scrollToStage();refreshAds()}return}
 if(t.classList.contains("chip")){cur=+t.dataset.i;stage();scrollToStage();refreshAds();return}
-var ch=t.closest(".ch");if(ch){var cardEl=ch.parentNode;cardEl.classList.toggle("open");if(cardEl.classList.contains("open")){setTimeout(function(){var nav=document.getElementById("sticky-nav");var navH=nav?nav.getBoundingClientRect().height:100;var rect=cardEl.getBoundingClientRect();if(rect.top<navH+10){var targetY=window.pageYOffset+rect.top-navH-14;window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"})}},60)}return}
+var ch=t.closest(".ch");if(ch){if(ch.id==="tut-header"||ch.closest("#tutorial-card")){toggleTutorial(e);return}var cardEl=ch.parentNode;cardEl.classList.toggle("open");if(cardEl.classList.contains("open")){setTimeout(function(){var nav=document.getElementById("sticky-nav");var navH=nav?nav.getBoundingClientRect().height:100;var rect=cardEl.getBoundingClientRect();if(rect.top<navH+10){var targetY=window.pageYOffset+rect.top-navH-14;window.scrollTo({top:Math.max(0,targetY),behavior:"smooth"})}},60)}return}
 var d=t.dataset||{};
 if(d.t){var hx=t.parentNode.nextElementSibling;hx.classList.toggle('show');t.textContent=hx.classList.contains('show')?'Hide Hint':'See Hint';return}
 if(d.m){V.__mode=d.m;sv();fs();return}
@@ -1355,13 +1476,538 @@ shareHead.setAttribute("aria-expanded",isOpen?"true":"false");
 }
 });
 }
+// ==========================================
+// Interactive Step-by-Step Profitable Ebook Tutorial
+// ==========================================
+var TUT_KEY="fc_tut_checklist_v2";
+var curTutStep=0;
+var tutChecked={};
+
+var TUTORIAL_STEPS=[
+  {
+    id:1,
+    title:"Find an Urgent, Expensive Problem",
+    short:"1. Problem",
+    icon:"🎯",
+    badge:"Step 1: Ideation",
+    stageIndex:1,
+    stageName:"Stage 2: Ideas",
+    why:"Never write an encyclopedia. Profitable ebooks solve ONE specific, expensive bottleneck that keeps your buyer awake at 2:00 AM.",
+    tasks:[
+      "Pick 1 specific audience who already spends money (e.g. nursing grads, small shop owners, exam takers)",
+      "Identify their #1 painful bottleneck in their own frustrated words",
+      "Confirm willing-to-pay signals: Do people actively pay or desperately search to fix this today?"
+    ],
+    rec:null,
+    video:{
+      title:"How to Spot a $1,000+ Ebook Problem in 10 Minutes",
+      duration:"4 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:2,
+    title:"Voice-of-Customer Research & Slang",
+    short:"2. Research",
+    icon:"🔎",
+    badge:"Step 2: Research",
+    stageIndex:2,
+    stageName:"Stage 3: Research",
+    why:"Don't guess what your readers want. Steal their exact words, questions, and complaints from social media groups, Reddit, and customer reviews.",
+    tasks:[
+      "Collect 5 to 10 real comments or forum questions from your target audience and country",
+      "List their top 3 objections ('Is this legit?', 'Too expensive', 'Will it work on my phone?')",
+      "Feed customer phrases into EbookBuddy Stage 3 prompt to create natural, high-converting copy"
+    ],
+    rec:null,
+    video:{
+      title:"Voice-of-Customer Research: Stealing Words That Sell",
+      duration:"5 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:3,
+    title:"Validate Demand Before Writing (Pre-Sale & Waitlist)",
+    short:"3. Validate",
+    icon:"✅",
+    badge:"Step 3: Validation",
+    stageIndex:3,
+    stageName:"Stage 4: Validate",
+    why:"The #1 creator mistake is writing for 6 months before asking anyone to buy. Prove market demand first: aim for 10 pre-orders or 100 waitlist signups.",
+    tasks:[
+      "Build a sleek 1-page waitlist or pre-sale page in minutes with FunnelCraft AI",
+      "Set up instant multi-currency checkout on SabiMentors to collect early-bird payments",
+      "Share your validation hook across WhatsApp, X, or Facebook groups (Green light = 10 buyers or 100 leads)"
+    ],
+    rec:{
+      tool:"FunnelCraft AI & SabiMentors",
+      text:"Build a sleek waitlist page in 3 minutes with <b>FunnelCraft AI</b>. To collect real pre-order payments in local currency or USD with zero delivery stress, connect your product on <b>SabiMentors</b> with instant customer confirmation.",
+      links:[
+        {text:"Build Waitlist with FunnelCraft AI ↗",url:"https://www.funnelcraftai.com",primary:true},
+        {text:"Pre-sell on SabiMentors ↗",url:"https://sabimentors.com",primary:false}
+      ]
+    },
+    video:{
+      title:"The 10-Buyer Validation Method: Sell Before You Write",
+      duration:"6 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:4,
+    title:"Magnetic Title & 25–40 Page Quick-Win Outline",
+    short:"4. Outline",
+    icon:"🗺️",
+    badge:"Step 4: Architecture",
+    stageIndex:5,
+    stageName:"Stage 6: Plan",
+    why:"Short ebooks sell faster, read easily on mobile phones, and boast 5x higher completion rates. Target 25 to 40 pages with a 10-minute quick win in Chapter 1.",
+    tasks:[
+      "Craft a transformation title: 'How [Who] Can [Result] Without [Painful Obstacle]'",
+      "Map 6 to 8 focused chapters with fill-in templates and relatable local case studies",
+      "Stack 3 easy-to-create anti-piracy bonuses (templates, WhatsApp audio notes, cheat sheets)"
+    ],
+    rec:null,
+    video:{
+      title:"The Mobile-First Outline Formula: 30 Pages of Pure Transformation",
+      duration:"4 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:5,
+    title:"Fast Guided AI Drafting & Human Voice Injection",
+    short:"5. Write AI",
+    icon:"✍️",
+    badge:"Step 5: Writing",
+    stageIndex:6,
+    stageName:"Stage 7: Write",
+    why:"Use AI as your high-speed co-pilot, but inject your own real stories, local prices, and personal voice so your book never sounds robotic or generic.",
+    tasks:[
+      "Draft the Introduction with an immediate 10-minute actionable quick win",
+      "Write chapter-by-chapter using EbookBuddy's Guided Prompts (1,000–1,500 words per chapter)",
+      "Replace all [MY STORY] placeholders with genuine personal experiences or local examples"
+    ],
+    rec:null,
+    video:{
+      title:"AI Prompt Mastery: Writing Chapters Readers Actually Finish",
+      duration:"5 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:6,
+    title:"Ruthless Editing, Fact-Checking & Legal Disclaimers",
+    short:"6. Polish",
+    icon:"🧪",
+    badge:"Step 6: Editing",
+    stageIndex:7,
+    stageName:"Stage 8: Edit",
+    why:"Tighten fluff, verify every law/fee/statistic, and protect yourself legally with a clear, professional disclaimer.",
+    tasks:[
+      "Run the Ruthless Editor prompt to cut fluff and format for 7th-grade mobile readability",
+      "Verify all factual claims (official fees, visa requirements, medical/financial rules)",
+      "Add a professional disclaimer page stating educational purpose and individual execution"
+    ],
+    rec:null,
+    video:{
+      title:"Polishing Your Manuscript: The 30-Minute Self-Editing Checklist",
+      duration:"4 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:7,
+    title:"High-Converting 3D Mockups & Mobile PDF",
+    short:"7. Design",
+    icon:"🎨",
+    badge:"Step 7: Packaging",
+    stageIndex:8,
+    stageName:"Stage 9: Design",
+    why:"People judge a digital download in 1 second. High-contrast covers and realistic 3D tablet/phone mockups multiply perceived value.",
+    tasks:[
+      "Create a high-contrast cover in Canva (bold title clearly legible as a tiny thumbnail)",
+      "Generate a 3D digital bundle mockup (book cover + tablet + phone + checklist sheets)",
+      "Format in Google Docs or Canva with 14pt body text and export a light PDF under 5 MB"
+    ],
+    rec:null,
+    video:{
+      title:"Creating 3D Product Mockups That Boost Ebook Conversions",
+      duration:"3 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:8,
+    title:"Build Your Automated Sales Funnel (FunnelCraft AI)",
+    short:"8. Funnels",
+    icon:"🧲",
+    badge:"Step 8: Funnels",
+    stageIndex:10,
+    stageName:"Stage 11: Sales Page",
+    why:"An ebook link posted without a dedicated funnel gets ignored. An automated funnel captures leads, handles objections, and sells 24/7.",
+    tasks:[
+      "Copy your AI-generated sales page copy from EbookBuddy Stage 11",
+      "Use FunnelCraft AI to deploy a mobile-responsive sales funnel and landing page in minutes",
+      "Connect a free lead magnet (Stage 12) with a 7-day automated email/WhatsApp nurture sequence"
+    ],
+    rec:{
+      tool:"FunnelCraft AI",
+      text:"Skip complicated web developers and expensive software. <b>FunnelCraft AI</b> builds high-converting, mobile-first sales funnels and lead pages tailored for digital products in minutes. You can start completely free.",
+      links:[
+        {text:"Launch Funnel on FunnelCraft AI ↗",url:"https://www.funnelcraftai.com",primary:true}
+      ]
+    },
+    video:{
+      title:"Deploying a 24/7 Ebook Sales Funnel with FunnelCraft AI",
+      duration:"6 mins",
+      embedUrl:""
+    }
+  },
+  {
+    id:9,
+    title:"Set Up Instant Checkout, Delivery & Launch (SabiMentors)",
+    short:"9. Checkout",
+    icon:"💰",
+    badge:"Step 9: Monetization",
+    stageIndex:9,
+    stageName:"Stage 10: Offer",
+    why:"Never email PDFs manually! Use a dedicated digital store that accepts cards, mobile money, and transfers, delivers files instantly, and boosts revenue with Order Bumps.",
+    tasks:[
+      "Create your free digital product on SabiMentors and upload your ebook PDF + bonus files",
+      "Add an Order Bump (e.g. audio edition or checklist workbook) to instantly increase average cart value",
+      "Execute the 14-day launch sequence (Stage 14) and recruit affiliates on SabiMentors to scale sales"
+    ],
+    rec:{
+      tool:"SabiMentors",
+      text:"<b>SabiMentors</b> is the ultimate free platform to sell ebooks and digital products. Accept local and international payments with zero delivery headaches, instant automated customer access, order bumps, and built-in affiliate marketing.",
+      links:[
+        {text:"Start Selling Free on SabiMentors ↗",url:"https://sabimentors.com",primary:true}
+      ]
+    },
+    video:{
+      title:"Selling on SabiMentors: Zero-Fee Setup, Order Bumps & Instant Payouts",
+      duration:"5 mins",
+      embedUrl:""
+    }
+  }
+];
+
+function loadTutorialState(){
+  try{
+    var raw=localStorage.getItem(TUT_KEY);
+    if(raw){
+      var d=JSON.parse(raw);
+      if(d){
+        if(typeof d.curStep==="number"&&d.curStep>=0&&d.curStep<TUTORIAL_STEPS.length){curTutStep=d.curStep}
+        if(d.checked&&typeof d.checked==="object"){tutChecked=d.checked}
+      }
+    }
+  }catch(e){}
+}
+
+function saveTutorialState(){
+  try{
+    localStorage.setItem(TUT_KEY,JSON.stringify({
+      curStep:curTutStep,
+      checked:tutChecked,
+      updatedAt:Date.now()
+    }));
+  }catch(e){}
+}
+
+function getTutorialTaskStats(){
+  var total=0,done=0;
+  TUTORIAL_STEPS.forEach(function(st,sIdx){
+    st.tasks.forEach(function(_,tIdx){
+      total++;
+      if(tutChecked["s"+sIdx+"-t"+tIdx])done++;
+    });
+  });
+  return {total:total,done:done,pct:total?Math.round((done/total)*100):0};
+}
+
+function isStepCompleted(sIdx){
+  var st=TUTORIAL_STEPS[sIdx];
+  if(!st)return false;
+  return st.tasks.every(function(_,tIdx){return !!tutChecked["s"+sIdx+"-t"+tIdx]});
+}
+
+function toggleTutorialTask(sIdx,tIdx){
+  var k="s"+sIdx+"-t"+tIdx;
+  tutChecked[k]=!tutChecked[k];
+  saveTutorialState();
+  var stats=getTutorialTaskStats();
+  if(tutChecked[k]){
+    if(isStepCompleted(sIdx)){
+      showToast("🎉 Step "+(sIdx+1)+" complete! Keep going!");
+    }else{
+      showToast("✓ Task checked off!");
+    }
+    if(stats.done===stats.total){
+      celebrateTutorialCompletion();
+    }
+  }
+  renderTutorial();
+}
+
+function markAllStepTasksDone(sIdx){
+  var st=TUTORIAL_STEPS[sIdx];
+  if(!st)return;
+  st.tasks.forEach(function(_,tIdx){
+    tutChecked["s"+sIdx+"-t"+tIdx]=true;
+  });
+  saveTutorialState();
+  showToast("🎉 Step "+(sIdx+1)+" all marked done!");
+  var stats=getTutorialTaskStats();
+  if(stats.done===stats.total){
+    celebrateTutorialCompletion();
+  }
+  renderTutorial();
+}
+
+function celebrateTutorialCompletion(){
+  showModal(
+    "🎉 Outstanding! Profitable Ebook Checklist Complete!",
+    '<div style="text-align:center;padding:10px 0">'+
+    '<div style="font-size:2.8rem;margin-bottom:8px">🚀 🏆 📖</div>'+
+    '<p style="font-size:1rem;line-height:1.5;margin:0 0 12px;font-weight:600">You have completed all 9 steps to create, launch, and monetize a profitable ebook!</p>'+
+    '<p style="font-size:.86rem;color:var(--mute);margin:0 0 14px">Your funnel, offers, and chapters are ready. Now it is time to deploy your sales machine and start generating income.</p>'+
+    '<div style="background:var(--soft);border:1px solid var(--brand);border-radius:10px;padding:12px;text-align:left;font-size:.85rem;margin-bottom:12px">'+
+    '<p style="margin:0 0 6px"><b>Next Big Steps:</b></p>'+
+    '<p style="margin:0 0 6px">1. <b>Deploy Your Funnel:</b> Use <a href="https://www.funnelcraftai.com" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">FunnelCraft AI</a> to build your high-converting sales page.</p>'+
+    '<p style="margin:0">2. <b>Launch Your Digital Store:</b> Connect your product and checkout on <a href="https://sabimentors.com" target="_blank" rel="noopener" style="color:var(--brand);font-weight:700">SabiMentors</a> for instant payouts & order bumps.</p>'+
+    '</div>'+
+    '</div>',
+    [
+      {text:"Close",cls:"m-cancel"},
+      {text:"🚀 Build on FunnelCraft AI",cls:"m-primary",onClick:function(){window.open("https://www.funnelcraftai.com","_blank","noopener");return false;}},
+      {text:"💰 Sell on SabiMentors",cls:"m-primary",onClick:function(){window.open("https://sabimentors.com","_blank","noopener");return false;}}
+    ]
+  );
+}
+
+function resetTutorialChecklist(){
+  showModal(
+    "⚠️ Reset Tutorial Progress?",
+    '<p style="margin:0 0 10px;font-size:.9rem;line-height:1.5">Are you sure you want to uncheck all checklist tasks in the tutorial? This allows you to start the roadmap fresh.</p>',
+    [
+      {text:"Cancel",cls:"m-cancel"},
+      {text:"Reset Checklist",cls:"m-danger",onClick:function(){
+        tutChecked={};
+        saveTutorialState();
+        renderTutorial();
+        toastSave("Tutorial checklist reset");
+      }}
+    ]
+  );
+}
+
+function snapToTutorialStep(smooth){
+  requestAnimationFrame(function(){
+    var target=document.getElementById("tut-progress-wrap")||document.getElementById("tut-stepper")||document.getElementById("tutorial-card");
+    if(!target)return;
+    var prefersReduced=false;
+    try{
+      prefersReduced=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    }catch(e){}
+    var rect=target.getBoundingClientRect();
+    var scrollY=window.pageYOffset||document.documentElement.scrollTop||0;
+    var targetY=Math.max(0,scrollY+rect.top-12);
+    try{
+      window.scrollTo({
+        top:targetY,
+        behavior:(smooth!==false&&!prefersReduced)?"smooth":"auto"
+      });
+    }catch(err){
+      window.scrollTo(0,targetY);
+    }
+  });
+}
+
+function setTutorialStep(idx,autoScroll){
+  if(idx<0||idx>=TUTORIAL_STEPS.length)return;
+  curTutStep=idx;
+  saveTutorialState();
+  var tc=document.getElementById("tutorial-card");
+  if(tc&&!tc.classList.contains("open")){
+    tc.classList.add("open");
+    var tutHead=document.getElementById("tut-header");
+    if(tutHead)tutHead.setAttribute("aria-expanded","true");
+  }
+  renderTutorial();
+  if(autoScroll!==false){
+    snapToTutorialStep(true);
+  }
+  refreshAds();
+}
+
+function jumpToStageFromTutorial(stageIdx){
+  if(typeof stageIdx==="number"&&stageIdx>=0&&stageIdx<S.length){
+    cur=stageIdx;
+    stage();
+    scrollToStage();
+    refreshAds();
+    showToast("Switched to Stage "+(stageIdx+1)+": "+S[stageIdx].t+" 🚀");
+  }
+}
+
+function renderTutorial(){
+  var tc=document.getElementById("tutorial-card");
+  if(!tc)return;
+  var stats=getTutorialTaskStats();
+  
+  var pill=document.getElementById("tut-meter-pill");
+  if(pill){
+    pill.textContent=stats.pct+"% Done";
+    if(stats.pct===100){pill.classList.add("complete");pill.textContent="100% Done 🎉"}
+    else{pill.classList.remove("complete")}
+  }
+  
+  var fill=document.getElementById("tut-progress-fill");
+  if(fill)fill.style.width=stats.pct+"%";
+  var count=document.getElementById("tut-progress-count");
+  if(count)count.textContent=stats.done+" of "+stats.total+" checklist tasks completed ("+stats.pct+"%)";
+  var status=document.getElementById("tut-progress-status");
+  if(status){
+    if(stats.pct===0)status.textContent="Ready to start";
+    else if(stats.pct<35)status.textContent="Off to a great start! 🚀";
+    else if(stats.pct<75)status.textContent="Halfway there! ✍️";
+    else if(stats.pct<100)status.textContent="Almost ready to launch! 🎯";
+    else status.textContent="🎉 Ready to Profit!";
+  }
+  
+  var stepper=document.getElementById("tut-stepper");
+  if(stepper){
+    var sHtml="";
+    TUTORIAL_STEPS.forEach(function(st,sIdx){
+      var isDone=isStepCompleted(sIdx);
+      var isActive=sIdx===curTutStep;
+      sHtml+='<button type="button" class="tut-step-btn'+(isActive?' active':'')+(isDone?' done':'')+'" onclick="setTutorialStep('+sIdx+',true)" title="'+escapeHtml(st.title)+'">';
+      sHtml+='<span class="s-num">'+(isDone?'✓':(sIdx+1))+'</span> '+st.icon+' '+st.short+'</button>';
+    });
+    stepper.innerHTML=sHtml;
+    var onBtn=stepper.querySelector(".tut-step-btn.active");
+    if(onBtn){try{stepper.scrollLeft=onBtn.offsetLeft-(stepper.clientWidth-onBtn.clientWidth)/2}catch(e){}}
+  }
+  
+  var contentEl=document.getElementById("tut-step-content");
+  if(contentEl){
+    var st=TUTORIAL_STEPS[curTutStep];
+    var isDone=isStepCompleted(curTutStep);
+    var h='<div class="tut-step-card">';
+    
+    h+='<div class="tut-step-header">';
+    h+='<h3><span>'+st.icon+'</span> '+st.title+'</h3>';
+    h+='<span class="tut-step-badge">'+st.badge+(isDone?' · ✓ DONE':'')+'</span>';
+    h+='</div>';
+    
+    h+='<div class="tut-why-box"><b>💡 Why This Step Makes Your Ebook Profitable:</b>'+escapeHtml(st.why)+'</div>';
+    
+    h+='<div class="tut-checklist-title"><span>📋 Step Action Checklist:</span></div>';
+    h+='<div class="tut-checklist">';
+    st.tasks.forEach(function(task,tIdx){
+      var checked=!!tutChecked["s"+curTutStep+"-t"+tIdx];
+      h+='<div class="tut-check-item'+(checked?' done':'')+'" onclick="toggleTutorialTask('+curTutStep+','+tIdx+')">';
+      h+='<div class="tut-check-box">'+(checked?'✓':'')+'</div>';
+      h+='<div class="tut-check-text">'+escapeHtml(task)+'</div>';
+      h+='</div>';
+    });
+    h+='</div>';
+    
+    if(st.rec){
+      h+='<div class="tut-rec-box">';
+      h+='<div class="tut-rec-header"><span>⭐ Recommended Tool:</span> '+escapeHtml(st.rec.tool)+'</div>';
+      h+='<div class="tut-rec-desc">'+st.rec.text+'</div>';
+      h+='<div class="tut-rec-links">';
+      st.rec.links.forEach(function(link){
+        h+='<a href="'+link.url+'" target="_blank" rel="noopener" class="tut-rec-btn'+(link.primary?'':' alt')+'">'+escapeHtml(link.text)+'</a>';
+      });
+      h+='</div>';
+      h+='</div>';
+    }
+    
+    if(st.video){
+      if(st.video.embedUrl){
+        h+='<div class="tut-video-frame-wrap"><iframe src="'+escapeHtml(st.video.embedUrl)+'" allowfullscreen loading="lazy"></iframe></div>';
+      }else{
+        h+='<div class="tut-video-slot">';
+        h+='<div class="tut-video-thumb">▶</div>';
+        h+='<div class="tut-video-info">';
+        h+='<span class="tut-video-badge">🎬 Video Tutorial Coming Soon</span>';
+        h+='<div class="tut-video-title">'+escapeHtml(st.video.title)+' ('+st.video.duration+')</div>';
+        h+='<div class="tut-video-sub">Bite-sized video walkthrough will be added here. Follow the interactive checklist above in the meantime!</div>';
+        h+='</div>';
+        h+='</div>';
+      }
+    }
+    
+    h+='<div class="tut-nav-bar">';
+    h+='<div class="tut-nav-main">';
+    h+='<button type="button" id="tut-prev-btn" class="tut-btn alt tut-btn-nav" onclick="setTutorialStep('+(curTutStep-1)+',true)" '+(curTutStep<=0?'disabled title="You are on the first step"':'')+'>← Prev Step</button>';
+    if(!isDone){
+      h+='<button type="button" class="tut-btn alt tut-btn-step-done" onclick="markAllStepTasksDone('+curTutStep+')">✓ Mark Step Done</button>';
+    }else{
+      h+='<button type="button" class="tut-btn alt tut-btn-step-done is-complete" onclick="markAllStepTasksDone('+curTutStep+')" title="Step tasks completed">✓ Step Done</button>';
+    }
+    h+='<button type="button" id="tut-next-btn" class="tut-btn primary tut-btn-nav" onclick="setTutorialStep('+(curTutStep+1)+',true)" '+(curTutStep>=TUTORIAL_STEPS.length-1?'disabled title="You are on the final step"':'')+'>Next Step →</button>';
+    h+='</div>';
+    h+='<div class="tut-nav-sub">';
+    if(typeof st.stageIndex==="number"){
+      h+='<button type="button" class="tut-stage-jump-btn" onclick="jumpToStageFromTutorial('+st.stageIndex+')" title="Open '+escapeHtml(st.stageName)+' in EbookBuddy">';
+      h+='<span class="tut-stage-jump-text">🚀 Jump to '+escapeHtml(st.stageName)+' in App ↗</span>';
+      h+='</button>';
+    }
+    h+='<button type="button" class="tut-btn link" onclick="resetTutorialChecklist()">↺ Reset Checklist</button>';
+    h+='</div>';
+    h+='</div>';
+    
+    h+='</div>';
+    contentEl.innerHTML=h;
+  }
+}
+
+function initTutorial(){
+  loadTutorialState();
+  renderTutorial();
+  
+  var tutHead=document.getElementById("tut-header");
+  if(tutHead){
+    tutHead.onclick=function(e){
+      toggleTutorial(e);
+    };
+  }
+  
+  var heroTutBtn=document.getElementById("hero-tutorial-btn");
+  if(heroTutBtn){
+    heroTutBtn.onclick=function(e){
+      toggleTutorial(e, true);
+      requestAnimationFrame(function(){
+        var tc=document.getElementById("tutorial-card");
+        if(tc){
+          var rect=tc.getBoundingClientRect();
+          var targetY=Math.max(0,window.pageYOffset+rect.top-75);
+          window.scrollTo({top:targetY,behavior:"smooth"});
+        }
+      });
+    };
+  }
+}
+window.snapToTutorialStep=snapToTutorialStep;
+window.setTutorialStep=setTutorialStep;
+window.toggleTutorialTask=toggleTutorialTask;
+window.markAllStepTasksDone=markAllStepTasksDone;
+window.resetTutorialChecklist=resetTutorialChecklist;
+window.jumpToStageFromTutorial=jumpToStageFromTutorial;
+
 var AD_CLIENT="ca-pub-6130384188487467";
 function renderAd(id){
 if(window.EbookBuddyAds&&window.EbookBuddyAds.renderAd){return window.EbookBuddyAds.renderAd(id)}
 var c=typeof id==="string"?document.getElementById(id):id;
 if(!c)return;
 var isDesk=window.innerWidth>=768;
-var slotMap={"ad-hero":isDesk?"4369386116":"8117059432","ad-top":isDesk?"3056304442":"6229262699","ad-bottom":isDesk?"9246930392":"5231663766","ad-footer":"3385897927"};
+var slotMap={"ad-hero":isDesk?"4369386116":"8117059432","ad-tutorial":isDesk?"3056304442":"6229262699","ad-top":isDesk?"3056304442":"6229262699","ad-bottom":isDesk?"9246930392":"5231663766","ad-footer":"3385897927"};
 var num=c.getAttribute("data-ad-slot-num");
 var slot=c.getAttribute(isDesk?"data-ad-slot-desk":"data-ad-slot-mob")||c.getAttribute("data-ad-slot")||(num==1?(isDesk?"4369386116":"8117059432"):num==2?(isDesk?"3056304442":"6229262699"):num==3?(isDesk?"9246930392":"5231663766"):num=="footer"?"3385897927":null)||slotMap[c.id];
 if(!slot)return;
@@ -1494,6 +2140,8 @@ function refreshAds(){
 if(document.hidden)return;
 if(window.EbookBuddyAds&&window.EbookBuddyAds.refreshAds){return window.EbookBuddyAds.refreshAds()}
 renderAd("ad-hero");
+var tc=document.getElementById("tutorial-card");
+if(tc&&tc.classList.contains("open")){renderAd("ad-tutorial")}
 renderAd("ad-top");
 renderAd("ad-bottom");
 renderAd("ad-footer");
@@ -1557,7 +2205,7 @@ if(dirty){renderProjectSelector();stage();fs()}
 });
 if('scrollRestoration' in history){history.scrollRestoration='manual'}
 window.addEventListener('beforeunload',function(){window.scrollTo(0,0)});
-stage();fs();initAds();
+stage();fs();initAds();initTutorial();
 window.scrollTo(0,0);
 requestAnimationFrame(function(){window.scrollTo(0,0)});
 window.addEventListener('load',function(){window.scrollTo(0,0)});
